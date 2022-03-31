@@ -2,8 +2,12 @@ import React from 'react'
 
 const SignUp = () => {
     return (
-        <div>
-            <h1>SignUp</h1>
+        <div className={"container"} style={{
+            minHeight: '90vh'
+        }}>
+            <div>
+                <h1>SignUp</h1>
+            </div>
         </div>
     );
 };
