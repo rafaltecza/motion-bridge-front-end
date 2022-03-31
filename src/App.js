@@ -9,6 +9,7 @@ import SignUp from "./pages/sign-up";
 import Cookie from "./pages/cookie";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import Contact from "./pages/contact";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <SlideRoutes>
         <Route path={"/"} element={<Home/>}/>
         <Route path={"cookie"} element={<Cookie/>}/>
+          <Route path={"contact"} element={<Contact/>}/>
         <Route path={"sign-in"} element={<SignIn/>}/>
         <Route path={"sign-out"} element={<SignUp/>}/>
       </SlideRoutes>
