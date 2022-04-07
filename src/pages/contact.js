@@ -1,12 +1,20 @@
 import React from 'react'
+import {Card} from "@mui/material";
+import BasicCard, {BasicTitleCard} from "../components/BasicCard";
+
+
 
 const Contact = () => {
     return (
-        <div className={"container"} style={{
-            minHeight: '90vh'
+        <div  style={{
+            minHeight: '90vh',
+            background: "black",
+            margin:0,
+            padding:50
+            ,
         }}>
             <div>
-                <h1>Contacts</h1>
+                <BasicCard variant="outlined">Contact</BasicCard>
             </div>
         </div>
     );
