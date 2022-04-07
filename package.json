@@ -3,9 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/poppins": "^4.5.5",
     "@emotion/react": "^11.8.2",
-    "@emotion/styled": "^11.8.1",
     "@mui/material": "^5.5.3",
+    "@emotion/styled": "^11.8.1",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
@@ -20,6 +21,7 @@
     "react-slide-routes": "^2.0.0",
     "sass": "^1.49.10",
     "styled-components": "^5.3.5",
+    "swiper": "^8.0.7",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
