@@ -9,6 +9,18 @@
   pointer-events: none;
 }
 
+.custom-swiper {
+  .swiper-button-next {
+    padding-right: 30px;
+    color: white;
+  }
+  .swiper-button-prev {
+    padding-left: 30px;
+    color: white;
+  }
+}
+
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

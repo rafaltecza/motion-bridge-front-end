@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.scss';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Route} from 'react-router-dom';
+import "@fontsource/poppins";
 
 import Home from './pages/home'
 import SlideRoutes from 'react-slide-routes';
@@ -13,20 +14,20 @@ import Products from "./pages/products";
 import Contact from "./pages/contact";
 
 function App() {
-  return (
-    <Router>
-        <Navbar/>
-      <SlideRoutes>
-        <Route path={"/"} element={<Home/>}/>
-        <Route path={"products"} element={<Products/>}/>
-        <Route path={"cookie"} element={<Cookie/>}/>
-          <Route path={"contact"} element={<Contact/>}/>
-        <Route path={"sign-in"} element={<SignIn/>}/>
-        <Route path={"sign-up"} element={<SignUp/>}/>
-      </SlideRoutes>
-        <Footer/>
-    </Router>
-  );
+    return (
+        <Router>
+            <Navbar/>
+            <SlideRoutes>
+                <Route path={"/"} element={<Home/>}/>
+                <Route path={"products"} element={<Products/>}/>
+                <Route path={"cookie"} element={<Cookie/>}/>
+                <Route path={"contact"} element={<Contact/>}/>
+                <Route path={"sign-in"} element={<SignIn/>}/>
+                <Route path={"sign-up"} element={<SignUp/>}/>
+            </SlideRoutes>
+            <Footer/>
+        </Router>
+    );
 }
 
 export default App;
