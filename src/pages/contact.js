@@ -1,6 +1,7 @@
 import React from 'react'
 import {Card} from "@mui/material";
 import BasicCard, {BasicTitleCard} from "../components/BasicCard";
+import BasicCardHead from "../components/BasicCardHead";
 
 
 
@@ -9,12 +10,12 @@ const Contact = () => {
         <div  style={{
             minHeight: '90vh',
             background: "black",
-            margin:0,
-            padding:50
+            padding:'2%'
             ,
         }}>
             <div>
-                <BasicCard variant="outlined">Contact</BasicCard>
+                <BasicCardHead variant="outlined" title="Contact"></BasicCardHead>
+                <BasicCard variant="outlined"></BasicCard>
             </div>
         </div>
     );
