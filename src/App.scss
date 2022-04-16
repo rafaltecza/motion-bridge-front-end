@@ -1,4 +1,13 @@
 @import "~bootstrap/scss/bootstrap";
+@import "../public/scss/component/button/mb-button";
+
+body {
+  background-color: #2E2E2E;
+
+  h1 {
+    font-family: Poppins,serif;
+  }
+}
 
 .App {
   text-align: center;
