@@ -3,13 +3,18 @@ import SwiperCore, {EffectCoverflow, Navigation, Pagination} from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 import "swiper/css";
-import {SliderContent, SliderSlide, SliderTitle} from "./SliderElements";
+import {SliderContent, SliderIcon, SliderSkip, SliderSlide, SliderTitle} from "./SliderElements";
+import { FaAngleDown } from "react-icons/fa";
 
 SwiperCore.use([Navigation, Pagination]);
 
 const Slider = () => {
     return (
-        <>
+        <div style={{
+            fontFamily: "Poppins, serif"
+        }}>
+            <SliderIcon><FaAngleDown/></SliderIcon>
+
                 <Swiper
                     effect={"slide"}
                     grabCursor={true}
@@ -56,7 +61,7 @@ const Slider = () => {
                         </SliderSlide>
                     </SwiperSlide>
                 </Swiper>
-        </>
+        </div>
     );
 };
 

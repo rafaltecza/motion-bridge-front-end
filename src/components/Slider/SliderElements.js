@@ -6,8 +6,14 @@ import { FaBars } from 'react-icons/fa'
 
 export const SliderContent = styled.label`
   text-shadow: 1px 1px rgba(0, 0, 0, 15%);
-  font-family: Poppins;
   font-weight: 150;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 4px;
+  margin-top: 10px;
+
 `;
 
 export const SliderSlide = styled.div`
@@ -33,5 +39,27 @@ export const SliderSlide = styled.div`
 
 export const SliderTitle = styled.h1`
   text-shadow: 2px 2px rgb(0 0 0 / 15%);
-  font-family: Poppins, serif;
+  font-weight: 900;
+  text-transform: uppercase;
+  margin-top: 7vh;
+
+`;
+
+export const SliderIcon = styled.div`
+  animation: jump-arrow 2.5s infinite;
+  bottom: 8vh;
+  z-index: 10;
+  color: #ffffff;
+  display: block;
+  font-size: 2.5em;
+  height: 1.5em;
+  left: 50%;
+  line-height: 1.5em;
+  position: absolute;
+  text-align: center;
+  transform: translatex(-50%);
+  width: 1.5em;
+
+  
+  
 `;

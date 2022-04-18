@@ -1,0 +1,21 @@
+.custom-swiper {
+
+  .swiper-pagination {
+    margin-bottom: 10vh;
+
+    span.swiper-pagination-bullet.swiper-pagination-bullet-active {
+      background-color: $black;
+      opacity: 1;
+    }
+
+    /* target all bullets */
+    .swiper-pagination-bullet {
+      background-color: $white;
+      opacity: 0.5;
+      padding: 8px;
+    }
+  }
+
+
+
+}
