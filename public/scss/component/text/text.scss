@@ -1,0 +1,13 @@
+/**
+  Motion Bridge - Button
+ */
+@import '../../color/colors';
+
+@mixin mb-text($colorName) {
+  $color: map-get($colors, $colorName);
+  color: $color;
+}
+
+.text-red {
+  @include mb-text(red);
+}

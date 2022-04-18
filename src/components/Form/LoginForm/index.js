@@ -3,7 +3,7 @@ import React from 'react';
 import {Checkbox, FormControlLabel, FormGroup, TextField} from "@mui/material";
 import {red} from "@mui/material/colors";
 
-export default class RegisterForm extends React.Component {
+export default class LoginForm extends React.Component {
 
     constructor(props) {
         super(props);
@@ -18,7 +18,7 @@ export default class RegisterForm extends React.Component {
     }
 
     handleSubmit(event) {
-        alert('USE REGISTER SERVICE' + this.state.value);
+        alert('USE LOGIN SERVICE' + this.state.value);
         event.preventDefault();
     }
 
@@ -26,14 +26,6 @@ export default class RegisterForm extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
                 <FormGroup>
-                    <TextField className={"w-100 my-2"}
-                               id="name"
-                               label="Name"
-                               variant="filled"
-                               type="text"
-                               value={this.state.value}
-                               onChange={this.handleChange}/>
-
                     <TextField className={"w-100 my-2"}
                                id="email"
                                label="Email"
@@ -49,26 +41,18 @@ export default class RegisterForm extends React.Component {
                                type="password"
                                value={this.state.value}
                                onChange={this.handleChange}/>
+                               <div className={"d-flex align-items-center mb-3"}>
+                                   <FormControlLabel control={<Checkbox color="default" defaultChecked />}
+                                                     label="Remember me"
+                                                     className={"me-auto"}/>
+                                   <a href="#" className="text-red">Forgot password?</a>
+                               </div>
 
-                    <TextField className={"w-100 my-2"}
-                               id="repeat-password"
-                               label="Repeat Password"
-                               variant="filled"
-                               type="password"
-                               value={this.state.value}
-                               onChange={this.handleChange}/>
-
-                    <FormControlLabel control={<Checkbox sx={{
-                        color: red[800],
-                        '&.Mui-checked': {
-                            color: red[600],
-                        },
-                    }} defaultChecked />} label="Accept rules of use.*"/>
-                    <FormControlLabel control={<Checkbox color="default" defaultChecked />} label="Send me newsletter."/>
                 </FormGroup>
 
-                <input className={"float-end button-red"} type="submit" value="Sign up" />
+                <input className={"float-end button-red"} type="submit" value="Sign in" />
             </form>
         );
     }
 }
+
