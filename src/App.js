@@ -13,6 +13,7 @@ import Footer from "./components/Footer";
 import Products from "./pages/products";
 import Contact from "./pages/contact";
 import {ParallaxProvider} from "react-scroll-parallax";
+import ForgotPassword from "./pages/forgot-password";
 
 function App() {
     return (
@@ -26,6 +27,7 @@ function App() {
                         <Route path={"contact"} element={<Contact/>}/>
                         <Route path={"sign-in"} element={<SignIn/>}/>
                         <Route path={"sign-up"} element={<SignUp/>}/>
+                        <Route path={"forgot-password"} element={<ForgotPassword/>}/>
                 </SlideRoutes>
             </ParallaxProvider>
             <Footer/>
