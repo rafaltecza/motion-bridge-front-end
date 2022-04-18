@@ -4,11 +4,14 @@
 @import "../public/scss/animation/hover";
 @import "../public/scss/animation/signal";
 
-@import "../public/scss/component/button/mb-button";
 @import "../public/scss/component/swiper/swiper";
+@import "../public/scss/component/button/button";
+@import "../public/scss/component/card/card";
+@import "../public/scss/component/text/text";
+
 
 body {
-  background-color: #2E2E2E;
+  background-color: #191919;
 
   h1 {
     font-family: Poppins,serif;
