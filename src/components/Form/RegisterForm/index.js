@@ -7,18 +7,29 @@ export default class RegisterForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {value: ''};
+        this.state = {
+            name: '',
+            email: '',
+            password: '',
+            repeatPassword: '',
+        };
 
-        this.handleChange = this.handleChange.bind(this);
+        this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
+    handleInputChange(event) {
+        const target = event.target;
+        const value = target.type === 'checkbox' ? target.checked : target.value;
+        const name = target.name;
+
+        this.setState({
+            [name]: value
+        });
     }
 
     handleSubmit(event) {
-        alert('USE REGISTER SERVICE' + this.state.value);
+        alert('USE REGISTER SERVICE DLA: ' + this.state.name + " : " + this.state.email + " : " + this.state.password + " : " + this.state.repeatPassword + " : ");
         event.preventDefault();
     }
 
@@ -31,39 +42,47 @@ export default class RegisterForm extends React.Component {
                                label="Name"
                                variant="filled"
                                type="text"
-                               value={this.state.value}
-                               onChange={this.handleChange}/>
+                               name={"name"}
+                               value={this.state.name}
+                               onChange={this.handleInputChange}
+                               required/>
 
                     <TextField className={"w-100 my-2"}
                                id="email"
                                label="Email"
                                variant="filled"
                                type="text"
-                               value={this.state.value}
-                               onChange={this.handleChange}/>
+                               name={"email"}
+                               value={this.state.email}
+                               onChange={this.handleInputChange}
+                               required/>
 
                     <TextField className={"w-100 my-2"}
                                id="password"
                                label="Password"
                                variant="filled"
                                type="password"
-                               value={this.state.value}
-                               onChange={this.handleChange}/>
+                               name={"password"}
+                               value={this.state.password}
+                               onChange={this.handleInputChange}
+                               required/>
 
                     <TextField className={"w-100 my-2"}
                                id="repeat-password"
                                label="Repeat Password"
                                variant="filled"
                                type="password"
-                               value={this.state.value}
-                               onChange={this.handleChange}/>
+                               name={"repeatPassword"}
+                               value={this.state.repeatPassword}
+                               onChange={this.handleInputChange}
+                               required/>
 
                     <FormControlLabel control={<Checkbox sx={{
                         color: red[800],
                         '&.Mui-checked': {
                             color: red[600],
                         },
-                    }} defaultChecked />} label="Accept rules of use.*"/>
+                    }} defaultChecked required />} label="Accept rules of use.*"/>
                     <FormControlLabel control={<Checkbox color="default" defaultChecked />} label="Send me newsletter."/>
                 </FormGroup>
 
