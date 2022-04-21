@@ -1,8 +1,9 @@
 import React from 'react'
 import RegisterForm from "../components/Form/RegisterForm";
 import LoginForm from "../components/Form/LoginForm";
+import ForgotPasswordForm from "../components/Form/ForgotPasswordForm";
 
-const SignIn = () => {
+const ForgotPassword = () => {
     return (
         <div className={"container"} style={{
             minHeight: '90vh',
@@ -13,7 +14,7 @@ const SignIn = () => {
                     <div className={"col-12 col-md-6"}>
                         <div className={"card"}>
                             <div className={"card-body px-5 py-4"}>
-                                <h1>Welcome Back.</h1>
+                                <h1>Let's try to resolve it.</h1>
                                 <label>W tym miejscu ma być tło jakieś animowane</label>
                             </div>
                         </div>
@@ -21,9 +22,9 @@ const SignIn = () => {
                     <div className={"col-12 col-md-6"}>
                         <div className={"card card-mb py-4 px-4 h-100"}>
                             <div className={"card-body"}>
-                                <h3 className={"mb-4"}><b>Login</b></h3>
-                                <p>Provide your account credentials to log in.</p>
-                                <LoginForm/>
+                                <h3 className={"mb-4"}><b>Account recovery</b></h3>
+                                <p>Provide your account email to continue.</p>
+                                <ForgotPasswordForm/>
 
                             </div>
                         </div>
@@ -34,4 +35,4 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default ForgotPassword;

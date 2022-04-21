@@ -12,19 +12,24 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Products from "./pages/products";
 import Contact from "./pages/contact";
+import {ParallaxProvider} from "react-scroll-parallax";
+import ForgotPassword from "./pages/forgot-password";
 
 function App() {
     return (
         <Router>
             <Navbar/>
-            <SlideRoutes>
-                <Route path={"/"} element={<Home/>}/>
-                <Route path={"products"} element={<Products/>}/>
-                <Route path={"cookie"} element={<Cookie/>}/>
-                <Route path={"contact"} element={<Contact/>}/>
-                <Route path={"sign-in"} element={<SignIn/>}/>
-                <Route path={"sign-up"} element={<SignUp/>}/>
-            </SlideRoutes>
+            <ParallaxProvider>
+                <SlideRoutes>
+                        <Route path={"/"} element={<Home/>}/>
+                        <Route path={"products"} element={<Products/>}/>
+                        <Route path={"cookie"} element={<Cookie/>}/>
+                        <Route path={"contact"} element={<Contact/>}/>
+                        <Route path={"sign-in"} element={<SignIn/>}/>
+                        <Route path={"sign-up"} element={<SignUp/>}/>
+                        <Route path={"forgot-password"} element={<ForgotPassword/>}/>
+                </SlideRoutes>
+            </ParallaxProvider>
             <Footer/>
         </Router>
     );
