@@ -1,26 +1,23 @@
 import React from 'react';
-import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink} from "./NavbarElements";
+import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavLogo} from "./NavbarElements";
 
 const Navbar = () => {
     return (
         <>
             <Nav>
                 <NavLink to="/">
-                    <h1>MotionBridge</h1>
+                    <NavLogo src={"images/default/motion-bridge-logo.svg"} alt={"logo"}/>
                 </NavLink>
                 <Bars/>
                 <NavMenu>
                     <NavLink to="/">Home</NavLink>
-                    <NavLink to="/contact">Contact</NavLink>
                     <NavLink to="/products">Products</NavLink>
-                    <NavLink to="/sign-in">Sign In</NavLink>
-                    <NavBtnLink to="/sign-up">Sign Up</NavBtnLink>
-
-
+                    <NavLink to="/contact">Contact</NavLink>
                 </NavMenu>
-                {/*<NavBtn>*/}
-                {/*    <NavBtnLink to="/sign-in">Sign In</NavBtnLink>*/}
-                {/*</NavBtn>*/}
+                <NavMenu className={"ms-auto"}>
+                    <NavLink className={"button-border-red me-0"} to="/sign-in">Sign In</NavLink>
+                    <NavLink className={"button-border-red me-0"} to="/sign-up">Sign Up</NavLink>
+                </NavMenu>
             </Nav>
         </>
     );
