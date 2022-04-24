@@ -1,6 +1,8 @@
 import React from 'react'
 import RegisterForm from "../components/Form/RegisterForm";
 import LoginForm from "../components/Form/LoginForm";
+import Halo from "../components/VantaAnimations/Halo";
+
 
 const SignIn = () => {
     return (
@@ -11,10 +13,10 @@ const SignIn = () => {
             <div>
                 <div className={"row my-4"}>
                     <div className={"col-12 col-md-6"}>
-                        <div className={"card"}>
+                        <div className={"card h-100"}>
                             <div className={"card-body px-5 py-4"}>
                                 <h1>Welcome Back.</h1>
-                                <label>W tym miejscu ma być tło jakieś animowane</label>
+                                <Halo className={"h-50"}></Halo>
                             </div>
                         </div>
                     </div>
