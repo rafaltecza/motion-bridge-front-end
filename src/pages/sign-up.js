@@ -1,6 +1,7 @@
 import React from 'react'
 import {Checkbox, FormControlLabel, FormGroup, TextField} from "@mui/material";
 import RegisterForm from "../components/Form/RegisterForm";
+import Halo from "../components/VantaAnimations/Halo";
 
 const SignUp = () => {
     return (
@@ -11,10 +12,10 @@ const SignUp = () => {
             <div>
                 <div className={"row my-4"}>
                     <div className={"col-12 col-md-6"}>
-                        <div className={"card"}>
-                            <div className={"card-body px-5 py-4"}>
+                        <div className={"card h-100"}>
+                            <div className={"card-body px-5 py-4 "}>
                                 <h1>Nice to meet you.</h1>
-                                <label>W tym miejscu ma być tło jakieś animowane</label>
+                                <Halo className={"h-75"}></Halo>
                             </div>
                         </div>
                     </div>

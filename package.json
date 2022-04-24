@@ -21,6 +21,8 @@
     "sass": "^1.49.10",
     "styled-components": "^5.3.5",
     "swiper": "^8.0.7",
+    "three": "^0.139.2",
+    "vanta": "^0.5.22",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
