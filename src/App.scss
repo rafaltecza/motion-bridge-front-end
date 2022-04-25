@@ -6,8 +6,14 @@
 
 @import "../public/scss/component/swiper/swiper";
 @import "../public/scss/component/button/button";
+@import "../public/scss/component/button/button-blob-small";
+@import "../public/scss/component/button/button-blob-medium";
+@import "../public/scss/component/button/button-blob-large";
 @import "../public/scss/component/card/card";
 @import "../public/scss/component/text/text";
+
+@import "../public/scss/component/background/background";
+@import "../public/scss/component/background/background-gradient";
 
 
 body {
@@ -15,6 +21,10 @@ body {
 
   h1 {
     font-family: Poppins,serif;
+  }
+
+  .z-1 {
+    z-index: 1;
   }
 }
 
