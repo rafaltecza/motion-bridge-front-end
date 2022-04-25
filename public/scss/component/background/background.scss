@@ -1,0 +1,92 @@
+@import '../../color/colors';
+
+.emoji-background-container {
+
+  section {
+    height: 100%;
+  }
+
+  section .emoji-background {
+    position: relative;
+    width: 100%;
+    display: flex;
+    padding: 10px 0;
+    white-space: nowrap;
+    font-size: 24px;
+    overflow: hidden;
+
+    i {
+      color: rgba(207, 207, 207, 0.15);
+      transition: 1s;
+      padding: 0 5px;
+      user-select: none;
+
+      &:hover {
+        transition: 0s;
+        color: $red;
+        text-shadow: 0 0 120px $red-hover;
+      }
+    }
+  }
+
+  section .emoji-background div {
+    animation: animate1 80s linear infinite;
+    animation-delay: -80s;
+  }
+
+  section .emoji-background div:nth-child(2) {
+    animation: animate2 80s linear infinite;
+    animation-delay: -40s;
+  }
+
+  section .emoji-background:nth-child(even) div {
+    animation: animate3 80s linear infinite;
+    animation-delay: -80s;
+  }
+
+  section .emoji-background:nth-child(even) div:nth-child(2) {
+    animation: animate4 80s linear infinite;
+    animation-delay: -40s;
+  }
+
+
+  @keyframes animate1 {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes animate2 {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-200%);
+    }
+  }
+
+  @keyframes animate3 {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes animate4 {
+    0% {
+      transform: translateX(-200%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+
+
+
+
