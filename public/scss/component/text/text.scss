@@ -8,6 +8,14 @@
   color: $color;
 }
 
+@mixin mb-text-weight($number) {
+  font-weight: $number;
+}
+
 .text-red {
   @include mb-text(red);
+}
+
+.text-weight-500 {
+  @include mb-text-weight(500);
 }
