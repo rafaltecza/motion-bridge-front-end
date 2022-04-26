@@ -16,6 +16,21 @@ export default class RegisterForm extends React.Component {
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+
+        useEffect(() => {
+            // POST request using fetch inside useEffect React hook
+            const requestOptions = {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ title: 'React Hooks POST Request Example' })
+            };
+            fetch('https://reqres.in/api/posts', requestOptions)
+                .then(response => response.json())
+                .then(data => setPostId(data.id));
+
+// empty dependency array means this effect will only run once (like componentDidMount in classes)
+        }, []);
+
     }
 
     handleInputChange(event) {
@@ -30,6 +45,16 @@ export default class RegisterForm extends React.Component {
 
     handleSubmit(event) {
         alert('USE REGISTER SERVICE DLA: ' + this.state.name + " : " + this.state.email + " : " + this.state.password + " : " + this.state.repeatPassword + " : ");
+
+        const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name: this.state.name })
+        };
+        fetch('https://127.0.0.1/api/register', requestOptions)
+            .then(response => response.json())
+            .then(data => this.setState({ postId: data.id }));
+
         event.preventDefault();
     }
 
