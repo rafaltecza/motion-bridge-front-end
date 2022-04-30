@@ -1,7 +1,7 @@
 import React from 'react'
 import {Checkbox, FormControlLabel, FormGroup, TextField} from "@mui/material";
 import RegisterForm from "../components/Form/RegisterForm";
-import Halo from "../components/VantaAnimations/Halo";
+import Halo from "../components/VantaAnimation/Halo";
 
 const SignUp = () => {
     return (
