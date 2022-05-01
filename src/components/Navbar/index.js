@@ -1,5 +1,6 @@
 import React from 'react';
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavLogo} from "./NavbarElements";
+import Settings from "../Settings";
 
 const Navbar = () => {
     return (
@@ -12,7 +13,7 @@ const Navbar = () => {
                 <NavMenu>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/products">Products</NavLink>
-                    <NavLink to="/contact">Contact</NavLink>
+                    <Settings></Settings>
                 </NavMenu>
                 <NavMenu className={"ms-auto"}>
                     <NavLink className={"button-border-red me-0"} to="/sign-in">Sign In</NavLink>
