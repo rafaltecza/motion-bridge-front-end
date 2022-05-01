@@ -1,7 +1,7 @@
 import React from 'react'
 import RegisterForm from "../components/Form/RegisterForm";
 import LoginForm from "../components/Form/LoginForm";
-import Halo from "../components/VantaAnimations/Halo";
+import Halo from "../components/VantaAnimation/Halo";
 
 
 const SignIn = () => {
