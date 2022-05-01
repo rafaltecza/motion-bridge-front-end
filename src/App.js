@@ -12,8 +12,14 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Products from "./pages/products";
 import Contact from "./pages/contact";
+import Settings from "../src/components/Settings";
 import {ParallaxProvider} from "react-scroll-parallax";
 import ForgotPassword from "./pages/forgot-password";
+import Subscriptions from "./pages/subscriptions";
+import Faq from "./pages/faq";
+import DeleteAccount from "./pages/delete-account";
+import AccountData from "./pages/account-data";
+
 
 function App() {
     return (
@@ -24,7 +30,12 @@ function App() {
                         <Route path={"/"} element={<Home/>}/>
                         <Route path={"products"} element={<Products/>}/>
                         <Route path={"cookie"} element={<Cookie/>}/>
+                        <Route path={"account-data"} element={<AccountData/>}/>
+                        <Route path={"subscriptions"} element={<Subscriptions/>}/>
                         <Route path={"contact"} element={<Contact/>}/>
+                        <Route path={"faq"} element={<Faq/>}/>
+                        <Route path={"delete-account"} element={<DeleteAccount/>}/>
+                        <Route path={"settings"} element={<Settings/>}/>
                         <Route path={"sign-in"} element={<SignIn/>}/>
                         <Route path={"sign-up"} element={<SignUp/>}/>
                         <Route path={"forgot-password"} element={<ForgotPassword/>}/>
