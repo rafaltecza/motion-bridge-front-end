@@ -12,13 +12,14 @@ export default function Holo(props) {
                     mouseControls: true,
                     touchControls: true,
                     gyroControls: false,
-                    minHeight: 100.0,
-                    minWidth: 100.0,
+                    minHeight: 200.0,
+                    minWidth: 200.0,
                     amplitudeFactor: 0,
-                    xOffset: 0.22,
-                    size: 2,
-                    backgroundColor: 0x0,
-                    baseColor: 0x0
+                    xOffset: 0.3,
+                    yOffset: -0.3,
+                    size: 2.50,
+                    backgroundColor: 0x180216,
+                    baseColor: 0xdc3545
                 })
             );
         }
