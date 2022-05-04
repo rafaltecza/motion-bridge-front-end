@@ -12,10 +12,54 @@
   font-weight: $number;
 }
 
+
+@mixin mb-text-size($number) {
+  font-size: $number;
+}
+
+.text-size-75 {
+  @include mb-text-size(75px);
+}
+
+.text-size-70 {
+  @include mb-text-size(70px);
+}
+
+.text-size-65 {
+  @include mb-text-size(65px);
+}
+
+.text-size-60 {
+  @include mb-text-size(60px);
+}
+
+.text-size-55 {
+  @include mb-text-size(55px);
+}
+
+.text-size-50 {
+  @include mb-text-size(50px);
+}
+
+.text-size-45 {
+  @include mb-text-size(45px);
+}
+
+.text-size-40 {
+  @include mb-text-size(40px);
+}
+
 .text-red {
   @include mb-text(red);
 }
 
 .text-weight-500 {
   @include mb-text-weight(500);
+}
+
+.line-title {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
 }
