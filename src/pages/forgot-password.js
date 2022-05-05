@@ -1,6 +1,6 @@
 import React from 'react'
-import RegisterForm from "../components/Form/RegisterForm";
-import LoginForm from "../components/Form/LoginForm";
+import RegisterForm from "../components/Form/RegisterForm/index_old_react_v4";
+import LoginForm from "../components/Form/LoginForm/index_old_react_v4";
 import ForgotPasswordForm from "../components/Form/ForgotPasswordForm";
 
 const ForgotPassword = () => {
