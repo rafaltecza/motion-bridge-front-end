@@ -1,6 +1,7 @@
 import React from 'react';
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavLogo} from "./NavbarElements";
 import Settings from "../Settings";
+import AlertArea from "../Alert";
 
 const Navbar = () => {
     return (
@@ -20,6 +21,9 @@ const Navbar = () => {
                     <NavLink className={"button-border-red me-0"} to="/sign-up">Sign Up</NavLink>
                 </NavMenu>
             </Nav>
+            <div className={"container"}>
+                <AlertArea/>
+            </div>
         </>
     );
 };
