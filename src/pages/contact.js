@@ -1,8 +1,5 @@
 import React from 'react'
-import {Card} from "@mui/material";
-import LoginForm from "../components/Form/LoginForm";
 import ContactForm from "../components/Form/ContactForm";
-
 
 
 const Contact = () => {
