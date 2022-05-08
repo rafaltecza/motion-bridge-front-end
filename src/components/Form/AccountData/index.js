@@ -8,6 +8,7 @@ import KeyIcon from '@mui/icons-material/Key';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import {FormGroup, ListItem, TextField} from "@mui/material";
 import Button from "@mui/material/Button";
+import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 
 
 function AccountDataForm() {
@@ -17,8 +18,10 @@ function AccountDataForm() {
         password: '',
         repeatPassword: '',
         oldPassword: '',
+        deleteAccountPassword: '',
         openAccount:"false",
         openPassword:"false",
+        openDeleteAccount:"false",
     })
 
     const handleCollapse = (event) => {
@@ -113,6 +116,34 @@ function AccountDataForm() {
                         </Collapse>
                     </FormGroup>
                 </form>
+
+                <form onSubmit={onSubmit} >
+                    <FormGroup>
+                        <ListItem>
+                            <ListItemIcon><DeleteForeverIcon/></ListItemIcon>
+                            <ListItemText primary="Delete Account" />
+                            <Button name={"openDeleteAccount"} value={state.openDeleteAccount} onClick={handleCollapse}>Delete</Button>
+                        </ListItem>
+                        <Collapse in={state.openDeleteAccount === 'true'} timeout="auto" unmountOnExit>
+                            <div sx={{ pl: 4 }}>
+                                <TextField className={"w-100 my-2"}
+                                           id="deleteAccountPassword"
+                                           label="Confirm password"
+                                           variant="filled"
+                                           type="password"
+                                           name={"deleteAccountPassword"}
+                                           value={state.deleteAccountPassword}
+                                           onChange={handleOnChange}
+                                           required/>
+                            </div>
+
+                            <input className={"float-end button-red"} type="submit" value="Delete" />
+                        </Collapse>
+                    </FormGroup>
+                </form>
+
+
+
             </List>
         </div>
 
