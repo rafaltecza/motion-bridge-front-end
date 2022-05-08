@@ -1,4 +1,5 @@
 import React from 'react'
+import AccountDataForm from "../components/Form/AccountData";
 
 const AccountData = () => {
     return (
@@ -11,6 +12,13 @@ const AccountData = () => {
                     <div className={"col-12 col-md-12"}>
                         <div className={"card card-mb py-4 px-4 h-100"}>
                             <h3><b>Account Data</b></h3>
+                        </div>
+                    </div>
+                </div>
+                <div className={"row my-4"}>
+                    <div className={"col-12 col-md-12"}>
+                        <div className={"card card-mb py-4 px-4 h-100"}>
+                            <AccountDataForm ></AccountDataForm>
                         </div>
                     </div>
                 </div>
