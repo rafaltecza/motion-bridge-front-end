@@ -19,11 +19,10 @@ const Faq = () => {
                     <div className={"col-12 col-md-12"}>
                         <div className={"card card-mb py-4 px-4 h-100"}>
                                 <Typography variant="h6" gutterBottom component="div">
-                                    1. Question
+                                    1. Password
                                 </Typography>
                                 <Typography variant="subtitle1" gutterBottom component="div">
-                                    subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
-                                    blanditiis tenetur
+                                    password containing at least 8 characters, 1 number, 1 upper and 1 lowercase
                                 </Typography>
 
                                 <Typography variant="h6" gutterBottom component="div">
