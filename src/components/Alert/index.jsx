@@ -48,7 +48,7 @@ export default function AlertArea() {
     }, []);
 
     return (
-        <div className={"mt-3"}>
+        <div className={""}>
             {alerts.map((localState, index) => (
                 <AlertBox type={localState.type} message={localState.message}/>
             ))}
