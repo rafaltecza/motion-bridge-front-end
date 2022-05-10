@@ -2,8 +2,13 @@ import {Checkbox, FormControlLabel, FormGroup, TextField} from "@mui/material";
 import {red} from "@mui/material/colors";
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux"
 
-function RegisterForm() {
+import App from "../../../App";
+import {appendAlert} from "../../../redux/Alert/alert.actions";
+
+
+function RegisterForm(props) {
     const navigate = useNavigate();
 
     const [state, setState] = React.useState({
@@ -12,7 +17,6 @@ function RegisterForm() {
       password: '',
       repeatPassword: '',
     })
-
 
     const handleOnChange = (e) => {
         e.preventDefault();
@@ -39,6 +43,7 @@ function RegisterForm() {
             })
         };
         fetch('https://motionbridge-generator.herokuapp.com/api/user/register', requestOptions).then(r => navigate('/'));
+        props.appendAlert();
         e.preventDefault();
     }
 
@@ -99,4 +104,16 @@ function RegisterForm() {
     )
 }
 
-export default RegisterForm;
+const mapStateToProps = state => {
+    return {
+        count: state.counter.count,
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return {
+        appendAlert: () => dispatch(appendAlert()),
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegisterForm)
