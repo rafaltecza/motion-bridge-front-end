@@ -1,4 +1,5 @@
 import React from 'react'
+import SettingsNav from "../components/SettingsNav";
 
 const Settings = () => {
     return (
@@ -11,6 +12,13 @@ const Settings = () => {
                     <div className={"col-12 col-md-12"}>
                         <div className={"card card-mb py-4 px-4 h-100"}>
                             <h3><b>Settings</b></h3>
+                        </div>
+                    </div>
+                </div>
+                <div className={"row my-4"}>
+                    <div className={"col-12 col-md-12"}>
+                        <div className={"card card-mb py-4 px-4 h-100"}>
+                            <SettingsNav></SettingsNav>
                         </div>
                     </div>
                 </div>
