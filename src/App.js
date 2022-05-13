@@ -12,13 +12,15 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Products from "./pages/products";
 import Contact from "./pages/contact";
-import Settings from "../src/components/Settings";
 import {ParallaxProvider} from "react-scroll-parallax";
 import ForgotPassword from "./pages/forgot-password";
 import Subscriptions from "./pages/subscriptions";
 import Faq from "./pages/faq";
 import DeleteAccount from "./pages/delete-account";
 import AccountData from "./pages/account-data";
+import AdminPanel from "./pages/admin-panel";
+import OwnedProducts from "./pages/owned-products";
+import Settings from "./pages/settings";
 
 
 function App() {
@@ -39,6 +41,8 @@ function App() {
                         <Route path={"sign-in"} element={<SignIn/>}/>
                         <Route path={"sign-up"} element={<SignUp/>}/>
                         <Route path={"forgot-password"} element={<ForgotPassword/>}/>
+                        <Route path={"admin-panel"} element={<AdminPanel/>}/>
+                        <Route path={"owned-products"} element={<OwnedProducts/>}/>
                 </SlideRoutes>
             </ParallaxProvider>
             <Footer/>
