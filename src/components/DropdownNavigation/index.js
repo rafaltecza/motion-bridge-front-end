@@ -5,11 +5,11 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import DehazeIcon from '@mui/icons-material/Dehaze';
 import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
 const Settings = () => {
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -38,14 +38,14 @@ const Settings = () => {
                 onClose={handleClose}
             >
 
-                <Box sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+                <Box sx={{ width: '100%', maxWidth: 360 }}>
                     <nav aria-label="main mailbox folders">
                         <List>
                             <MenuLink to="/owned-products">
                                 <ListItem disablePadding>
                                     <CustomizedLinkButton onClick={handleClose}>
                                         <ListItemIcon>
-                                            <SubscriptionsIcon />
+                                            <PlayCircleIcon />
                                         </ListItemIcon>
                                         Owned Products
                                     </CustomizedLinkButton>
@@ -75,7 +75,7 @@ const Settings = () => {
                                 <ListItem disablePadding>
                                     <CustomizedLinkButton onClick={handleClose}>
                                         <ListItemIcon>
-                                            <AccountCircleIcon />
+                                            <AdminPanelSettingsIcon />
                                         </ListItemIcon>
                                         Admin Panel
                                     </CustomizedLinkButton>
