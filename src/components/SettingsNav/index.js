@@ -3,7 +3,6 @@ import {StyledMenu, SettingsLink, MenuLink, CustomizedLinkButton} from "../Dropd
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';

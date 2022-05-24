@@ -21,6 +21,8 @@ import AccountData from "./pages/account-data";
 import AdminPanel from "./pages/admin-panel";
 import OwnedProducts from "./pages/owned-products";
 import Settings from "./pages/settings";
+import AdminProducts from "./pages/admin-products";
+import AdminUsers from "./pages/admin-users";
 
 
 function App() {
@@ -43,6 +45,8 @@ function App() {
                         <Route path={"forgot-password"} element={<ForgotPassword/>}/>
                         <Route path={"admin-panel"} element={<AdminPanel/>}/>
                         <Route path={"owned-products"} element={<OwnedProducts/>}/>
+                        <Route path={"admin-products"} element={<AdminProducts/>}/>
+                        <Route path={"admin-users"} element={<AdminUsers/>}/>
                 </SlideRoutes>
             </ParallaxProvider>
             <Footer/>
