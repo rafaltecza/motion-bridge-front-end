@@ -50,7 +50,7 @@ function AccountDataForm() {
                         <ListItem>
                             <ListItemIcon><AccountCircleIcon /></ListItemIcon>
                             <ListItemText primary="Account Name" />
-                            <Button name={"openAccount"} value={state.openAccount} onClick={handleCollapse}>Edit</Button>
+                            <Button  name={"openAccount"} variant="outlined" value={state.openAccount} onClick={handleCollapse}>Edit</Button>
                         </ListItem>
                     <Collapse in={state.openAccount === 'true'} timeout="auto" unmountOnExit>
 
@@ -76,7 +76,7 @@ function AccountDataForm() {
                         <ListItem>
                             <ListItemIcon><KeyIcon /></ListItemIcon>
                             <ListItemText primary="Password" />
-                            <Button name={"openPassword"} value={state.openPassword} onClick={handleCollapse}>Edit</Button>
+                            <Button name={"openPassword"} variant="outlined"  value={state.openPassword} onClick={handleCollapse}>Edit</Button>
                         </ListItem>
                         <Collapse in={state.openPassword === 'true'} timeout="auto" unmountOnExit>
                             <FormGroup>
@@ -122,7 +122,7 @@ function AccountDataForm() {
                         <ListItem>
                             <ListItemIcon><DeleteForeverIcon/></ListItemIcon>
                             <ListItemText primary="Delete Account" />
-                            <Button name={"openDeleteAccount"} value={state.openDeleteAccount} onClick={handleCollapse}>Delete</Button>
+                            <Button name={"openDeleteAccount"} variant="outlined" color="error" value={state.openDeleteAccount} onClick={handleCollapse}>Delete</Button>
                         </ListItem>
                         <Collapse in={state.openDeleteAccount === 'true'} timeout="auto" unmountOnExit>
                             <div sx={{ pl: 4 }}>
