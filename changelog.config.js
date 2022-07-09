@@ -72,16 +72,16 @@
 module.exports = {
     disableEmoji: false,
     format: '({emoji}{type}): {subject}',
-    list: ['feat', 'fix', 'chore', 'docs', 'refactor', 'style', 'ci', 'perf'],
+    list: ['feat', 'fix', 'system', 'docs', 'refactor', 'style', 'ci', 'perf'],
     maxMessageLength: 64,
     minMessageLength: 3,
     questions: ['type', 'scope', 'subject', 'breaking', 'lerna'],
     scopes: [],
     types: {
-        chore: {
+        system: {
             description: 'Build process or package changes',
             emoji: '🔒',
-            value: 'chore'
+            value: 'system'
         },
         ci: {
             description: 'CI related changes',
