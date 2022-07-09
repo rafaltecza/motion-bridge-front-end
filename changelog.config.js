@@ -79,7 +79,7 @@ module.exports = {
     scopes: [],
     types: {
         chore: {
-            description: 'Build process or auxiliary tool changes',
+            description: 'Build process or package changes',
             emoji: '🔒',
             value: 'chore'
         },
@@ -90,7 +90,7 @@ module.exports = {
         },
         docs: {
             description: 'Documentation only changes',
-            emoji: '✏️',
+            emoji: '📖️',
             value: 'docs'
         },
         feat: {
