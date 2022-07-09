@@ -1,7 +1,7 @@
 import React from 'react'
-import AccountDataForm from "../components/Form/AccountData";
+import AdminNav from "../components/AdminNav";
 
-const AccountData = () => {
+const AdminPanel = () => {
     return (
         <div className={"container"}  style={{
             minHeight: '90vh',
@@ -11,14 +11,14 @@ const AccountData = () => {
                 <div className={"row my-4"}>
                     <div className={"col-12 col-md-12"}>
                         <div className={"card card-mb py-4 px-4 h-100"}>
-                            <h3><b>Account Data</b></h3>
+                            <h3><b>Admin Panel</b></h3>
                         </div>
                     </div>
                 </div>
                 <div className={"row my-4"}>
                     <div className={"col-12 col-md-12"}>
                         <div className={"card card-mb py-4 px-4 h-100"}>
-                            <AccountDataForm ></AccountDataForm>
+                            <AdminNav></AdminNav>
                         </div>
                     </div>
                 </div>
@@ -27,4 +27,4 @@ const AccountData = () => {
     );
 };
 
-export default AccountData;
+export default AdminPanel;

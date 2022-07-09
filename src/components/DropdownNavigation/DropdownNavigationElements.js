@@ -3,6 +3,7 @@ import MuiLink from '@mui/material/Link';
 import { NavLink as Link } from 'react-router-dom';
 import Menu from "@mui/material/Menu";
 import * as React from "react";
+import {ListItemButton} from "@mui/material";
 
 export const SettingsLink = styled(MuiLink)`
   font-family: "Poppins", sans-serif;
@@ -23,12 +24,24 @@ export const SettingsLink = styled(MuiLink)`
   }
 `;
 
-export const MenuLink = styled(Link)`
+export const CustomizedLinkButton = styled(ListItemButton)`
   color: rgba(0,0,0,0.7);
   text-decoration: none;
   font-family: "Poppins", sans-serif;
   height: 100%;
   margin: 0 10px;
+  cursor: pointer;
+
+  :hover {
+    color: rgba(0,0,0,0.2); !important;
+  }
+`;
+
+export const MenuLink = styled(Link)`
+  color: rgba(0,0,0,0.7);
+  text-decoration: none;
+  font-family: "Poppins", sans-serif;
+  height: 100%;
   cursor: pointer;
 
   :hover {
