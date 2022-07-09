@@ -1,8 +1,5 @@
 import React from 'react'
-import {Card} from "@mui/material";
-import LoginForm from "../components/Form/LoginForm/index_old_react_v4";
 import ContactForm from "../components/Form/ContactForm";
-
 
 
 const Contact = () => {

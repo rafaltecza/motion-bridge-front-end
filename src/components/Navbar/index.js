@@ -2,6 +2,7 @@ import React from 'react';
 import {Nav, NavLink, Bars, NavMenu, NavBtn, NavBtnLink, NavLogo} from "./NavbarElements";
 import Settings from "../Settings";
 import AlertArea from "../Alert";
+import DropdownNavigation from "../DropdownNavigation";
 
 const Navbar = () => {
     return (
@@ -12,6 +13,7 @@ const Navbar = () => {
                 </NavLink>
                 <Bars/>
                 <NavMenu>
+                    <DropdownNavigation></DropdownNavigation>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/products">Products</NavLink>
                     <Settings></Settings>

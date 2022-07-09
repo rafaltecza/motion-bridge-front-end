@@ -1,4 +1,5 @@
 import React from 'react'
+import {Typography} from "@mui/material";
 
 const Faq = () => {
     return (
@@ -10,7 +11,43 @@ const Faq = () => {
                 <div className={"row my-4"}>
                     <div className={"col-12 col-md-12"}>
                         <div className={"card card-mb py-4 px-4 h-100"}>
-                            <h3><b>Subscriptions</b></h3>
+                            <h3><b>FAQ</b></h3>
+                        </div>
+                    </div>
+                </div>
+                <div className={"row my-4"}>
+                    <div className={"col-12 col-md-12"}>
+                        <div className={"card card-mb py-4 px-4 h-100"}>
+                                <Typography variant="h6" gutterBottom component="div">
+                                    1. Password
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom component="div">
+                                    password containing at least 8 characters, 1 number, 1 upper and 1 lowercase
+                                </Typography>
+
+                                <Typography variant="h6" gutterBottom component="div">
+                                    2. Question
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom component="div">
+                                    subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+                                    blanditiis tenetur
+                                </Typography>
+
+                                <Typography variant="h6" gutterBottom component="div">
+                                    3. Question
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom component="div">
+                                    subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+                                    blanditiis tenetur
+                                </Typography>
+
+                                <Typography variant="h6" gutterBottom component="div">
+                                    4. Question
+                                </Typography>
+                                <Typography variant="subtitle1" gutterBottom component="div">
+                                    subtitle1. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quos
+                                    blanditiis tenetur
+                                </Typography>
                         </div>
                     </div>
                 </div>
