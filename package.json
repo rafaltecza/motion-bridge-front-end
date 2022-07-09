@@ -2,6 +2,11 @@
   "name": "motion-bridge-front",
   "version": "0.1.0",
   "private": true,
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/git-cz"
+    }
+  },
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -56,6 +61,7 @@
     ]
   },
   "devDependencies": {
+    "git-cz": "^4.9.0",
     "react-typing-effect": "^2.0.5"
   }
 }
