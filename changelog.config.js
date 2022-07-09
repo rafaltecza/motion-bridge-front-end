@@ -110,17 +110,17 @@ module.exports = {
         },
         refactor: {
             description: 'A code change that neither fixes a bug or adds a feature',
-            emoji: '💡',
+            emoji: '🔋',
             value: 'refactor'
         },
         release: {
             description: 'Create a release commit',
-            emoji: '🏹',
+            emoji: '🚀',
             value: 'release'
         },
         style: {
             description: 'Markup, white-space, formatting, missing semi-colons...',
-            emoji: '💄',
+            emoji: '🖌',
             value: 'style'
         },
         test: {
