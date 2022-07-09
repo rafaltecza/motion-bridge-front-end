@@ -72,10 +72,10 @@
 module.exports = {
     disableEmoji: false,
     format: '({emoji}{type}) ({scope}): {subject}',
-    list: ['test', 'feat', 'fix', 'chore', 'docs', 'refactor', 'style', 'ci', 'perf'],
+    list: ['feat', 'fix', 'chore', 'docs', 'refactor', 'style', 'ci', 'perf'],
     maxMessageLength: 64,
     minMessageLength: 3,
-    questions: ['type', 'scope', 'subject', 'body', 'breaking', 'issues', 'lerna'],
+    questions: ['type', 'scope', 'subject', 'breaking', 'lerna'],
     scopes: [],
     types: {
         chore: {
@@ -95,12 +95,12 @@ module.exports = {
         },
         feat: {
             description: 'A new feature',
-            emoji: '🎸',
+            emoji: '🔥',
             value: 'feat'
         },
         fix: {
             description: 'A bug fix',
-            emoji: '🐛',
+            emoji: '🔧',
             value: 'fix'
         },
         perf: {
