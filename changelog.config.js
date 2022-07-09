@@ -71,7 +71,7 @@
 
 module.exports = {
     disableEmoji: false,
-    format: '({emoji}{type}) ({scope}): {subject}',
+    format: '({emoji}{type}): {subject}',
     list: ['feat', 'fix', 'chore', 'docs', 'refactor', 'style', 'ci', 'perf'],
     maxMessageLength: 64,
     minMessageLength: 3,
@@ -130,7 +130,7 @@ module.exports = {
         },
         messages: {
             type: 'Select the type of change that you\'re committing:',
-            customScope: 'Select the scope this component affects:',
+            scope: 'Select the scope this component affects:',
             subject: 'Write a short, imperative mood description of the change:\n',
             body: 'Provide a longer description of the change:\n ',
             breaking: 'List any breaking changes:\n',
