@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const apiClient = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://motionbridge-generator.herokuapp.com',
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',

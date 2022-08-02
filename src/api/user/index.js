@@ -2,7 +2,7 @@ import {post} from "../index";
 
 export const endpoint = '/user';
 export const loginEndpoint = '/login';
-export const registerEndpoint = '/login';
+export const registerEndpoint = 'api/registration';
 
 export const signIn = (data) => {
     return post(loginEndpoint, data, {

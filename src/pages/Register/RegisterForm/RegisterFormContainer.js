@@ -1,26 +1,38 @@
-import LoginFormView from "./LoginFormView";
-import {signIn} from "../../../api/user";
+import {signIn, signUp} from "../../../api/user";
 import {useMutation} from "@tanstack/react-query";
 import useHandleApiError from "../../../hooks/useHandleApiError";
+import RegisterFormView from "./RegisterFormView";
 
 const Yup = require("yup");
 const {useEffect} = require("react");
 const {useUserContext} = require("../../../providers/UserContextProvider");
 
 const validationSchema = Yup.object().shape({
+    name: Yup.string()
+        .required('Name is required'),
     email: Yup.string()
         .email('Invalid email address')
         .required('Email is required'),
     password: Yup.string()
         .required('Password is required')
         .min(6, 'Password must be at least 6 characters long'),
+    repeatPassword: Yup.string()
+        .oneOf([Yup.ref('password'), null], 'Passwords must match')
+        .required('Password is required')
+        .min(6, 'Password must be at least 6 characters long'),
+    // acceptedTerms: Yup.boolean()
+    //     .oneOf([true], 'You must accept the terms and conditions')
+    //     .required('You must accept the terms and conditions'),
+    // acceptNewsletter: Yup.boolean()
+    //     .oneOf([true], 'You must accept the newsletter')
+    //     .required('You must accept the newsletter'),
 });
 
-const LoginFormContainer = (props) => {
+const RegisterFormContainer = (props) => {
     const handleApiError = useHandleApiError();
     const { setUser, removeUser } = useUserContext();
 
-    const login = useMutation(signIn)
+    const register = useMutation(signUp)
     const signOut = () => removeUser();
 
     useEffect(() => {
@@ -29,11 +41,7 @@ const LoginFormContainer = (props) => {
 
     const onSuccess = async (data) => {
         console.log("HELLO");
-        console.log(data.response.response.data.error);
-        console.log(data.response.response.data.message);
-        console.log(data.response.response.data.path);
-        console.log(data.response.response.data.status);
-        console.log(data.response.response.data.timestamp);
+        console.log(data)
         const token = '???';
         setUser(token)
         //push
@@ -41,19 +49,18 @@ const LoginFormContainer = (props) => {
 
     const onError = (error) => {
         console.log("HELLO 2");
-        console.log(error.response.data.error);
-        console.log(error.response.data.message);
-        console.log(error.response.data.path);
-        console.log(error.response.data.status);
-        console.log(error.response.data.timestamp);
+        console.log(error)
         handleApiError(error);
     }
 
     const handleSubmit = async (values, { setSubmitting }) => {
-        await login.mutateAsync(
+        await register.mutateAsync(
             {
+                name: values.name,
                 email: values.email,
                 password: values.password,
+                acceptedTerms: values.acceptedTerms,
+                acceptedNewsletter: values.acceptedNewsletter,
             }, {
                 onSuccess,
                 onError,
@@ -63,12 +70,12 @@ const LoginFormContainer = (props) => {
         setSubmitting(false);
     }
 
-    return <LoginFormView
+    return <RegisterFormView
         {...props}
-        isLoading={login.isLoading}
+        isLoading={register.isLoading}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
     />;
 }
 
-export default LoginFormContainer;
+export default RegisterFormContainer;
