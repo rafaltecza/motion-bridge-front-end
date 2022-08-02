@@ -4,7 +4,7 @@ import {createContext, useContext, useEffect, useState} from "react";
 import {refreshToken} from "../api/user";
 import {fromUnixTime, differenceInSeconds } from 'date-fns';
 import {useMutation} from "@tanstack/react-query";
-const _ = require('lodash');
+import { _ } from "lodash";
 
 const UserContext = createContext({});
 const allowedUserTypes = ['admin', 'user'];

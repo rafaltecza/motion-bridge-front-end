@@ -1,4 +1,3 @@
-import _ from 'lodash';
 const {useSnackbar} = require("notistack");
 
 const useHandleApiError = () => {
@@ -34,7 +33,8 @@ const useHandleApiError = () => {
 
     const displayError = (error) => {
         let errorMessages = []
-        if(!!_.include(error, 'errors.length')) {
+        console.log(error);
+        if(!!error?.errors?.length) {
             error.errors.forEach(err =>
                 Object.keys(error).forEach(key => {
                     errorMessages.push(`${key}: ${err[key].message}`)
@@ -57,7 +57,7 @@ const useHandleApiError = () => {
     }
 
     const handle422Error = (errorData, formik) => {
-        const fieldsErrors = _.include(errorData, 'errors', []).reduce((acc, err) => {
+        const fieldsErrors = errorData?.errors?.reduce((acc, err) => {
             for (const key in err) {
                 acc[key] = err[key].message
             }
@@ -68,8 +68,8 @@ const useHandleApiError = () => {
     }
 
     const handleErrors = (error, formik) => {
-        const status = _.include(error, 'response.status')
-        const errorData = _.include(error, 'response.data')
+        const status = error?.response?.status;
+        const errorData = error?.response?.data;
 
         displayError(errorData)
 
