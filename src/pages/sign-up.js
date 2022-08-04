@@ -1,8 +1,8 @@
 import React from 'react'
 import {Checkbox, FormControlLabel, FormGroup, TextField} from "@mui/material";
 import Halo from "../components/VantaAnimation/Halo";
-import RegisterForm from "../components/Form/RegisterForm";
 import ReactTypingEffect from 'react-typing-effect';
+import {RegisterForm} from "./Register/RegisterForm";
 
 const SignUp = () => {
 
