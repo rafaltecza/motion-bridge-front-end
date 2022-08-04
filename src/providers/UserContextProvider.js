@@ -14,8 +14,8 @@ export const UserContextProvider = ({ children }) => {
     let sessionToken = null;
     let tokenDecoded = null;
     if (sessionTokenItem) {
-        sessionToken = JSON.parse(sessionTokenItem);
-        tokenDecoded = jwt_decode(sessionToken);
+        //sessionToken = JSON.parse(sessionTokenItem);
+        //tokenDecoded = jwt_decode(sessionToken);
     }
     const [user, setUserData] = useState(tokenDecoded);
     const [isLoggedIn, setIsLoggedIn] = useState(!!sessionToken);
@@ -24,15 +24,15 @@ export const UserContextProvider = ({ children }) => {
     console.log(isLoggedIn);
 
     const setUser = (token) => {
-        localStorage.setItem('sessionToken', token);
-        setUserData(jwt_decode(token));
-        setIsLoggedIn(true);
+        //localStorage.setItem('sessionToken', token);
+        //setUserData(jwt_decode(token));
+        //setIsLoggedIn(true);
     }
 
     const removeUser = () => {
-        localStorage.removeItem('sessionToken');
-        setUserData({});
-        setIsLoggedIn(false);
+        //localStorage.removeItem('sessionToken');
+        //setUserData({});
+        //setIsLoggedIn(false);
     }
 
     const onSuccess = async (data) => {
@@ -58,8 +58,8 @@ export const UserContextProvider = ({ children }) => {
         const sessionToken = localStorage.getItem('sessionToken');
 
         if(!user?.uuid && sessionToken) {
-            const tokenDecoded = jwt_decode(sessionToken);
-            tokenDecoded && setUserData(tokenDecoded);
+        //    const tokenDecoded = jwt_decode(sessionToken);
+        //    tokenDecoded && setUserData(tokenDecoded);
         }
     }, []);
 
