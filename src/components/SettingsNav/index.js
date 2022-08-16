@@ -1,5 +1,4 @@
 import * as React from 'react';
-import {StyledMenu, SettingsLink, MenuLink, CustomizedLinkButton} from "../DropdownNavigation/DropdownNavigationElements";
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -8,6 +7,7 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
 import ContactMailIcon from '@mui/icons-material/ContactMail';
+import {CustomizedLinkButton, MenuLink} from "../Dropdown/Menu/MenuElements";
 
 const SettingsNav = () => {
 

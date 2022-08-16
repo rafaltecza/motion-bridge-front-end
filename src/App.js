@@ -43,7 +43,7 @@ function App() {
                         <Route path={"sign-in"} element={<SignIn/>}/>
                         <Route path={"sign-up"} element={<SignUp/>}/>
                         <Route path={"forgot-password"} element={<ForgotPassword/>}/>
-                        <Route path={"admin-panel"} element={<AdminPanel/>}/>
+                        <Route path={"admin"} element={<AdminPanel/>}/>
                         <Route path={"owned-products"} element={<OwnedProducts/>}/>
                         <Route path={"admin-products"} element={<AdminProducts/>}/>
                         <Route path={"admin-users"} element={<AdminUsers/>}/>
