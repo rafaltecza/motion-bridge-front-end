@@ -2,9 +2,6 @@ import {ErrorMessage, Formik} from 'formik';
 import {Alert, TextField} from "@mui/material";
 
 const LoginFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
-    const AlertError= () => {
-        return ['Alice', 'Bob'].map(element => <div key={element}>{element}</div>);
-    };
     return (
         <div>
             <Formik
@@ -44,7 +41,7 @@ const LoginFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
 
                             <ErrorMessage name={"password"}/>
                         </div>
-                        <div className={"form-group"}>
+                        <div className={"form-group mt-3"}>
                             <button type={"submit"} className={"btn btn-primary"}>
                                 {isLoading ? '' : 'Login'}
                             </button>
