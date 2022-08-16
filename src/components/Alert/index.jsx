@@ -36,10 +36,7 @@ export const AlertBox = (props) => {
 export default function AlertArea() {
     const [alerts, setAlerts] = React.useState([]);
 
-    const allowedState = [
-        { type: "warning", message: "This is test for first message"},
-        { type: "info", message: "This is test for second message" }
-    ];
+    const allowedState = [];
     
     // setAlerts(oldArray => [...oldArray, test]);
     useEffect(() => {
