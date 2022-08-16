@@ -1,11 +1,9 @@
 import * as React from 'react';
-import {StyledMenu, SettingsLink, MenuLink, CustomizedLinkButton} from "../DropdownNavigation/DropdownNavigationElements";
-import Box from '@mui/material/Box';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import SubscriptionsIcon from '@mui/icons-material/Subscriptions';
+import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import {CustomizedLinkButton, MenuLink} from "../Dropdown/Menu/MenuElements";
+import {ListItem, ListItemIcon} from "@material-ui/core";
+
 
 const AdminNav = () => {
 
@@ -18,7 +16,7 @@ const AdminNav = () => {
                             <ListItem disablePadding>
                                 <CustomizedLinkButton >
                                     <ListItemIcon>
-                                        <SubscriptionsIcon />
+                                        {/*<SubscriptionsIcon />*/}
                                     </ListItemIcon>
                                     Products Management
                                 </CustomizedLinkButton>
@@ -28,7 +26,7 @@ const AdminNav = () => {
                             <ListItem disablePadding>
                                 <CustomizedLinkButton >
                                     <ListItemIcon>
-                                        <AccountCircleIcon />
+                                        {/*<AccountCircleIcon />*/}
                                     </ListItemIcon>
                                     Users Management
                                 </CustomizedLinkButton>
