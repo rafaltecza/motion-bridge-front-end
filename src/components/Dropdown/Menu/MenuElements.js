@@ -90,4 +90,3 @@ export const StyledMenu = styled((props) => (
         },
     },
 }));
-
