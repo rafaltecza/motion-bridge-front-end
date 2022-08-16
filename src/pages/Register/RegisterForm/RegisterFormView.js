@@ -25,10 +25,10 @@ const RegisterFormView = ({onSubmit, validationSchema, isLoading, ...props}) => 
                     <form onSubmit={handleSubmit} onReset={handleReset}>
 
                         <div className={"form-group"}>
-                            <TextField className={"w-100 my-2"}
-                                       id="name"
+                            <TextField id="name"
                                        label="Name"
-                                       variant="outlined"
+                                       variant={"outlined"}
+                                       className={"w-100 my-2 text-field style-primary"}
                                        type="text"
                                        name={"name"}
                                        value={values.name}
@@ -39,8 +39,8 @@ const RegisterFormView = ({onSubmit, validationSchema, isLoading, ...props}) => 
                                        id={"email"}
                                        type={"email"}
                                        label={"Email"}
-                                       variant="outlined"
-                                       className={"w-100 my-2"}
+                                       variant={"outlined"}
+                                       className={"w-100 my-2 text-field style-primary"}
                                        onChange={handleChange}
                                        onBlur={handleBlur}
                                        value={values.email}
@@ -50,17 +50,17 @@ const RegisterFormView = ({onSubmit, validationSchema, isLoading, ...props}) => 
                                        id={"password"}
                                        type={"password"}
                                        label={"Password"}
-                                       variant="outlined"
-                                       className={"w-100 my-2"}
+                                       variant={"outlined"}
+                                       className={"w-100 my-2 text-field style-primary"}
                                        onChange={handleChange}
                                        onBlur={handleBlur}
                                        value={values.password}
                                         required/>
                             <ErrorMessage name={"password"} />
-                            <TextField className={"w-100 my-2"}
+                            <TextField variant={"outlined"}
+                                       className={"w-100 my-2 text-field style-primary"}
                                        id="repeat-password"
                                        label="Repeat Password"
-                                       variant="outlined"
                                        type="password"
                                        name={"repeatPassword"}
                                        onChange={handleChange}
@@ -75,7 +75,7 @@ const RegisterFormView = ({onSubmit, validationSchema, isLoading, ...props}) => 
                             }} defaultChecked required />} label="Accept rules of use.*"/>
                             <FormControlLabel control={<Checkbox color="default" defaultChecked />} label="Send me newsletter."/>
                         </div>
-                        <div className={"form-group"}>
+                        <div className={"form-group mt-3"}>
                             <button type={"submit"} className={"btn btn-primary"}>
                                 {isLoading ? '' : 'Register'}
                             </button>
