@@ -4,6 +4,17 @@
 @import '../../color/colors';
 @import "../../animation/hover";
 
+.btn-hover {
+  &:hover {
+    -webkit-animation: hover 1200ms linear 2 alternate;
+    animation: hover 1200ms linear 2 alternate;
+  }
+}
+
+.btn-clickable {
+  cursor: pointer;
+}
+
 .button-container {
   display: flex;
   align-items: center;
