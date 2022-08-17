@@ -36,7 +36,7 @@ const SettingsNav = () => {
                                     </CustomizedLinkButton>
                                 </ListItem>
                             </MenuLink>
-                            <MenuLink to="/contact">
+                            <MenuLink to="/settings/contact">
                                 <ListItem disablePadding>
                                     <CustomizedLinkButton >
                                         <ListItemIcon>

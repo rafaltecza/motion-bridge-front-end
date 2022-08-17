@@ -11,18 +11,21 @@ import Cookie from "./pages/cookie";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Products from "./pages/products";
-import Contact from "./pages/contact";
 import {ParallaxProvider} from "react-scroll-parallax";
 import ForgotPassword from "./pages/forgot-password";
 import Subscriptions from "./pages/subscriptions";
 import Faq from "./pages/faq";
 import DeleteAccount from "./pages/delete-account";
 import AccountData from "./pages/account-data";
-import AdminPanel from "./pages/admin-panel";
-import OwnedProducts from "./pages/owned-products";
-import Settings from "./pages/settings";
+import Settings from "./pages/Settings";
 import AdminProducts from "./pages/admin-products";
 import AdminUsers from "./pages/admin-users";
+import MyProducts from "./pages/MyProducts";
+import AdminPage from "./pages/Admin";
+import ContactPage from "./pages/Settings/Contact";
+import AccountPage from "./pages/Settings/Account";
+import SubscriptionPage from "./pages/Settings/Subscription";
+import HelpPage from "./pages/Settings/Help";
 
 
 function App() {
@@ -34,19 +37,19 @@ function App() {
                         <Route path={"/"} element={<Home/>}/>
                         <Route path={"products"} element={<Products/>}/>
                         <Route path={"cookie"} element={<Cookie/>}/>
-                        <Route path={"account-data"} element={<AccountData/>}/>
-                        <Route path={"subscriptions"} element={<Subscriptions/>}/>
-                        <Route path={"contact"} element={<Contact/>}/>
-                        <Route path={"faq"} element={<Faq/>}/>
+                        <Route path={"settings/account"} element={<AccountPage/>}/>
+                        <Route path={"settings/subscriptions"} element={<SubscriptionPage/>}/>
+                        <Route path={"settings/help"} element={<HelpPage/>}/>
                         <Route path={"delete-account"} element={<DeleteAccount/>}/>
                         <Route path={"settings"} element={<Settings/>}/>
+                        <Route path={"settings/contact"} element={<ContactPage/>}/>
                         <Route path={"sign-in"} element={<SignIn/>}/>
                         <Route path={"sign-up"} element={<SignUp/>}/>
                         <Route path={"forgot-password"} element={<ForgotPassword/>}/>
-                        <Route path={"admin"} element={<AdminPanel/>}/>
-                        <Route path={"owned-products"} element={<OwnedProducts/>}/>
-                        <Route path={"admin-products"} element={<AdminProducts/>}/>
-                        <Route path={"admin-users"} element={<AdminUsers/>}/>
+                        <Route path={"my-products"} element={<MyProducts/>}/>
+                        <Route path={"admin"} element={<AdminPage/>}/>
+                        <Route path={"admin/products"} element={<AdminProducts/>}/>
+                        <Route path={"admin/users"} element={<AdminUsers/>}/>
                 </SlideRoutes>
             </ParallaxProvider>
             <Footer/>

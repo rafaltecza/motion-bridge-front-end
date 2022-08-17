@@ -1,6 +1,6 @@
 import {AvatarElement} from "./AvatarElements";
 
-const UserAvatar = ({alt, src, name}) => {
+const UserAvatar = ({alt, src, name, classes}) => {
 
     if(name === undefined) {
         name = "Unknown User";
@@ -27,17 +27,18 @@ const UserAvatar = ({alt, src, name}) => {
     }
 
     function stringAvatar(name) {
+        const children = `${name.toString().includes(" ") ? `${name.split(' ')[0][0]}${name.split(' ')[1][0]}` : `${name}`}`;
         return {
             sx: {
                 bgcolor: stringToColor(name),
             },
-            children: `${name.split(' ')[0][0]}${name.split(' ')[1][0]}`,
+            children: children,
         };
     }
 
 
     return (
-        <AvatarElement alt={alt} src={src} {...stringAvatar(name)}/>
+        <AvatarElement className={classes} alt={alt} src={src} {...stringAvatar(name)}/>
     );
 }
 

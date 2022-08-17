@@ -28,7 +28,7 @@ const SnackbarHandler = (props) => {
 
 
     return (
-        <input onClick={handleSnackbar()} className={"float-end button-red"} type="submit" value="Send" />
+        <input onClick={handleSnackbar()} className={"float-end button-red my-3"} type="submit" value="Send" />
     );
 }
 

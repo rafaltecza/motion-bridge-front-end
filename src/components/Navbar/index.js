@@ -11,14 +11,14 @@ import LogoutIcon from "@mui/icons-material/Logout";
 const Navbar = () => {
 
     const userName = "User Tech"
-    const AvatarElement = () => <Avatar /*alt="Cindy Baker"*/ /*src="logo192.png"*/ name={userName} />
+    const AvatarElement = () => <Avatar /*alt="Cindy Baker"*/ /*src="logo192.png"*/ name={userName} classes={"small shadow"}/>
 
 
     return (
         <>
             <Nav>
                 <NavLink to="/">
-                    <NavLogo src={"images/default/motion-bridge-logo.svg"} alt={"logo"}/>
+                    <NavLogo src={"/images/default/motion-bridge-logo.svg"} alt={"logo"}/>
                 </NavLink>
                 <Bars/>
                 <NavMenu>
@@ -46,7 +46,7 @@ const Navbar = () => {
                                 {
                                     name: "My products",
                                     icon: <InventoryIcon/>,
-                                    page: "/owned-products"
+                                    page: "/my-products"
                                 },
                                 {
                                     name: "Settings",

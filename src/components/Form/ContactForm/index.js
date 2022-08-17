@@ -2,6 +2,7 @@ import React from "react";
 import {FormGroup, TextareaAutosize, TextField} from "@mui/material";
 import {SnackbarProvider, useSnackbar} from "notistack";
 import SnackbarHandler from './SnackbarHandler'
+import {Grid} from "@material-ui/core";
 
 export default class ContactForm extends React.Component {
 
@@ -76,53 +77,51 @@ export default class ContactForm extends React.Component {
 
 
     render() {
-
         return (
             <form onSubmit={this.handleSubmit}>
                 <FormGroup >
-                    <div className={"row"}>
-                        <div className={"col-6"}>
-                            <div>
-                                <TextField className={"w-100"}
-                                           id="name"
-                                           label="Name"
-                                           variant="filled"
-                                           type="text"
-                                           name={"name"}
-                                           value={this.state.name}
-                                           onChange={this.handleInputChange}
-                                           required/>
-                            </div>
-                            <div>
-                                <TextField className={"w-100"}
-                                           id="email"
-                                           label="Email"
-                                           variant="filled"
-                                           type="text"
-                                           name={"email"}
-                                           value={this.state.email}
-                                           onChange={this.handleEmailChange}
-                                           required
-                                           error={!this.validateEmail(this.state.email)}
-                                           helperText={this.state.helperText}/>
-                            </div>
-                        </div>
-                        <div className={"col-6"}>
-                            <div>
-                                <TextareaAutosize className={"w-100 "}
-                                                  id="message"
-                                                  placeholder="Message"
-                                                  label="Message"
-                                                  type="text"
-                                                  name={"message"}
-                                                  value={this.state.message}
-                                                  onChange={this.handleInputChange}
-                                                  maxRows={10}
-                                                  minRows={10}
-                                                  required/>
-                            </div>
-                        </div>
-                    </div>
+                    <Grid container spacing={2} p={2}>
+                        <Grid item xs={12}>
+                            <TextField variant={"outlined"}
+                                       className={"w-100 text-field style-primary"}
+                                       id="name"
+                                       label="Name"
+                                       type="text"
+                                       name={"name"}
+                                       value={this.state.name}
+                                       onChange={this.handleInputChange}
+                                       required/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField id="email"
+                                       label="Email"
+                                       variant={"outlined"}
+                                       className={"w-100 text-field style-primary"}
+                                       type="text"
+                                       name={"email"}
+                                       value={this.state.email}
+                                       onChange={this.handleEmailChange}
+                                       required
+                                       error={!this.validateEmail(this.state.email)}
+                                       helperText={this.state.helperText}/>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <TextField
+                                id="message"
+                                placeholder="Message"
+                                label="Message"
+                                type="text"
+                                variant={"outlined"}
+                                value={this.state.message}
+                                onChange={this.handleInputChange}
+                                className={"w-100 text-field style-primary"}
+                                multiline
+                                rows={3}
+                                maxRows={'infinity'}
+                                required
+                            />
+                        </Grid>
+                    </Grid>
                 </FormGroup>
                 <SnackbarProvider maxSnack={3}>
                     <SnackbarHandler

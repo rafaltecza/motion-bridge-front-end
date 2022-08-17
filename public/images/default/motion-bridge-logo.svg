@@ -1,28 +1,63 @@
 <svg id="motion-bridge-logo" xmlns="http://www.w3.org/2000/svg"
      viewBox="0 0 351.72 53.28">
     <defs>
-
         <style type="text/css">
-            .cls-1{font-size:45px;fill:#f4f4f4;font-family:Neou-Thin,
-            Neou;font-weight:200;}.cls-2{letter-spacing:-0.13em;}.cls-3{letter-spacing:-0.08em;}.cls-4{letter-spacing:0em;}.cls-5{font-family:Neou-Bold,
-            Neou;font-weight:700;}
+            .cls-1 {
+                font-size:45px;
+                fill:#f4f4f4;
+                font-family: 'Neou Thin', 'Neou';
+                font-weight: 200;
+            }
+
+            .cls-2 {
+                letter-spacing:-0.13em;
+            }
+
+            .cls-3 {
+                letter-spacing:-0.08em;
+            }
+
+            .cls-4 {
+                letter-spacing:0em;
+            }
+
+            .cls-5 {
+                font-family: 'Neou';
+                font-weight:700;
+            }
 
             @font-face {
-                font-family:Neou-Thin;
-                src: url('../../fonts/Neou-Thin.ttf');
+                font-family: 'Neou';
+                font-style: normal;
+                font-weight: 700;
+                src: local('Neou'), url('https://fonts.cdnfonts.com/s/12983/Neou-Bold.woff') format('woff');
             }
+
             @font-face {
-                font-family:Neou;
-                src: url('../../fonts/Neou-Bold.ttf');
+                font-family: 'Neou';
+                font-style: normal;
+                font-weight: 700;
+                src: local('Neou'), url('https://fonts.cdnfonts.com/s/12983/Neou-Bold.woff') format('woff');
+            }
+
+            @font-face {
+                font-family: 'Neou Thin';
+                font-style: normal;
+                font-weight: 100;
+                src: local('Neou Thin'), url('https://fonts.cdnfonts.com/s/12983/Neou-Thin.woff') format('woff');
+            }
+
+            @font-face {
+                font-family: 'Neou Thin';
+                font-style: normal;
+                font-weight: 100;
+                src: local('Neou Thin'), url('https://fonts.cdnfonts.com/s/12983/Neou-Thin.woff') format('woff');
             }
         </style>
     </defs>
     <title>motion-bridge-logo</title>
-    <text class="cls-1" transform="translate(0 40.5)">M
-        <tspan class="cls-2" x="35.32" y="0">o</tspan>
-        <tspan x="66.24" y="0">t</tspan>
-        <tspan class="cls-3" x="94.05" y="0">i</tspan>
-        <tspan class="cls-4" x="107.82" y="0">on</tspan>
-        <tspan class="cls-5" x="190.03" y="0">Bridge</tspan>
+    <text class="cls-1" transform="translate(0 40.5)">
+        <tspan x="0" y="0">Motion</tspan>
+        <tspan class="cls-5" x="195.03" y="0">Bridge</tspan>
     </text>
 </svg>
