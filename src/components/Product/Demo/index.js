@@ -1,7 +1,10 @@
 import ParticlesBg from "particles-bg";
 import React from "react";
+import {MenuLink} from "../../Dropdown/Menu/MenuElements";
+import {NavLink as Link} from "react-router-dom";
 
 const ProductDemo = (props) => {
+    console.log(props)
     return (
         <>
             <div className={"row my-3"}>
@@ -49,7 +52,8 @@ const ProductDemo = (props) => {
                             <div className={"col-12 col-md-8"}>
                                 <a>Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</a>
                             </div>
-                            <button type="submit" className="float-end blob-btn-border-gold-md">
+                            <Link to={props.route}>
+                            <button className="float-end blob-btn-border-gold-md">
                                 Discover
                                 <span className="blob-btn-border-gold-md__inner">
                                   <span className="blob-btn-border-gold-md__blobs">
@@ -60,6 +64,7 @@ const ProductDemo = (props) => {
                                   </span>
                                 </span>
                             </button>
+                            </Link>
                         </div>
                     </div>
                 </div>
