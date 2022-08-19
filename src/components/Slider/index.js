@@ -5,14 +5,16 @@ import "swiper/css/bundle";
 import "swiper/css";
 import {SliderContent, SliderIcon, SliderSkip, SliderSlide, SliderTitle} from "./SliderElements";
 import { FaAngleDown } from "react-icons/fa";
+import {isArray} from "lodash";
 
 SwiperCore.use([Navigation, Pagination]);
 
-const Slider = () => {
+const Slider = (slides, ...props) => {
+
     return (
         <div style={{
             fontFamily: "Poppins, serif"
-        }}>
+        }} {...props}>
             <SliderIcon><FaAngleDown/></SliderIcon>
 
                 <Swiper
@@ -24,42 +26,14 @@ const Slider = () => {
                     className="custom-swiper"
                     navigation={true}
                 >
-                    <SwiperSlide>
-                        <SliderSlide className={"slide-color-1"}>
-                            <div className={"container py-5"}>
-                                <div className={"row py-5"}>
-                                    <div className={"col-6 text-white"}>
-                                        <SliderTitle>Product 1</SliderTitle>
-                                        <SliderContent>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</SliderContent>
-                                    </div>
-                                </div>
-                            </div>
-                        </SliderSlide>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <SliderSlide className={"slide-color-2"}>
-                            <div className={"container py-5"}>
-                                <div className={"row py-5"}>
-                                    <div className={"col-6 text-white"}>
-                                        <SliderTitle>Product 2</SliderTitle>
-                                        <SliderContent>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</SliderContent>
-                                    </div>
-                                </div>
-                            </div>
-                        </SliderSlide>
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <SliderSlide className={"slide-color-3"}>
-                            <div className={"container py-5"}>
-                                <div className={"row py-5"}>
-                                    <div className={"col-6 text-white"}>
-                                        <SliderTitle>Product 3</SliderTitle>
-                                        <SliderContent>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</SliderContent>
-                                    </div>
-                                </div>
-                            </div>
-                        </SliderSlide>
-                    </SwiperSlide>
+                    { isArray(slides?.slides) && slides.slides.map((slide, index) => (
+                        <SwiperSlide key={index}>
+                            <SliderSlide className={slide.classes}>
+                                {slide.content}
+                            </SliderSlide>
+                        </SwiperSlide>
+                    ))}
+
                 </Swiper>
         </div>
     );

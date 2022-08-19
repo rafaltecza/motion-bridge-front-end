@@ -25,6 +25,11 @@ const CardContent = ({ children, back = false, icon, ...props }) => {
                 <Grid style={{lineHeight: '40px'}} item>
                     {children}
                 </Grid>
+                { props?.rightComponent ? (
+                    <Grid className={"ms-auto"} item>
+                        {props.rightComponent}
+                    </Grid>
+                ) : (null)}
             </Grid>
         ) : (
             <>
