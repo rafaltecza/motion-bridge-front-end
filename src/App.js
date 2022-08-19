@@ -13,19 +13,16 @@ import Footer from "./components/Footer";
 import Products from "./pages/products";
 import {ParallaxProvider} from "react-scroll-parallax";
 import ForgotPassword from "./pages/forgot-password";
-import Subscriptions from "./pages/subscriptions";
-import Faq from "./pages/faq";
 import DeleteAccount from "./pages/delete-account";
-import AccountData from "./pages/account-data";
 import Settings from "./pages/Settings";
 import AdminProducts from "./pages/admin-products";
 import AdminUsers from "./pages/admin-users";
-import MyProducts from "./pages/MyProducts";
 import AdminPage from "./pages/Admin";
 import ContactPage from "./pages/Settings/Contact";
 import AccountPage from "./pages/Settings/Account";
 import SubscriptionPage from "./pages/Settings/Subscription";
 import HelpPage from "./pages/Settings/Help";
+import InventoryPage from "./pages/Inventory";
 
 
 function App() {
@@ -46,7 +43,7 @@ function App() {
                         <Route path={"sign-in"} element={<SignIn/>}/>
                         <Route path={"sign-up"} element={<SignUp/>}/>
                         <Route path={"forgot-password"} element={<ForgotPassword/>}/>
-                        <Route path={"my-products"} element={<MyProducts/>}/>
+                        <Route path={"inventory"} element={<InventoryPage/>}/>
                         <Route path={"admin"} element={<AdminPage/>}/>
                         <Route path={"admin/products"} element={<AdminProducts/>}/>
                         <Route path={"admin/users"} element={<AdminUsers/>}/>
