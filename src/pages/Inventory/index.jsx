@@ -6,13 +6,12 @@ import SettingsNav from "../../components/SettingsNav";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import React from "react";
 
-const MyProducts = () => {
+const InventoryPage = () => {
     const [products, setProducts] = React.useState([]);
 
     const userName = "User Tech"
     const AvatarElement = () => <Avatar /*alt="Cindy Baker"*/ /*src="logo192.png"*/ name={products.length} classes={"large mx-auto mb-4"}/>
     const IconElement = () => <InventoryIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>
-
 
     return (
         <div className={"container"}  style={{
@@ -24,7 +23,7 @@ const MyProducts = () => {
                     <Grid item xs={8}>
                         <Card className={"mb-3"}>
                             <CardContent icon={IconElement}>
-                                <h3>My Products</h3>
+                                <h3>Inventory</h3>
                             </CardContent>
                         </Card>
 
@@ -44,7 +43,7 @@ const MyProducts = () => {
                         <AvatarElement/>
                         <Card>
                             <CardContent>
-                                <h3 className={"text-center mb-0"}>{products.length} subscribed items</h3>
+                                <h3 className={"text-center mb-0"}>{products.length} items in inventory.</h3>
                             </CardContent>
                         </Card>
                     </Grid>
@@ -54,4 +53,4 @@ const MyProducts = () => {
     );
 };
 
-export default MyProducts;
+export default InventoryPage;

@@ -7,6 +7,7 @@ import AdminPanelSettingsIcon from "@mui/icons-material/AdminPanelSettings";
 import InventoryIcon from "@mui/icons-material/Inventory";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
+import Inventory from "../Inventory";
 
 const Navbar = () => {
 
@@ -21,9 +22,10 @@ const Navbar = () => {
                     <NavLogo src={"/images/default/motion-bridge-logo.svg"} alt={"logo"}/>
                 </NavLink>
                 <Bars/>
-                <NavMenu>
+                <NavMenu className={"w-100"}>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/products">Products</NavLink>
+                    <NavLink className={"ms-auto me-3"} to="/inventory"><Inventory/></NavLink>
                 </NavMenu>
                 <NavMenu className={"ms-auto"}>
 
@@ -44,9 +46,9 @@ const Navbar = () => {
                                     classes: "rounded-3"
                                 },
                                 {
-                                    name: "My products",
+                                    name: "Inventory",
                                     icon: <InventoryIcon/>,
-                                    page: "/my-products"
+                                    page: "/inventory"
                                 },
                                 {
                                     name: "Settings",
