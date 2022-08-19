@@ -30,7 +30,7 @@ const DropdownMenu = ({icon, name, content}) => {
                 <Box mr={2}>
                     { icon() }
                 </Box>
-                <Box>
+                <Box className={"text-nowrap"}>
                     { name }
                 </Box>
 
