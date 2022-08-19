@@ -12,7 +12,8 @@ import {QueryClient} from "@tanstack/react-query";
 import {UserContextProvider} from "./providers/UserContextProvider";
 import {SnackbarProvider} from "notistack";
 import {IconButton} from "@mui/material";
-
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 const notificationStackRef = React.createRef();
 const onClickDismiss = (key) => () => {
     notificationStackRef.current.closeSnackbar(key);
@@ -26,7 +27,7 @@ const snackbarProps = {
     },
     maxSnack: 5,
     iconVariant: {
-        success: 'check_circle',
+        success: <CheckCircleOutlineIcon className={"me-2"}/>,
         error: 'error',
         warning: 'warning',
         info: 'info',
@@ -34,7 +35,7 @@ const snackbarProps = {
     ref: notificationStackRef,
     action: key => (
         <IconButton color={'default'} onClick={onClickDismiss(key)}>
-            <i className="material-icons">close</i>
+            <HighlightOffIcon className={"text-white"}/>
         </IconButton>
     )
 }
