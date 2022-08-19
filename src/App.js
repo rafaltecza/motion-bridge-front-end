@@ -15,7 +15,6 @@ import DeleteAccount from "./pages/delete-account";
 import Settings from "./pages/Settings";
 import AdminProducts from "./pages/admin-products";
 import AdminUsers from "./pages/admin-users";
-import MyProducts from "./pages/MyProducts";
 import AdminPage from "./pages/Admin";
 import ContactPage from "./pages/Settings/Contact";
 import AccountPage from "./pages/Settings/Account";
@@ -23,6 +22,7 @@ import SubscriptionPage from "./pages/Settings/Subscription";
 import HelpPage from "./pages/Settings/Help";
 import ProductPage from "./pages/Product";
 import ProductsPage from "./pages/ProductList";
+import InventoryPage from "./pages/Inventory";
 
 function App() {
     return (
@@ -43,7 +43,7 @@ function App() {
                         <Route path={"sign-in"} element={<SignIn/>}/>
                         <Route path={"sign-up"} element={<SignUp/>}/>
                         <Route path={"forgot-password"} element={<ForgotPassword/>}/>
-                        <Route path={"my-products"} element={<MyProducts/>}/>
+                        <Route path={"inventory"} element={<InventoryPage/>}/>
                         <Route path={"admin"} element={<AdminPage/>}/>
                         <Route path={"admin/products"} element={<AdminProducts/>}/>
                         <Route path={"admin/users"} element={<AdminUsers/>}/>
