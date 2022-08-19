@@ -29,23 +29,17 @@ const LoginFormContainer = (props) => {
 
     const onSuccess = async (data) => {
         console.log("HELLO");
-        console.log(data.response.response.data.error);
-        console.log(data.response.response.data.message);
-        console.log(data.response.response.data.path);
-        console.log(data.response.response.data.status);
-        console.log(data.response.response.data.timestamp);
+        console.log(data.response.headers["set-cookies"]);
+        console.log(data.response.headers["set-cookie"]);
         const token = '???';
         setUser(token)
         //push
     }
 
     const onError = (error) => {
-        console.log("HELLO 2");
-        console.log(error.response.data.error);
-        console.log(error.response.data.message);
-        console.log(error.response.data.path);
-        console.log(error.response.data.status);
-        console.log(error.response.data.timestamp);
+        console.log(error)
+        console.log(error.response.headers["set-cookies"])
+        console.log(error.response.headers.map["set-cookies"])
         handleApiError(error);
     }
 
