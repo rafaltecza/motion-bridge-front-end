@@ -1,7 +1,7 @@
 import jwt_decode from 'jwt-decode';
 
 import {createContext, useContext, useEffect, useState} from "react";
-import {refreshToken} from "../api/user";
+import {refreshToken} from "../api/backend/user";
 import {fromUnixTime, differenceInSeconds } from 'date-fns';
 import {useMutation} from "@tanstack/react-query";
 import { _ } from "lodash";

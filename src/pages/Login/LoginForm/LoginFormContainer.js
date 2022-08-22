@@ -1,5 +1,5 @@
 import LoginFormView from "./LoginFormView";
-import {signIn} from "../../../api/user";
+import {signIn} from "../../../api/backend/user";
 import {useMutation} from "@tanstack/react-query";
 import useHandleApiError from "../../../hooks/useHandleApiError";
 

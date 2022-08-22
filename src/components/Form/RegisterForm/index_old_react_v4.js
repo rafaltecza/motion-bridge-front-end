@@ -48,7 +48,7 @@
 //         event.preventDefault();
 //     }
 //
-//     render() {
+//     factory() {
 //         return (
 //             <form onSubmit={this.handleSubmit}>
 //                 <FormGroup>

@@ -1,16 +1,16 @@
 import axios from 'axios';
 
-export const apiClient = axios.create({
-    baseURL: process.env.REACT_APP_API_URL,
+export const factoryClient = axios.create({
+    baseURL: 'http://localhost:3001',
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
         'TimeZone': Intl.DateTimeFormat().resolvedOptions().timeZone
     },
-    timeout: 10000
+    timeout: 120000
 });
 
-apiClient.interceptors.request.use(config => {
+factoryClient.interceptors.request.use(config => {
     config.headers['TimeZone'] = Intl.DateTimeFormat().resolvedOptions().timeZone;
     config.headers['Token'] = Intl.DateTimeFormat().resolvedOptions().timeZone;
     return config;
@@ -18,4 +18,4 @@ apiClient.interceptors.request.use(config => {
     return Promise.reject(error);
 });
 
-export const { get, post, put, delete: delete_ } = apiClient;
+export const { get, post, put, delete: delete_ } = factoryClient;
