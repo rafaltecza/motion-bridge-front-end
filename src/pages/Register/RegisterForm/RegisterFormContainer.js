@@ -1,4 +1,4 @@
-import {signIn, signUp} from "../../../api/user";
+import {signIn, signUp} from "../../../api/backend/user";
 import {useMutation} from "@tanstack/react-query";
 import useHandleApiError from "../../../hooks/useHandleApiError";
 import RegisterFormView from "./RegisterFormView";
@@ -23,9 +23,9 @@ const validationSchema = Yup.object().shape({
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
         .required('Password is required')
         .min(6, 'Password must be at least 6 characters long'),
-    // acceptedTerms: Yup.boolean()
-    //     .oneOf([true], 'You must accept the terms and conditions')
-    //     .required('You must accept the terms and conditions'),
+    acceptedTerms: Yup.boolean()
+        .oneOf([true], 'You must accept the terms and conditions')
+        .required('You must accept the terms and conditions'),
     // acceptNewsletter: Yup.boolean()
     //     .oneOf([true], 'You must accept the newsletter')
     //     .required('You must accept the newsletter'),
