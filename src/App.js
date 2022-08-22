@@ -23,6 +23,7 @@ import HelpPage from "./pages/Settings/Help";
 import ProductPage from "./pages/Product";
 import ProductsPage from "./pages/ProductList";
 import InventoryPage from "./pages/Inventory";
+import PanelPage from "./pages/Panel";
 
 function App() {
     return (
@@ -33,6 +34,7 @@ function App() {
                         <Route path={"/"} element={<Home/>}/>
                         <Route path={"products"} element={<ProductsPage/>}/>
                         <Route path={"products/:productRoute"} element={<ProductPage/>}/>
+                        <Route path={"panel/:productRoute"} element={<PanelPage/>}/>
                         <Route path={"cookie"} element={<Cookie/>}/>
                         <Route path={"settings/account"} element={<AccountPage/>}/>
                         <Route path={"settings/subscriptions"} element={<SubscriptionPage/>}/>

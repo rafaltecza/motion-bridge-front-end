@@ -107,7 +107,7 @@ const HelpPage = () => {
                                         icon: () => <AccountCircleIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
                                     {
-                                        name: "How to render choosen product?",
+                                        name: "How to factory choosen product?",
                                         collapseText: 'Edit',
                                         collapse: answerRenderProduct,
                                         icon: () => <AccountCircleIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,

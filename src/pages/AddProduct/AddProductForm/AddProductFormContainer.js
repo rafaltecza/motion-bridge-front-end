@@ -1,5 +1,5 @@
 import AddProductFormView from "./AddProductFormView";
-import {signIn,getProducts,addProduct} from "../../../api/user";
+import {signIn,getProducts,addProduct} from "../../../api/backend/user";
 import {useMutation} from "@tanstack/react-query";
 import useHandleApiError from "../../../hooks/useHandleApiError";
 

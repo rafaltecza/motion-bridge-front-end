@@ -1,5 +1,5 @@
 import React from 'react';
-import SwiperCore, {EffectCoverflow, Navigation, Pagination} from "swiper";
+import SwiperCore, {Navigation, Pagination} from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css/bundle";
 import "swiper/css";
