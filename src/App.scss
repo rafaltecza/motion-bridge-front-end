@@ -1,0 +1,84 @@
+@import "~bootstrap/scss/bootstrap";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@import '../public/scss/color/colors';
+@import "../public/scss/animation/hover";
+@import "../public/scss/animation/signal";
+
+@import "../public/scss/component/swiper/swiper";
+@import "../public/scss/component/button/button";
+@import "../public/scss/component/button/button-blob-small";
+@import "../public/scss/component/button/button-blob-medium";
+@import "../public/scss/component/button/button-blob-large";
+@import "../public/scss/component/card/card";
+@import "../public/scss/component/text/text";
+@import "../public/scss/component/field/text-field";
+@import "../public/scss/component/icon/icon";
+
+@import "../public/scss/component/background/background";
+@import "../public/scss/component/background/background-gradient";
+@import "../public/scss/component/background/background-vanta";
+
+
+body {
+  background-color: #191919;
+
+  h1 {
+    font-family: Poppins,serif;
+  }
+
+  .z-1 {
+    z-index: 1;
+  }
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.custom-swiper {
+  .swiper-button-next {
+    padding-right: 30px;
+    color: white;
+  }
+  .swiper-button-prev {
+    padding-left: 30px;
+    color: white;
+  }
+}
+
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
