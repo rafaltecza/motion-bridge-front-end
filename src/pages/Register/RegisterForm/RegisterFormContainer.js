@@ -1,10 +1,10 @@
-import {signIn, signUp} from "../../../api/backend/user";
 import {useMutation} from "@tanstack/react-query";
 import useHandleApiError from "../../../hooks/useHandleApiError";
 import RegisterFormView from "./RegisterFormView";
 import useHandleApiSuccess from "../../../hooks/useHandleApiSuccess";
 import {useNavigate} from "react-router-dom";
 import {useSnackbar} from "notistack";
+import signUp from "../../sign-up";
 
 const Yup = require("yup");
 const {useEffect} = require("react");

@@ -1,7 +1,6 @@
 import jwt_decode from 'jwt-decode';
 
 import {createContext, useContext, useEffect, useState} from "react";
-import {refreshToken} from "../api/backend/user";
 import {fromUnixTime, differenceInSeconds } from 'date-fns';
 import {useMutation} from "@tanstack/react-query";
 import { _ } from "lodash";
@@ -19,7 +18,6 @@ export const UserContextProvider = ({ children }) => {
     }
     const [user, setUserData] = useState(tokenDecoded);
     const [isLoggedIn, setIsLoggedIn] = useState(!!sessionToken);
-    const refresh = useMutation(refreshToken);
 
     console.log(isLoggedIn);
 
@@ -44,16 +42,6 @@ export const UserContextProvider = ({ children }) => {
         console.log(error);
     }
 
-    const handleTokenRefresh = async () => {
-        await refresh.mutateAsync(
-            {},
-            {
-                onSuccess,
-                onError
-            }
-        )
-    }
-
     useEffect(() => {
         const sessionToken = localStorage.getItem('sessionToken');
 
@@ -69,18 +57,6 @@ export const UserContextProvider = ({ children }) => {
         }*/
         let timeout = null;
         clearTimeout(timeout);
-
-        if(user && user.uuid) {
-            const expireAt = fromUnixTime(user.exp);
-            const secondsLeft = differenceInSeconds(expireAt, new Date());
-            const milisecondsToStartRefresh = (secondsLeft - 60) * 1000;
-            if(milisecondsToStartRefresh > 1) {
-                timeout = setTimeout(handleTokenRefresh, milisecondsToStartRefresh);
-            } else {
-                handleTokenRefresh();
-            }
-        }
-
         return () => clearTimeout(timeout);
 
     }, [user]);

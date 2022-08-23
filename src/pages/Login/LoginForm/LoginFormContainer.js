@@ -1,7 +1,7 @@
 import LoginFormView from "./LoginFormView";
-import {signIn} from "../../../api/backend/user";
 import {useMutation} from "@tanstack/react-query";
 import useHandleApiError from "../../../hooks/useHandleApiError";
+import signIn from "../../sign-in";
 
 const Yup = require("yup");
 const {useEffect} = require("react");
