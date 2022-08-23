@@ -1,7 +1,7 @@
 import {post, get} from "../index";
 
 export const endpoints = {
-    login: `/login`,
+    login: `users/login`,
     register: `/register`,
     logout: `/logout`,
 }
