@@ -14,14 +14,9 @@ const validationSchema = Yup.object().shape({
 
 const NameFormContainer = (props) => {
     const handleApiError = useHandleApiError();
-    const { setUser, removeUser } = useUserContext();
-
     const login = useMutation(signIn)
-    const signOut = () => removeUser();
 
-    const onSuccess = async (data) => {
-        signOut();
-    }
+    const onSuccess = async (data) => {}
 
     const onError = (error) => {
         handleApiError(error);

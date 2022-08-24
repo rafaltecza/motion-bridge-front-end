@@ -54,11 +54,12 @@ const LoginFormContainer = (props) => {
     }, []);
 
     const onSuccess = async (data) => {
-        console.log(data);
-        const userToken = data.headers.get('Authorization');
-        console.log('userToken', userToken);
-        // setUser(token)
-        //push
+        const authorization = data?.headers?.authorization;
+        if (authorization.length > 0) {
+            const token = authorization.toString().split(' ')[1];
+            setUser(token)
+            navigate("/");
+        }
     }
 
     const onError = (error) => {
