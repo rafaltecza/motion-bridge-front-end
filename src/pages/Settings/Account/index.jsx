@@ -15,13 +15,12 @@ import {DeleteForm} from "./DeleteForm";
 import {PasswordForm} from "./PasswordForm";
 import {NameForm} from "./NameForm";
 import Box from "@mui/material/Box";
+import {useUserContext} from "../../../providers/UserContextProvider";
 
 const AccountPage = () => {
 
-    const userName = "User Tech"
-    const role = "Admin"
-    const email = "test@gmail.com"
-    const AvatarElement = () => <Avatar /*alt="Cindy Baker"*/ /*src="logo192.png"*/ name={userName} classes={"large mx-auto mb-4"}/>
+    const {user} = useUserContext();
+    const AvatarElement = () => <Avatar /*alt="Cindy Baker"*/ /*src="logo192.png"*/ name={user?.username} classes={"large mx-auto mb-4"}/>
     const IconElement = () => <SettingsIcon className={"icon icon-large icon-rectangle bg-dark text-white"}/>
 
     return (
@@ -74,7 +73,7 @@ const AccountPage = () => {
                                         <a><b>Name: </b></a>
                                     </Grid>
                                     <Grid item>
-                                        <span>{userName}</span>
+                                        <span>{user?.username}</span>
                                     </Grid>
                                 </Grid>
 
@@ -83,7 +82,7 @@ const AccountPage = () => {
                                         <a><b>Email: </b></a>
                                     </Grid>
                                     <Grid item>
-                                        <span>{email}</span>
+                                        <span>{user?.sub}</span>
                                     </Grid>
                                 </Grid>
 
@@ -92,7 +91,7 @@ const AccountPage = () => {
                                         <a><b>Role: </b></a>
                                     </Grid>
                                     <Grid item>
-                                        <span>{role}</span>
+                                        <span>{user?.authorities[0]?.authority.toString().split('_')[1]}</span>
                                     </Grid>
                                 </Grid>
 
