@@ -13,24 +13,16 @@ export const UserContextProvider = ({ children }) => {
     let sessionToken;
     if(sessionTokenItem) {
         sessionToken = jwt_decode(sessionTokenItem.toString());
-        console.log(sessionToken);
     }
 
     const [user, setUserData] = useState(sessionToken);
     const [isLoggedIn, setIsLoggedIn] = useState(!!sessionToken);
-
-    console.log(isLoggedIn);
 
     const setUser = (token) => {
         localStorage.setItem('session_token', token);
         setUserData(jwt_decode(token));
         setIsLoggedIn(true);
     }
-
-    useEffect(() => {
-        console.log(user);
-    } , [user]);
-
 
     const removeUser = () => {
         localStorage.removeItem('session_token');
