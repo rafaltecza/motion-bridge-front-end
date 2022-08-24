@@ -9,28 +9,33 @@ const UserContext = createContext({});
 const allowedUserTypes = ['admin', 'user'];
 
 export const UserContextProvider = ({ children }) => {
-    const sessionTokenItem = localStorage.getItem('sessionToken');
-    let sessionToken = null;
-    let tokenDecoded = null;
-    if (sessionTokenItem) {
-        //sessionToken = JSON.parse(sessionTokenItem);
-        //tokenDecoded = jwt_decode(sessionToken);
+    const sessionTokenItem = localStorage.getItem('session_token');
+    let sessionToken;
+    if(sessionTokenItem) {
+        sessionToken = jwt_decode(sessionTokenItem.toString());
+        console.log(sessionToken);
     }
-    const [user, setUserData] = useState(tokenDecoded);
+
+    const [user, setUserData] = useState(sessionToken);
     const [isLoggedIn, setIsLoggedIn] = useState(!!sessionToken);
 
     console.log(isLoggedIn);
 
     const setUser = (token) => {
-        //localStorage.setItem('sessionToken', token);
-        //setUserData(jwt_decode(token));
-        //setIsLoggedIn(true);
+        localStorage.setItem('session_token', token);
+        setUserData(jwt_decode(token));
+        setIsLoggedIn(true);
     }
 
+    useEffect(() => {
+        console.log(user);
+    } , [user]);
+
+
     const removeUser = () => {
-        //localStorage.removeItem('sessionToken');
-        //setUserData({});
-        //setIsLoggedIn(false);
+        localStorage.removeItem('session_token');
+        setUserData({});
+        setIsLoggedIn(false);
     }
 
     const onSuccess = async (data) => {
@@ -43,18 +48,18 @@ export const UserContextProvider = ({ children }) => {
     }
 
     useEffect(() => {
-        const sessionToken = localStorage.getItem('sessionToken');
+        const sessionToken = localStorage.getItem('session_token');
 
         if(!user?.uuid && sessionToken) {
-        //    const tokenDecoded = jwt_decode(sessionToken);
-        //    tokenDecoded && setUserData(tokenDecoded);
+           const tokenDecoded = jwt_decode(sessionToken);
+           tokenDecoded && setUserData(tokenDecoded);
         }
     }, []);
 
     useEffect(() => {
-        /*if(user && !user.roles.find(item => allowedUserTypes.includes(item))) {
-            removeUser();
-        }*/
+         // if(user && !user.roles.find(item => allowedUserTypes.includes(item))) {
+         //     removeUser();
+         // }
         let timeout = null;
         clearTimeout(timeout);
         return () => clearTimeout(timeout);
