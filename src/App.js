@@ -24,6 +24,7 @@ import ProductPage from "./pages/Product";
 import ProductsPage from "./pages/ProductList";
 import InventoryPage from "./pages/Inventory";
 import PanelPage from "./pages/Panel";
+import LogoutPage from "./pages/Logout";
 
 function App() {
     return (
@@ -49,6 +50,8 @@ function App() {
                         <Route path={"admin"} element={<AdminPage/>}/>
                         <Route path={"admin/products"} element={<AdminProducts/>}/>
                         <Route path={"admin/users"} element={<AdminUsers/>}/>
+                        <Route path={"logout"} element={<LogoutPage/>}/>
+
                 </SlideRoutes>
             </ParallaxProvider>
             <Footer/>

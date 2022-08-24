@@ -8,11 +8,12 @@ import InventoryIcon from "@mui/icons-material/Inventory";
 import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Inventory from "../Inventory";
+import {useUserContext} from "../../providers/UserContextProvider";
 
 const Navbar = () => {
 
-    const userName = "User Tech"
-    const AvatarElement = () => <Avatar /*alt="Cindy Baker"*/ /*src="logo192.png"*/ name={userName} classes={"small shadow"}/>
+    const {user, isLoggedIn} = useUserContext();
+    const AvatarElement = () => <Avatar /*alt="Cindy Baker"*/ /*src="logo192.png"*/ name={user?.username} classes={"small shadow"}/>
 
 
     return (
@@ -25,18 +26,18 @@ const Navbar = () => {
                 <NavMenu className={"w-100"}>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/products">Products</NavLink>
-                    <NavLink className={"ms-auto me-3"} to="/inventory"><Inventory/></NavLink>
+                    { isLoggedIn && <NavLink className={"ms-auto me-3"} to="/inventory"><Inventory/></NavLink> }
                 </NavMenu>
                 <NavMenu className={"ms-auto"}>
 
-                { localStorage.getItem('sessionToken') === undefined ?
+                { !isLoggedIn ?
                     (
                         <>
-                            <NavLink className={"button-border-red me-0"} to="/sign-in">Sign In</NavLink>
-                            <NavLink className={"button-border-red me-0"} to="/sign-up">Sign Up</NavLink>
+                            <NavLink className={"button-border-red me-0 text-nowrap"} to="/sign-in">Sign In</NavLink>
+                            <NavLink className={"button-border-red me-0 text-nowrap"} to="/sign-up">Sign Up</NavLink>
                         </>
                     ) : (
-                        <DropdownMenu icon={AvatarElement} name={userName} content={
+                        <DropdownMenu icon={AvatarElement} name={user?.username} content={
                             [
                                 {
                                     name: "Admin panel",

@@ -1,10 +1,10 @@
-import {signIn, signUp} from "../../../api/backend/user";
 import {useMutation} from "@tanstack/react-query";
 import useHandleApiError from "../../../hooks/useHandleApiError";
 import RegisterFormView from "./RegisterFormView";
 import useHandleApiSuccess from "../../../hooks/useHandleApiSuccess";
 import {useNavigate} from "react-router-dom";
 import {useSnackbar} from "notistack";
+import {signUp} from "../../../api/backend/auth";
 
 const Yup = require("yup");
 const {useEffect} = require("react");
@@ -23,9 +23,9 @@ const validationSchema = Yup.object().shape({
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
         .required('Password is required')
         .min(6, 'Password must be at least 6 characters long'),
-    acceptedTerms: Yup.boolean()
-        .oneOf([true], 'You must accept the terms and conditions')
-        .required('You must accept the terms and conditions'),
+    // acceptedTerms: Yup.boolean()
+    //     .oneOf([true], 'You must accept the terms and conditions')
+    //     .required('You must accept the terms and conditions'),
     // acceptNewsletter: Yup.boolean()
     //     .oneOf([true], 'You must accept the newsletter')
     //     .required('You must accept the newsletter'),
@@ -37,7 +37,7 @@ const RegisterFormContainer = (props) => {
 
     const handleApiError = useHandleApiError();
     const handleApiSuccess = useHandleApiSuccess();
-    const { setUser, removeUser } = useUserContext();
+    const { removeUser } = useUserContext();
 
     const register = useMutation(signUp)
     const signOut = () => removeUser();
@@ -47,14 +47,7 @@ const RegisterFormContainer = (props) => {
     }, []);
 
     const onSuccess = async (data) => {
-        enqueueSnackbar("Account created, please check your mailbox to activate account.", {
-            variant: 'success',
-            autoHideDuration: 5000,
-            anchorOrigin: {
-                vertical: 'top',
-                horizontal: 'center',
-            },
-        });
+        handleApiSuccess(data);
         navigate("/");
     }
 
