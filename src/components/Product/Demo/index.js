@@ -37,8 +37,8 @@ const ProductDemo = (props) => {
                                     </div>
                                     <div className={"col-lg-auto col-12 ms-auto"}>
                                        <span className="shadow badge bg-animated-gradient-gy text-black mb-3 w-100" >
-                                            {props.price != null ? (
-                                                <h5 className={"mb-0 p-2"}>{props.price}</h5>
+                                            {props.price != null && props.currency != null? (
+                                                <h5 className={"mb-0 p-2"}>{props.price} / {props.currency}</h5>
                                             ) : (
                                                 <></>
                                             )}
