@@ -1,5 +1,6 @@
 import React from 'react'
 import ProductDemo from "../../components/Product/Demo";
+import ProductList from "../../components/Product/List";
 
 const ProductsPage = () => {
     return (
@@ -18,40 +19,14 @@ const ProductsPage = () => {
                     </div>
                 </div>
 
-                <ProductDemo name={"Profile Presenter"}
-                             route={"profile-presenter-instagram"}
-                             label={"Instagram"}
-                             price={"9.99$/mo"}
-                             content={"Some quick example text to build on the card title and make up the bulk of " +
-                                 "the card's content. Some quick example text to build on the card title and make up " +
-                                 "the bulk of the card's content. Some quick example text to build on the card title " +
-                                 "and make up the bulk of the card's content."}
-                             backgroundType={"circle"}/>
 
-                <div className={"row"}>
-                    <div className={"col-lg-6 col-12"}>
-                        <ProductDemo name={"Profile Presenter"}
-                                     route={"profile-presenter-facebook"}
-                                     label={"Facebook"}
-                                     price={"4.99$/mo"}
-                                     content={"Some quick example text to build on the card title and make up the bulk of " +
-                                         "the card's content. Some quick example text to build on the card title and make up " +
-                                         "the bulk of the card's content. Some quick example text to build on the card title " +
-                                         "and make up the bulk of the card's content."}
-                                     backgroundType={"circle"}/>
+                <ProductList/>
 
-                    </div>
-                    <div className={"col-lg-6 col-12"}>
-                        <ProductDemo name={"Coming Soon"}
-                                     route={"coming-soon"}
-                                     price={"?.??$/mo"}
-                                     content={"Some quick example text to build on the card title and make up the bulk of " +
-                                         "the card's content. Some quick example text to build on the card title and make up " +
-                                         "the bulk of the card's content. Some quick example text to build on the card title " +
-                                         "and make up the bulk of the card's content."}
-                                     backgroundType={"circle"}/>
-                    </div>
-                </div>
+
+
+
+
+
                 {/*<ProductDemo backgroundType={"color"}/>*/}
                 {/*<ProductDemo backgroundType={"cobweb"}/>*/}
                 {/*<ProductDemo backgroundType={"polygon"}/>*/}
