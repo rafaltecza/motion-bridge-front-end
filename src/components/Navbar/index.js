@@ -9,6 +9,7 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import LogoutIcon from "@mui/icons-material/Logout";
 import Inventory from "../Inventory";
 import {useUserContext} from "../../providers/UserContextProvider";
+import Basket from "../Basket";
 
 const Navbar = () => {
 
@@ -26,7 +27,8 @@ const Navbar = () => {
                 <NavMenu className={"w-100"}>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/products">Products</NavLink>
-                    { isLoggedIn && <NavLink className={"ms-auto me-3"} to="/inventory"><Inventory/></NavLink> }
+                    { isLoggedIn && <NavLink className={"ms-auto me-3"} to="/basket"><Basket/></NavLink> }
+                    { isLoggedIn && <NavLink className={"me-3"} to="/inventory"><Inventory/></NavLink> }
                 </NavMenu>
                 <NavMenu className={"ms-auto"}>
 
