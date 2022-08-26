@@ -1,10 +1,9 @@
 import { combineReducers } from 'redux';
 
-import alertReducer from './Alert/alert.reducer';
+import productsReducer from "./Products/products.reducer";
 
 const rootReducer = combineReducers({
-    alert: alertReducer,
+    addedProducts: productsReducer
+})
 
-});
-
-export default rootReducer;
+export default rootReducer
