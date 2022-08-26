@@ -1,9 +1,8 @@
 import jwt_decode from 'jwt-decode';
 
 import {createContext, useContext, useEffect, useState} from "react";
-import {fromUnixTime, differenceInSeconds } from 'date-fns';
-import {useMutation} from "@tanstack/react-query";
 import { _ } from "lodash";
+import {useNavigate} from "react-router-dom";
 
 const UserContext = createContext({});
 const allowedUserTypes = ['admin', 'user'];
@@ -11,10 +10,7 @@ const allowedUserTypes = ['admin', 'user'];
 export const UserContextProvider = ({ children }) => {
     const sessionTokenItem = localStorage.getItem('session_token');
     let sessionToken;
-    if(sessionTokenItem) {
-        sessionToken = jwt_decode(sessionTokenItem.toString());
-    }
-
+    if(sessionTokenItem) sessionToken = jwt_decode(sessionTokenItem.toString());
     const [user, setUserData] = useState(sessionToken);
     const [isLoggedIn, setIsLoggedIn] = useState(!!sessionToken);
 
@@ -28,6 +24,10 @@ export const UserContextProvider = ({ children }) => {
         localStorage.removeItem('session_token');
         setUserData({});
         setIsLoggedIn(false);
+    }
+
+    const authorize = () => {
+
     }
 
     const onSuccess = async (data) => {
@@ -55,7 +55,6 @@ export const UserContextProvider = ({ children }) => {
         let timeout = null;
         clearTimeout(timeout);
         return () => clearTimeout(timeout);
-
     }, [user]);
 
     return (

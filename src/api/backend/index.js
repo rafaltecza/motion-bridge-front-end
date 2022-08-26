@@ -13,6 +13,7 @@ export const apiClient = axios.create({
 apiClient.interceptors.request.use(config => {
     config.headers['TimeZone'] = Intl.DateTimeFormat().resolvedOptions().timeZone;
     config.headers['Token'] = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    localStorage.getItem('session_token') && (config.headers.Authorization = `Bearer ${localStorage.getItem('session_token')}`);
     return config;
 }, error => {
     return Promise.reject(error);
