@@ -102,12 +102,13 @@ const PanelPage = () => {
                     <Grid item xs={12} md={6}>
                         <Card>
                             <CardContent>
-                                {isAnimationLoaded ? <Lottie
-                                    loop
-                                    animationData={currentAnimation}
-                                    play
-                                    className={'mx-auto'}
-                                    style={{ width: 450, height: 450 }}
+                                {isAnimationLoaded ?
+                                    <Lottie
+                                        loop
+                                        animationData={currentAnimation}
+                                        play
+                                        className={'mx-auto'}
+                                        style={{ width: 450, height: 450 }}
                                 /> : <div>Loading...</div>}
 
                             </CardContent>
