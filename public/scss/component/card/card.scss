@@ -4,3 +4,10 @@
   z-index: 0;
   background-color: rgba(255, 255, 255, 0.9);
 }
+
+.card-border {
+  border-width: thin;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.22);
+  border-radius: 1.2rem;
+}

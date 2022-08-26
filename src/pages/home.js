@@ -3,9 +3,12 @@ import Slider from "../components/Slider";
 import Title from "../components/Text/Title";
 import {ParallaxProvider} from "react-scroll-parallax";
 import {SliderContent, SliderTitle} from "../components/Slider/SliderElements";
+import {Grid} from "@mui/material";
+import Box from "@mui/material/Box";
 
 
 const Home = () => {
+    const content = [];
     return (
         <>
             <Slider slides={[
@@ -43,6 +46,10 @@ const Home = () => {
                     classes: "slide-color-3"
                 }
             ]}/>
+
+            // Take content array and sort alphabetically
+
+
             <div className={"row justify-content-center"} style={{
                 minHeight: "90vh"
             }}>
@@ -50,6 +57,22 @@ const Home = () => {
                     <ParallaxProvider>
                         <Title textColor={"text-white"}>How it works?</Title>
                     </ParallaxProvider>
+                    <ParallaxProvider>
+                        <div className={"container"}>
+                            <Grid container spacing={3}>
+                                <Grid item sm={4}>
+                                    <Box bgcolor={"darkgray"} height={200}>{content[0]}</Box>
+                                </Grid>
+                                <Grid item sm={4}>
+                                    <Box bgcolor={"darkgray"} height={200}>{content[1]}</Box>
+                                </Grid>
+                                <Grid item sm={4}>
+                                    <Box bgcolor={"darkgray"} height={200}>{content[2]}</Box>
+                                </Grid>
+                            </Grid>
+                        </div>
+                    </ParallaxProvider>
+
                 </div>
             </div>
         </>
