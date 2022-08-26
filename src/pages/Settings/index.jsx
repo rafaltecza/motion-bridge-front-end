@@ -3,22 +3,18 @@ import SettingsIcon from "@mui/icons-material/Settings";
 import {Grid} from "@mui/material";
 import Card from "../../components/Card";
 import CardContent from "../../components/Card/Content";
-import SettingsNav from "../../components/SettingsNav";
 import React from "react";
 import Menu from "../../components/Menu";
-import AutoAwesomeMosaicIcon from "@mui/icons-material/AutoAwesomeMosaic";
-import GroupIcon from "@mui/icons-material/Group";
 import LoyaltyIcon from "@mui/icons-material/Loyalty";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EmailIcon from '@mui/icons-material/Email';
 import HelpIcon from '@mui/icons-material/Help';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
-import {Chip} from "@material-ui/core";
+import {useUserContext} from "../../providers/UserContextProvider";
 const Settings = () => {
 
-    const userName = "User Tech"
-    const role = "Admin"
-    const AvatarElement = () => <Avatar /*alt="Cindy Baker"*/ /*src="logo192.png"*/ name={userName} classes={"large mx-auto mb-4"}/>
+    const {user} = useUserContext();
+    const AvatarElement = () => <Avatar /*alt="Cindy Baker"*/ /*src="logo192.png"*/ name={user?.username} classes={"large mx-auto mb-4"}/>
     const IconElement = () => <SettingsIcon className={"icon icon-large icon-rectangle bg-dark text-white"}/>
 
     return (
@@ -73,12 +69,12 @@ const Settings = () => {
                         <AvatarElement/>
                         <Card className={"mb-3"}>
                             <CardContent>
-                                <h3 className={"text-center mb-0"}>{userName}</h3>
+                                <h3 className={"text-center mb-0"}>{user?.username}</h3>
                             </CardContent>
                         </Card>
                         <Card className={"mb-3 bg-transparent border rounded-2"}>
                             <CardContent>
-                                <h5 className={"text-white text-center mb-0"}>{role}</h5>
+                                <h5 className={"text-white text-center mb-0"}>{user?.authorities[0]?.authority.toString().split('_')[1]}</h5>
                             </CardContent>
                         </Card>
                     </Grid>

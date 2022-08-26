@@ -1,15 +1,16 @@
 import {ErrorMessage, Formik} from 'formik';
-import {Checkbox, FormControlLabel, TextField} from "@mui/material";
-import {red} from "@mui/material/colors";
+import {TextField} from "@mui/material";
 import React from "react";
+import {useUserContext} from "../../../../providers/UserContextProvider";
 
 const DeleteFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
+    const { user } = useUserContext();
+
     return (
         <div className={"container"}>
             <Formik
                 initialValues={{
-                    confirmation: false,
-                    password: '',
+                    name: user?.username,
                 }}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}
@@ -29,7 +30,7 @@ const DeleteFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
                                        className={"w-100 my-2 text-field style-primary"}
                                        onChange={handleChange}
                                        onBlur={handleBlur}
-                                       value={values.password}/>
+                                       value={values.name}/>
 
                             <ErrorMessage name={"name"}/>
                         </div>

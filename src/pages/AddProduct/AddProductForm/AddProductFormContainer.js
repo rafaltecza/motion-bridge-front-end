@@ -38,13 +38,6 @@ const AddProductFormContainer = (props) => {
     }
 
     const onError = (error) => {
-        console.log("ERROR :(");
-
-        console.log(error.response.data.error);
-        console.log(error.response.data.message);
-        console.log(error.response.data.path);
-        console.log(error.response.data.status);
-        console.log(error.response.data.timestamp);
         handleApiError(error);
     }
 
