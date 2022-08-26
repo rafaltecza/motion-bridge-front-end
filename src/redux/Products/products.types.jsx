@@ -1,0 +1,2 @@
+export const APPEND_PRODUCT = 'APPEND_PRODUCT';
+export const DELETE_PRODUCT = 'DELETE_PRODUCT';
