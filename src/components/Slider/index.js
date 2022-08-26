@@ -6,6 +6,7 @@ import "swiper/css";
 import {SliderContent, SliderIcon, SliderSkip, SliderSlide, SliderTitle} from "./SliderElements";
 import { FaAngleDown } from "react-icons/fa";
 import {isArray} from "lodash";
+import Box from "@mui/material/Box";
 
 SwiperCore.use([Navigation, Pagination]);
 
@@ -15,7 +16,9 @@ const Slider = (slides, ...props) => {
         <div style={{
             fontFamily: "Poppins, serif"
         }} {...props}>
-            <SliderIcon><FaAngleDown/></SliderIcon>
+
+                <SliderIcon><Box mt={3} zIndex={10}><FaAngleDown/></Box></SliderIcon>
+
 
                 <Swiper
                     effect={"slide"}
