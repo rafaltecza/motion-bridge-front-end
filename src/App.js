@@ -25,6 +25,8 @@ import ProductsPage from "./pages/ProductList";
 import InventoryPage from "./pages/Inventory";
 import PanelPage from "./pages/Panel";
 import LogoutPage from "./pages/Logout";
+import CheckoutPage from "./pages/Checkout";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
     return (
@@ -51,6 +53,7 @@ function App() {
                         <Route path={"admin/products"} element={<AdminProducts/>}/>
                         <Route path={"admin/users"} element={<AdminUsers/>}/>
                         <Route path={"logout"} element={<LogoutPage/>}/>
+                        <Route path={"checkout"} element={<PrivateRoute><CheckoutPage/></PrivateRoute>}/>
 
                 </SlideRoutes>
             </ParallaxProvider>

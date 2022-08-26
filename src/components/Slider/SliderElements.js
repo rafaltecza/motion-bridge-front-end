@@ -3,10 +3,13 @@ import { NavLink as Link } from 'react-router-dom';
 import { FaBars } from 'react-icons/fa'
 
 
+export const SliderNavigation = styled.div`
+  margin-top: 1rem;
+  float: right;
+`;
 
 export const SliderContent = styled.label`
   text-shadow: 1px 1px rgba(0, 0, 0, 15%);
-  font-weight: 150;
   color: #fff;
   background: rgba(0, 0, 0, 0.1);
   font-size: 16px;

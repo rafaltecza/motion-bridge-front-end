@@ -10,8 +10,6 @@ export const Nav = styled.nav`
   border-top: 4px solid #DC3545;
   z-index: 10;
   font-family: "Poppins", sans-serif;
-  /* Third Nav */
-  /* justify-content: flex-start; */
 `;
 
 export const NavLink = styled(Link)`
