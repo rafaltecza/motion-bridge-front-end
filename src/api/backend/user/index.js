@@ -1,6 +1,5 @@
 import {post,get} from "../index";
 
-export const getProductsEndpoint = '/api/products';
 export const getProductsEndpoint = '/api/products/active';
 export const addProductEndpoint = '/api/products/add';
 
