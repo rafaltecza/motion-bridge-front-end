@@ -24,7 +24,7 @@ const LoginFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
                                        type={"email"}
                                        label={"Email"}
                                        variant={"outlined"}
-                                       className={"w-100 my-2 text-field style-primary"}
+                                       className={"w-100 my-2 text-field style-secondary"}
                                        onChange={handleChange}
                                        onBlur={handleBlur}
                                        value={values.email}/>
@@ -34,7 +34,7 @@ const LoginFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
                                        type={"password"}
                                        label={"Password"}
                                        variant={"outlined"}
-                                       className={"w-100 my-2 text-field style-primary"}
+                                       className={"w-100 my-2 text-field style-secondary"}
                                        onChange={handleChange}
                                        onBlur={handleBlur}
                                        value={values.password}/>
@@ -42,7 +42,7 @@ const LoginFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
                             <ErrorMessage name={"password"}/>
                         </div>
                         <div className={"form-group mt-3"}>
-                            <button type={"submit"} className={"btn btn-primary"}>
+                            <button type={"submit"} className={"btn button-gold float-end"}>
                                 {isLoading ? '' : 'Login'}
                             </button>
                         </div>
