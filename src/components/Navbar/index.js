@@ -21,13 +21,13 @@ const Navbar = () => {
         <>
             <Nav>
                 <NavLink to="/">
-                    <NavLogo src={"/images/default/motion-bridge-logo.svg"} alt={"logo"}/>
+                    <NavLogo src={"/images/default/logo.svg"} alt={"logo"}/>
                 </NavLink>
                 <Bars/>
                 <NavMenu className={"w-100"}>
                     <NavLink to="/">Home</NavLink>
                     <NavLink to="/products">Products</NavLink>
-                    { isLoggedIn && <NavLink className={"ms-auto me-3"} to="/basket"><Basket/></NavLink> }
+                    { isLoggedIn && <NavLink className={"ms-auto me-3"} to="/checkout"><Basket/></NavLink> }
                     { isLoggedIn && <NavLink className={"me-3"} to="/inventory"><Inventory/></NavLink> }
                 </NavMenu>
                 <NavMenu className={"ms-auto"}>
