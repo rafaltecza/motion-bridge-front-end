@@ -49,6 +49,11 @@
   @include mb-text-size(40px);
 }
 
+.text-size-10 {
+  @include mb-text-size(10px);
+}
+
+
 .text-red {
   @include mb-text(red);
 }

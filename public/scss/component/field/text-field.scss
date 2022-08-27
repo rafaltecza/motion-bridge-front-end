@@ -14,4 +14,23 @@
 
   }
 
+  &.style-secondary {
+    border: 2px solid #757575a6;
+    border-radius: 8px;
+
+    &::placeholder {
+      color: #757575;
+    }
+
+    .MuiInputLabel-root {
+      color: #757575;
+    }
+
+    .MuiOutlinedInput-notchedOutline {
+      border: 0 solid;
+      border-radius: 8px;
+    }
+
+  }
+
 }
