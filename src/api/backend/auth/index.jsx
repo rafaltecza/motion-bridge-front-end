@@ -1,9 +1,10 @@
-import {post, get} from "../index";
+import {post,put, get} from "../index";
 
 export const endpoints = {
     login: `users/login`,
     register: `/register`,
     logout: `/logout`,
+    changePassword: `users/changePassword`,
 }
 
 export const signIn = (data) => {
@@ -16,4 +17,8 @@ export const signUp = (data) => {
 
 export const logout = (data) => {
     return post(endpoints.logout, data);
+}
+
+export const changePassword = (data) => {
+    return put(endpoints.changePassword, data);
 }
