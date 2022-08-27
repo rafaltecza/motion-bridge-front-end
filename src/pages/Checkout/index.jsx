@@ -1,5 +1,4 @@
 import {Grid} from "@material-ui/core";
-import CardContent from "../../components/Card/Content";
 import React, {useCallback, useEffect, useState} from "react";
 
 import {useProductConfiguration} from "../../hooks/useProductConfiguration";
@@ -17,6 +16,7 @@ import {connect, useSelector} from "react-redux";
 import {appendProduct, deleteProduct} from "../../redux/Products/products.actions";
 import {requestOrder} from "../../api/backend/order";
 import useHandleApiError from "../../hooks/useHandleApiError";
+import {CardContent, Link, TextField} from "@mui/material";
 
 const CheckoutPage = ({addedProducts, removeProduct}) => {
     const navigate = useNavigate();
@@ -69,23 +69,72 @@ const CheckoutPage = ({addedProducts, removeProduct}) => {
                 fontFamily: "Poppins, sans-serif"
             }}>
                 <div className={"mt-5 mb-4"}>
-                    <Grid container spacing={3}>
+                    <Grid container spacing={6}>
                         <Grid item xs={12} md={6}>
-                            <Card className={"mb-3"}>
-                                <CardContent icon={<Basket/>}>
-                                    <h3 className={"m-0 text-title"}>Checkout</h3>
+                            <div className={"mb-3 bg-transparent"}>
+                                <CardContent>
+                                    <Grid container alignContent={"space-between"}>
+                                        <Grid item xs={"auto"}>
+                                            <h3 className={"mb-0 text-white"}>Checkout</h3>
+                                        </Grid>
+                                        <Grid className={"ms-auto"} item xs={"auto"}>
+                                            <h4 className={"mb-0"}><Basket/></h4>
+                                        </Grid>
+                                    </Grid>
                                 </CardContent>
-                            </Card>
+                            </div>
 
                             <Card>
                                 <CardContent className="card-border">
-                                    Summary: {checkout?.total} {checkout?.currency}
-                                    <Box mt={3} float={"right"}>
-                                        <ButtonBlop onClick={onCheckoutClick} className={"blob-btn-border-red-md"}>Go to payment</ButtonBlop>
+                                    <Box>
+                                        <TextField name={"coupon"}
+                                                   id={"coupon"}
+                                                   type={"text"}
+                                                   label={"Coupon"}
+                                                   variant={"outlined"}
+                                                   className={"w-100 my-2 text-field style-secondary"}
+                                                    disabled/>
+
                                     </Box>
-                                    <Box mt={3} float={"right"}>
-                                        <ButtonBlop onClick={navigateProducts} className={"blob-btn-border-red-md"}>More products</ButtonBlop>
+                                    <hr className={"mt-2"}/>
+
+                                    <Grid container>
+                                        <Grid item xs={"auto"}>
+                                            <h5 className={"text-danger"}>Discount:</h5>
+                                        </Grid>
+                                        <Grid className={"ms-auto"} item xs={"auto"}>
+                                            <h5 className={"text-danger"}>0 {checkout?.currency}</h5>
+                                        </Grid>
+                                    </Grid>
+
+                                    <Grid container>
+                                        <Grid item xs={"auto"}>
+                                            <h5>Total:</h5>
+                                        </Grid>
+                                        <Grid className={"ms-auto"} item xs={"auto"}>
+                                            <h5>{checkout?.total} {checkout?.currency}</h5>
+                                        </Grid>
+                                    </Grid>
+
+                                    <Box>
+                                        <a className={"text-size-10 text-decoration-none text-white-50"}>Privacy Policy</a>
+                                        <a className={"ms-2 text-size-10 text-decoration-none text-white-50"}>Terms of Service</a>
                                     </Box>
+
+                                    <Box mt={1}>
+                                        <p className={"text-size-10"}>Motion Bridge sp.z o.o. based in Warsaw, Plac Europejski 1, 00-844 Warsaw, is the administrator
+                                        of your personal data for the purposes of sales and promotional activities. More information
+                                            can be found in the Privacy Policy.</p>
+                                    </Box>
+                                    <hr className={"mt-2"}/>
+                                    <Grid className={"mt-2"} container>
+                                        <Grid item xs={"auto"}>
+                                            <ButtonBlop onClick={navigateProducts} className={"blob-btn-border-red-md"}>More products</ButtonBlop>
+                                        </Grid>
+                                        <Grid className={"ms-auto"} item xs={"auto"}>
+                                            <ButtonBlop onClick={onCheckoutClick} className={"blob-btn-border-gold-md"}>Proceed</ButtonBlop>
+                                        </Grid>
+                                    </Grid>
                                 </CardContent>
                             </Card>
 
