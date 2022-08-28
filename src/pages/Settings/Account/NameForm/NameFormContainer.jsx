@@ -4,6 +4,8 @@ import useHandleApiError from "../../../../hooks/useHandleApiError";
 import {useUserContext} from "../../../../providers/UserContextProvider";
 import * as React from "react";
 import NameFormView from "./NameFormView";
+import useHandleApiSuccess from "../../../../hooks/useHandleApiSuccess";
+import {changeName} from "../../../../api/backend/auth";
 
 const Yup = require("yup");
 
@@ -14,16 +16,21 @@ const validationSchema = Yup.object().shape({
 
 const NameFormContainer = (props) => {
     const handleApiError = useHandleApiError();
-    const login = useMutation(signIn)
+    const handleApiSuccess = useHandleApiSuccess();
+    const change = useMutation(changeName)
 
-    const onSuccess = async (data) => {}
+    const onSuccess = async (data) => {
+        handleApiSuccess();
+        console.log("Success")
+    }
+
 
     const onError = (error) => {
         handleApiError(error);
     }
 
     const handleSubmit = async (values, { setSubmitting }) => {
-        await login.mutateAsync(
+        await change.mutateAsync(
             {
                 name: values.name,
             }, {
@@ -37,7 +44,7 @@ const NameFormContainer = (props) => {
 
     return <NameFormView
         {...props}
-        isLoading={login.isLoading}
+        isLoading={change.isLoading}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
     />;

@@ -5,6 +5,7 @@ export const endpoints = {
     register: `/register`,
     logout: `/logout`,
     changePassword: `users/changePassword`,
+    changeName: `users/changeName`,
 }
 
 export const signIn = (data) => {
@@ -21,4 +22,8 @@ export const logout = (data) => {
 
 export const changePassword = (data) => {
     return put(endpoints.changePassword, data);
+}
+
+export const changeName = (data) => {
+    return put(endpoints.changeName, data);
 }
