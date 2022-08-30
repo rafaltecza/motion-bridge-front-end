@@ -26,19 +26,6 @@ export const UserContextProvider = ({ children }) => {
         setIsLoggedIn(false);
     }
 
-    const authorize = () => {
-
-    }
-
-    const onSuccess = async (data) => {
-        const token = _.include(data, 'data.access_token')
-        setUser(token)
-    }
-
-    const onError = (error) => {
-        console.log(error);
-    }
-
     useEffect(() => {
         const sessionToken = localStorage.getItem('session_token');
 

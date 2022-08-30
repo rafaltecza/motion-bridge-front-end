@@ -18,6 +18,8 @@ const Settings = () => {
     const IconElement = () => <SettingsIcon className={"icon icon-large icon-rectangle bg-dark text-white"}/>
 
     return (
+        <div className={"bg-md-primary"}>
+
         <div className={"container"}  style={{
             minHeight: '90vh',
             fontFamily: "Poppins, sans-serif"
@@ -80,6 +82,7 @@ const Settings = () => {
                     </Grid>
                 </Grid>
             </div>
+        </div>
         </div>
     );
 };

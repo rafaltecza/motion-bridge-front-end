@@ -91,12 +91,11 @@ const ProductPage = ({addedProducts, addProduct}) => {
                     content: <div className={"container py-5"}>
                         <div className={"row py-5"}>
                             <div className={"col-6 text-white"}>
-                                <SliderTitle>Product 1</SliderTitle>
-                                <SliderContent>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                                    lorem ipsum lorem ipsum lorem ipsum</SliderContent>
+                                <SliderTitle>Test Tile</SliderTitle>
+                                <SliderContent>This product exists only becuase of presenation porpuse. It will be not contained in the final stage. It can be used to show possibilites provided by our service.</SliderContent>
                                 <SliderNavigation>
                                     <ButtonBlop onClick={navigateCheckout}
-                                                className={"blob-btn-border-red-md"}>{isAlreadyAdded(thisProduct) ? "Checkout" : "Subscribe"}</ButtonBlop>
+                                                className={"blob-btn-border-gold-md"}>{isAlreadyAdded(thisProduct) ? "Checkout" : "Subscribe"}</ButtonBlop>
                                 </SliderNavigation>
                             </div>
                             <div className={"col-6 text-white"}>
@@ -144,8 +143,6 @@ const ProductPage = ({addedProducts, addProduct}) => {
                 <div className={"mt-5 mb-4"}>
                     <Grid container spacing={3}>
                         <Grid item xs={12}>
-
-
                             <Grid className={"mt-3"} container spacing={3}>
                                 <Grid item xs={3}>
                                     <div className="wrapper">

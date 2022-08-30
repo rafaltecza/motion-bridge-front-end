@@ -1,46 +1,15 @@
-import React from "react";
+import React, {useEffect} from "react";
 import ProductDemo from "../Demo";
-import {getProducts} from "../../../api/backend/user";
-import {useMutation} from "@tanstack/react-query";
-const {useEffect} = require("react");
 
-
-const ProductList = () => {
-
-    const getPacketsRes = useMutation(getProducts);
-    const [packet, setPacket] = React.useState([]);
-    const [isLoading, setIsLoading] = React.useState(true);
-
-    const onSuccess = async (data) => {
-        setPacket(data.data);
-        setIsLoading(true);
-    }
-
-    const onError = (error) => {
-        setIsLoading(false);
-        console.log("ERROR :(");
-    }
-
-    useEffect(() => {
-        const fetchData = async () =>
-            await getPacketsRes
-                .mutateAsync(
-                    {
-                    }, {
-                        onSuccess,
-                        onError
-                    }
-                )
-        fetchData();
-    }, [packet]);
+const ProductList = ({products, isLoading}) => {
 
 
 
     return (
         <>
-        {isLoading ? (
+        {true ? (
             <div>
-                {packet.map(({ name, price, currency }) => (
+                {products && products?.map(({ name, price, currency }) => (
                     <div key={1}>
                         <ProductDemo name={name}
                                      route={"profile-presenter-instagram"}
@@ -58,13 +27,8 @@ const ProductList = () => {
             ) : (
                 <>LOADING ...</>
             )}
-
-
-
-    </>
+        </>
     );
-
-
 }
 
 export default ProductList;

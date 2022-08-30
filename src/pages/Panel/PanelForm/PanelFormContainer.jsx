@@ -7,7 +7,7 @@ const Yup = require("yup");
 
 const PanelFormContainer = (props) => {
     const handleApiError = useHandleApiError();
-    const { productForm, setFormState } = props;
+    const { productForm, setFormState, instagramUser } = props;
 
     const validationSchema = Yup.object().shape(
         productForm.form.map((valueObject, index) => {
@@ -18,14 +18,10 @@ const PanelFormContainer = (props) => {
     );
 
     const onSuccess = (data) => {
-        console.log("NEXT");
-        console.log(data);
         setFormState(formState => formState + 1);
     }
 
     const onBack = (data) => {
-        console.log("BACK");
-        console.log(data);
         setFormState(formState => formState - 1);
     }
 
@@ -34,7 +30,6 @@ const PanelFormContainer = (props) => {
     }
 
     const handleRender = async (data) => {
-        console.log("RENDER");
         data = () => {
             props.setLoading(true);
             return dataJson;
@@ -52,7 +47,7 @@ const PanelFormContainer = (props) => {
             console.log(res);
             props.setLoading(false);
             props.setIsRendered(true);
-            props.setRenderURL(`http://localhost:3001/render/${dataJson.animationConfiguration.fileName}.${dataJson.animationConfiguration.extension}`);
+            props.setRenderURL(`http://localhost:3001/renders/${dataJson.animationConfiguration.fileName}.${dataJson.animationConfiguration.extension}`);
         }).catch(error => {
             onError(error);
         });
@@ -60,21 +55,17 @@ const PanelFormContainer = (props) => {
 
 
     const handleSubmit = (values, { setSubmitting }) => {
-        console.log("ELOO");
         onSuccess();
         setSubmitting(false);
     }
 
     const handleBack = (values) => {
-        console.log("ELOO");
         onBack();
     }
 
-    console.log("HALLO");
-    console.log(productForm.id);
-    console.log(productForm.form.length);
     return <PanelFormView
         {...props}
+        instagramUser={instagramUser}
         productForm={productForm}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}

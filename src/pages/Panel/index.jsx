@@ -8,6 +8,13 @@ import {PanelForm} from "./PanelForm";
 import Halo from "../../components/VantaAnimation/Halo";
 import Card from "../../components/Card";
 import Lottie from "react-lottie-player";
+import AnimationCard from "../../components/Animation/Card";
+import AnimationPreview from "../../components/Animation/Preview";
+import {PanelForm2} from "./PanelForm2";
+import {useQuery} from "@tanstack/react-query";
+import {requestInstagram} from "../../api/backend/user";
+import useHandleApiError from "../../hooks/useHandleApiError";
+import Box from "@mui/material/Box";
 
 const PanelPage = () => {
   const [productsConfiguration, setProductsConfiguration] = useState(useProductConfiguration);
@@ -17,12 +24,22 @@ const PanelPage = () => {
   const [isLoading, setLoading] = useState(false);
   const [isRendered, setIsRendered] = useState(false);
   const [renderURL, setRenderURL] = useState('');
-  console.log(productsConfiguration);
+  const [instagramUser, setInstagramUser] = useState(null);
+  const [instagramData, setInstagramData] = useState(null);
+
+    console.log(productsConfiguration);
+
+    const [isLoadingInstagram, setIsLoadingInstagram] = useState(false);
+
+    useEffect(() => {
+        console.log(instagramUser);
+    }, [instagramUser]);
+
 
   const {productRoute} = useParams();
 
     const getData=()=>{
-        fetch('../lottie/example.json'
+        fetch('../lottie/data.json'
             ,{
                 headers : {
                     'Content-Type': 'application/json',
@@ -76,17 +93,31 @@ const PanelPage = () => {
           <div className={"mt-5 mb-4"}>
               <Grid container spacing={3}>
                       <Grid item xs={12} md={6}>
-                          <Card className={"mb-3"}>
-                              <CardContent icon={product?.icon}>
-                                  <h3 className={"m-0 text-title"}>{product?.name
-                                      .replaceAll('{formState}', formState + 1)
-                                      .replaceAll('{maxFormState}', product?.forms?.length.toString())}</h3>
-                              </CardContent>
-                          </Card>
-
+                          <Grid className={"mb-3"} alignContent={"center"} alignItems={"center"} justifyContent={"center"} container>
+                              <Grid item xs={"auto"}>
+                                  <h3 className={"m-0 text-title text-white"}>{product?.name}</h3>
+                              </Grid>
+                              <Grid className={"ms-auto"} item xs={"auto"}>
+                                  <Card>
+                                        <CardContent>
+                                            <div className={"text-center"}>
+                                                <h3 className={"m-0 text-title"}>{`${formState + 1}/${product?.forms?.length.toString()}`}</h3>
+                                            </div>
+                                        </CardContent>
+                                  </Card>
+                              </Grid>
+                          </Grid>
                           <Card>
                               <CardContent>
-                                  <PanelForm isLoading={isLoading}
+                                  <Box mb={5}>
+                                    <PanelForm2 instagramUser={instagramUser}
+                                                setInstagramData={setInstagramData}
+                                                setInstagramUser={setInstagramUser}
+                                                currentAnimation={currentAnimation}
+                                                setCurrentAnimation={setCurrentAnimation}/>
+                                  </Box>
+                                      <PanelForm isLoading={isLoading}
+                                             instagramUser={instagramUser}
                                              setLoading={setLoading}
                                              isRendered={isRendered}
                                              setIsRendered={setIsRendered}
@@ -100,19 +131,9 @@ const PanelPage = () => {
                       </Grid>
 
                     <Grid item xs={12} md={6}>
-                        <Card>
-                            <CardContent>
-                                {isAnimationLoaded ?
-                                    <Lottie
-                                        loop
-                                        animationData={currentAnimation}
-                                        play
-                                        className={'mx-auto'}
-                                        style={{ width: 450, height: 450 }}
-                                /> : <div>Loading...</div>}
-
-                            </CardContent>
-                        </Card>
+                        <AnimationCard>
+                            <AnimationPreview isAnimationLoaded={isAnimationLoaded} animation={currentAnimation}/>
+                        </AnimationCard>
                     </Grid>
 
               </Grid>

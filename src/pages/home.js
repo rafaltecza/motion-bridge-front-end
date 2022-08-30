@@ -5,6 +5,7 @@ import {ParallaxProvider} from "react-scroll-parallax";
 import {SliderContent, SliderTitle} from "../components/Slider/SliderElements";
 import {Grid} from "@mui/material";
 import Box from "@mui/material/Box";
+import Lottie from "react-lottie-player";
 
 
 const Home = () => {
@@ -16,12 +17,15 @@ const Home = () => {
                     content: <div className={"container py-5"}>
                         <div className={"row py-5"}>
                             <div className={"col-6 text-white"}>
-                                <SliderTitle>Product 1</SliderTitle>
-                                <SliderContent>Lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</SliderContent>
+                                <SliderTitle>Discover our service</SliderTitle>
+                                <SliderContent>With us, you will expand your reach on shared social platforms. Personalize and customize rendered animations and reduce your working time to an absolute minimum.</SliderContent>
+                            </div>
+                            <div className={"col-6 text-white"}>
+                                <img className={"ms-5"} width={500} src={"/images/default/motionbridgehome.png"} alt={""}/>
                             </div>
                         </div>
                     </div>,
-                    classes: "slide-color-1"
+                    classes: "slide-color-2"
                 },
                 {
                     content: <div className={"container py-5"}>

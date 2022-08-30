@@ -6,21 +6,13 @@ const Yup = require("yup");
 export const useProductConfiguration = [
     {
         id: 0,
-        name: "Instagram Profile Presenter - {formState}/{maxFormState}",
+        name: "Instagram Profile Presenter",
         icon: () => <SettingsIcon className={"icon icon-large icon-rectangle bg-dark text-white"}/>,
         route: 'profile-presenter-instagram',
         forms: [
             {
                 id: 0,
                 form: [
-                    {
-                        valueName: 'userName',
-                        placeholder: 'Instagram User Name',
-                        type: 'text',
-                        value: '',
-                        validationSchema: Yup.string()
-                            .required('Email is required'),
-                    },
                     {
                         valueName: 'terms',
                         placeholder: "I have agreement to use content of inserted user.",

@@ -22,18 +22,16 @@ export const SliderContent = styled.label`
 export const SliderSlide = styled.div`
   width: 100%;
   height: 90vh;
-  
-  &.slide-color-1 {
-    background-color: #fbb034;
-    background-image: linear-gradient(315deg, #fbb034 0%, #ffdd00 74%);
 
+  &.slide-color-1 {
+    //background-image: linear-gradient(315deg, rgba(251, 176, 52, 0.7) 0%, rgba(255, 221, 0, 0.7) 74%);
+    background-image: linear-gradient(120deg, rgb(255 175 43 / 12%) 0%, rgb(149 7 255 / 86%) 74%)
   }
 
   &.slide-color-2 {
-    background-color: #84fb95;
-    background-image: linear-gradient(315deg, #84fb95 0%, #cef576 74%);
+    background-image: linear-gradient(120deg,rgb(255 175 43 / 12%) 0%,rgb(162 58 81 / 86%) 74%);
   }
-  
+
   &.slide-color-3 {
     background-color: #f8ceec;
     background-image: linear-gradient(315deg, #f8ceec 0%, #a88beb 74%);

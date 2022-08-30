@@ -4,7 +4,6 @@ import {MenuLink} from "../../Dropdown/Menu/MenuElements";
 import {NavLink as Link} from "react-router-dom";
 
 const ProductDemo = (props) => {
-    console.log(props)
     return (
         <>
             <div className={"row my-3"}>

@@ -22,7 +22,6 @@ const CheckoutPage = ({addedProducts, removeProduct}) => {
     const navigate = useNavigate();
     const [productsConfiguration, setProductsConfiguration] = useState(useProductConfiguration);
     const [checkout, setCheckout] = useState({});
-    console.log(addedProducts);
     const handleApiError = useHandleApiError();
 
     const order = useMutation(requestOrder);

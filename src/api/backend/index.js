@@ -7,7 +7,7 @@ export const apiClient = axios.create({
         'Accept': 'application/json',
         'TimeZone': Intl.DateTimeFormat().resolvedOptions().timeZone
     },
-    timeout: 10000
+    timeout: 50000
 });
 
 apiClient.interceptors.request.use(config => {

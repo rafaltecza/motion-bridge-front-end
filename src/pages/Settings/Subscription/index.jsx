@@ -1,22 +1,29 @@
-import React, {useState} from 'react'
-import InventoryIcon from "@mui/icons-material/Inventory";
+import React, {useEffect, useState} from 'react'
 import {Grid} from "@mui/material";
 import Card from "../../../components/Card";
 import CardContent from "../../../components/Card/Content";
-import ContactForm from "../../../components/Form/ContactForm";
 import EmailIcon from '@mui/icons-material/Email';
-import {Image} from "@mui/icons-material";
 import Button from "@mui/material/Button";
+import {useQuery} from "@tanstack/react-query";
+import {requestSubscriptions} from "../../../api/backend/user";
 
 const SubscriptionPage = () => {
-    const [subscriptions, setSubscriptions] = useState([{
-        name: 'Profile Instagram',
-        description: 'lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum'
-    }]);
+    const [subscriptions, setSubscriptions] = useState([]);
+    const {data} = useQuery([], requestSubscriptions);
+
+    useEffect(() => {
+        if (data && data?.data) {
+            console.log(data.data);
+            setSubscriptions(data.data);
+            console.table(data.data);
+        }
+    }, [data]);
 
     const IconElement = () => <EmailIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>
 
     return (
+        <div className={"bg-md-primary"}>
+
         <div className={"container"}  style={{
             minHeight: '90vh',
             fontFamily: "Poppins, sans-serif"
@@ -30,16 +37,19 @@ const SubscriptionPage = () => {
                             </CardContent>
                         </Card>
 
-                        { subscriptions.map(item =>
-                            <Card>
+                        { subscriptions.map((subscription, index) => (
+                            <Card key={index} className={"mb-3"}>
                                 <CardContent>
-                                    <h3>{ item?.name }</h3>
-                                    <p>{ item?.description }</p>
-                                    <a className={"text-dark text-decoration-none"}>Renew: 17-08-2022</a>
+                                    <h3>{ subscription?.name }</h3>
+                                    <p>{ subscription?.description }</p>
+                                    <h5 className={"text-white-50 text-decoration-none"}>{ subscription?.endDate }</h5>
+                                    <h5 className={"text-white-50 text-decoration-none"}>{ subscription?.price }</h5>
+                                    <h5 className={"text-white-50 text-decoration-none"}>{ subscription?.timePeriod }</h5>
+                                    <h5 className={"text-white-50 text-decoration-none"}>{ subscription?.animationsLimit }</h5>
                                     <Button className={"float-end mb-3"} variant={"contained"} color={"primary"}>Anuluj</Button>
                                 </CardContent>
                             </Card>
-                        )};
+                        ))}
 
 
                     </Grid>
@@ -53,6 +63,7 @@ const SubscriptionPage = () => {
                     </Grid>
                 </Grid>
             </div>
+        </div>
         </div>
     );
 };

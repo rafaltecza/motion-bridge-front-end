@@ -2,6 +2,7 @@ import {ErrorMessage, Formik} from 'formik';
 import {TextField} from "@mui/material";
 import React from "react";
 import {useUserContext} from "../../../../providers/UserContextProvider";
+import ButtonBlop from "../../../../components/Button/Blop";
 
 const DeleteFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
     const { user } = useUserContext();
@@ -27,7 +28,7 @@ const DeleteFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
                                        type={"text"}
                                        label={"New Name"}
                                        variant={"outlined"}
-                                       className={"w-100 my-2 text-field style-primary"}
+                                       className={"w-100 my-2 text-field style-secondary"}
                                        onChange={handleChange}
                                        onBlur={handleBlur}
                                        value={values.name}/>
@@ -35,9 +36,11 @@ const DeleteFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
                             <ErrorMessage name={"name"}/>
                         </div>
                         <div className={"form-group mt-3"}>
-                            <button type={"submit"} className={"btn btn-primary float-end"}>
-                                {isLoading ? '' : 'Save'}
-                            </button>
+                            <div className={"float-end"}>
+                                <ButtonBlop type={"submit"} className={"blob-btn-border-red-md"}>
+                                    {isLoading ? '' : 'Save'}
+                                </ButtonBlop>
+                            </div>
                         </div>
                     </form>
                 )}
