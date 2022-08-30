@@ -10,6 +10,7 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import Menu from "../../components/Menu";
 import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
 import GroupIcon from '@mui/icons-material/Group';
+import ToggleOffIcon from '@mui/icons-material/ToggleOff';
 const AdminPage = () => {
 
     const userName = "User Tech"
@@ -41,7 +42,7 @@ const AdminPage = () => {
                                     {
                                         name: "Set Product Active",
                                         page: "/admin/setProductActive",
-                                        icon: () => <GroupIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
+                                        icon: () => <ToggleOffIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
                                     {
                                         name: "Users Management",
