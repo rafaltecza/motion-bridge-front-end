@@ -27,6 +27,7 @@ import PanelPage from "./pages/Panel";
 import LogoutPage from "./pages/Logout";
 import CheckoutPage from "./pages/Checkout";
 import PrivateRoute from "./components/PrivateRoute";
+import SetProductActive from "./pages/admin-set-products-active";
 
 function App() {
     return (
@@ -52,6 +53,7 @@ function App() {
                         <Route path={"admin"} element={<AdminPage/>}/>
                         <Route path={"admin/products"} element={<AdminProducts/>}/>
                         <Route path={"admin/users"} element={<AdminUsers/>}/>
+                        <Route path={"admin/setProductActive"} element={<SetProductActive/>}/>
                         <Route path={"logout"} element={<LogoutPage/>}/>
                         <Route path={"checkout"} element={<PrivateRoute><CheckoutPage/></PrivateRoute>}/>
 
