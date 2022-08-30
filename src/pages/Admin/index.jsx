@@ -39,10 +39,16 @@ const AdminPage = () => {
                                         icon: () => <AutoAwesomeMosaicIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
                                     {
+                                        name: "Set Product Active",
+                                        page: "/admin/setProductActive",
+                                        icon: () => <GroupIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
+                                    },
+                                    {
                                         name: "Users Management",
                                         page: "/admin/users",
                                         icon: () => <GroupIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
+
                                 ]}/>
                             </CardContent>
                         </Card>
