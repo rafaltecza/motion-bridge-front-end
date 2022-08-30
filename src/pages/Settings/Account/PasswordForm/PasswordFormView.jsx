@@ -1,6 +1,7 @@
 import {ErrorMessage, Formik} from 'formik';
 import {TextField} from "@mui/material";
 import React from "react";
+import ButtonBlop from "../../../../components/Button/Blop";
 
 const PasswordFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
     return (
@@ -25,7 +26,7 @@ const PasswordFormView = ({onSubmit, validationSchema, isLoading, ...props}) => 
                                        type={"password"}
                                        label={"Old Password"}
                                        variant={"outlined"}
-                                       className={"w-100 my-2 text-field style-primary"}
+                                       className={"w-100 my-2 text-field style-secondary"}
                                        onChange={handleChange}
                                        onBlur={handleBlur}
                                        value={values.password}/>
@@ -36,7 +37,7 @@ const PasswordFormView = ({onSubmit, validationSchema, isLoading, ...props}) => 
                                        type={"password"}
                                        label={"New Password"}
                                        variant={"outlined"}
-                                       className={"w-100 my-2 text-field style-primary"}
+                                       className={"w-100 my-2 text-field style-secondary"}
                                        onChange={handleChange}
                                        onBlur={handleBlur}
                                        value={values.password}/>
@@ -47,16 +48,18 @@ const PasswordFormView = ({onSubmit, validationSchema, isLoading, ...props}) => 
                                        type={"password"}
                                        label={"Repeat Password"}
                                        variant={"outlined"}
-                                       className={"w-100 my-2 text-field style-primary"}
+                                       className={"w-100 my-2 text-field style-secondary"}
                                        onChange={handleChange}
                                        onBlur={handleBlur}
                                        value={values.password}/>
                             <ErrorMessage name={"repeatPassword"}/>
                         </div>
                         <div className={"form-group mt-3"}>
-                            <button type={"submit"} className={"btn btn-primary float-end"}>
-                                {isLoading ? '' : 'Save'}
-                            </button>
+                            <div className={"float-end"}>
+                                <ButtonBlop type={"submit"} className={"blob-btn-border-red-md"}>
+                                    {isLoading ? '' : 'Save'}
+                                </ButtonBlop>
+                            </div>
                         </div>
                     </form>
                 )}

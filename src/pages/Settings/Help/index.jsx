@@ -66,6 +66,8 @@ const HelpPage = () => {
     </Box>
 
     return (
+        <div className={"bg-md-primary"}>
+
         <div className={"container"}  style={{
             minHeight: '90vh',
             fontFamily: "Poppins, sans-serif"
@@ -86,37 +88,31 @@ const HelpPage = () => {
                                         name: "Can I remove my account?",
                                         collapseText: 'Edit',
                                         collapse: answerAccountRemoval,
-                                        icon: () => <AccountCircleIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
                                     {
                                         name: "How do I change my password?",
                                         collapseText: 'Edit',
                                         collapse: answerPasswordChange,
-                                        icon: () => <LoyaltyIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
                                     {
                                         name: "How can I purchase an item?",
                                         collapseText: 'Edit',
                                         collapse: answerPurchaseItem,
-                                        icon: () => <AccountCircleIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
                                     {
                                         name: "What are the payment options?",
                                         collapseText: 'Edit',
                                         collapse: answerPaymentOptions,
-                                        icon: () => <AccountCircleIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
                                     {
-                                        name: "How to factory choosen product?",
+                                        name: "How to factory choosen products?",
                                         collapseText: 'Edit',
                                         collapse: answerRenderProduct,
-                                        icon: () => <AccountCircleIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
                                     {
                                         name: "How it works?",
                                         collapseText: 'Edit',
                                         collapse: answerHowItWorks,
-                                        icon: () => <AccountCircleIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     }
                                 ]}/>
                             </CardContent>
@@ -132,6 +128,7 @@ const HelpPage = () => {
                     </Grid>
                 </Grid>
             </div>
+        </div>
         </div>
     );
 };

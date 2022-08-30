@@ -2,6 +2,7 @@ import {ErrorMessage, Formik} from 'formik';
 import {Checkbox, FormControlLabel, TextField} from "@mui/material";
 import {red} from "@mui/material/colors";
 import React from "react";
+import ButtonBlop from "../../../../components/Button/Blop";
 
 const DeleteFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
     return (
@@ -33,7 +34,7 @@ const DeleteFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
                                        type={"password"}
                                        label={"Password"}
                                        variant={"outlined"}
-                                       className={"w-100 my-2 text-field style-primary"}
+                                       className={"w-100 my-2 text-field style-secondary"}
                                        onChange={handleChange}
                                        onBlur={handleBlur}
                                        value={values.password}/>
@@ -41,9 +42,11 @@ const DeleteFormView = ({onSubmit, validationSchema, isLoading, ...props}) => {
                             <ErrorMessage name={"password"}/>
                         </div>
                         <div className={"form-group mt-3"}>
-                            <button type={"submit"} className={"btn btn-primary float-end"}>
-                                {isLoading ? '' : 'Delete Account'}
-                            </button>
+                            <div className={"float-end"}>
+                                <ButtonBlop type={"submit"} className={"blob-btn-border-red-md"}>
+                                    {isLoading ? '' : 'Delete Account'}
+                                </ButtonBlop>
+                            </div>
                         </div>
                     </form>
                 )}

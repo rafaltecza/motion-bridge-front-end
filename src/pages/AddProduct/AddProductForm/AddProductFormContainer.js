@@ -1,7 +1,7 @@
 import AddProductFormView from "./AddProductFormView";
-import {signIn,getProducts,addProduct} from "../../../api/backend/user";
 import {useMutation} from "@tanstack/react-query";
 import useHandleApiError from "../../../hooks/useHandleApiError";
+import {postProduct} from "../../../api/backend/products";
 
 
 const Yup = require("yup");
@@ -23,7 +23,7 @@ const validationSchema = Yup.object().shape({
 
 const AddProductFormContainer = (props) => {
     const handleApiError = useHandleApiError();
-    const add = useMutation(addProduct)
+    const add = useMutation(postProduct)
 
 
     useEffect(() => {
@@ -33,7 +33,6 @@ const AddProductFormContainer = (props) => {
     const onSuccess = async (data) => {
 
         console.log("Produkt Dodany");
-        console.log(data);
         //push
     }
 

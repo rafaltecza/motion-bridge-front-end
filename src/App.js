@@ -27,33 +27,42 @@ import PanelPage from "./pages/Panel";
 import LogoutPage from "./pages/Logout";
 import CheckoutPage from "./pages/Checkout";
 import PrivateRoute from "./components/PrivateRoute";
+import {connect} from "react-redux";
+import {loadProducts} from "./redux/ProductsTemporary/productsTemporary.actions";
+import {useEffect} from "react";
 
-function App() {
+function App(props) {
+
+    useEffect(() => {
+        console.log("loading products");
+        props.loadProducts();
+    }, []);
+
     return (
         <Router>
             <Navbar/>
             <ParallaxProvider>
                 <SlideRoutes>
-                        <Route path={"/"} element={<Home/>}/>
-                        <Route path={"products"} element={<ProductsPage/>}/>
-                        <Route path={"products/:productRoute"} element={<ProductPage/>}/>
-                        <Route path={"panel/:productRoute"} element={<PanelPage/>}/>
-                        <Route path={"cookie"} element={<Cookie/>}/>
-                        <Route path={"settings/account"} element={<AccountPage/>}/>
-                        <Route path={"settings/subscriptions"} element={<SubscriptionPage/>}/>
-                        <Route path={"settings/help"} element={<HelpPage/>}/>
-                        <Route path={"delete-account"} element={<DeleteAccount/>}/>
-                        <Route path={"settings"} element={<Settings/>}/>
-                        <Route path={"settings/contact"} element={<ContactPage/>}/>
-                        <Route path={"sign-in"} element={<SignIn/>}/>
-                        <Route path={"sign-up"} element={<SignUp/>}/>
-                        <Route path={"forgot-password"} element={<ForgotPassword/>}/>
-                        <Route path={"inventory"} element={<InventoryPage/>}/>
-                        <Route path={"admin"} element={<AdminPage/>}/>
-                        <Route path={"admin/products"} element={<AdminProducts/>}/>
-                        <Route path={"admin/users"} element={<AdminUsers/>}/>
-                        <Route path={"logout"} element={<LogoutPage/>}/>
-                        <Route path={"checkout"} element={<PrivateRoute><CheckoutPage/></PrivateRoute>}/>
+                    <Route path={"/"} element={<Home/>}/>
+                    <Route path={"products"} element={<ProductsPage/>}/>
+                    <Route path={"products/:productRoute"} element={<ProductPage/>}/>
+                    <Route path={"panel/:productRoute"} element={<PanelPage/>}/>
+                    <Route path={"cookie"} element={<Cookie/>}/>
+                    <Route path={"settings/account"} element={<AccountPage/>}/>
+                    <Route path={"settings/subscriptions"} element={<SubscriptionPage/>}/>
+                    <Route path={"settings/help"} element={<HelpPage/>}/>
+                    <Route path={"delete-account"} element={<DeleteAccount/>}/>
+                    <Route path={"settings"} element={<Settings/>}/>
+                    <Route path={"settings/contact"} element={<ContactPage/>}/>
+                    <Route path={"sign-in"} element={<SignIn/>}/>
+                    <Route path={"sign-up"} element={<SignUp/>}/>
+                    <Route path={"forgot-password"} element={<ForgotPassword/>}/>
+                    <Route path={"inventory"} element={<InventoryPage/>}/>
+                    <Route path={"admin"} element={<AdminPage/>}/>
+                    <Route path={"admin/products"} element={<AdminProducts/>}/>
+                    <Route path={"admin/users"} element={<AdminUsers/>}/>
+                    <Route path={"logout"} element={<LogoutPage/>}/>
+                    <Route path={"checkout"} element={<PrivateRoute><CheckoutPage/></PrivateRoute>}/>
 
                 </SlideRoutes>
             </ParallaxProvider>
@@ -62,4 +71,17 @@ function App() {
     );
 }
 
-export default App;
+const mapStateToProps = state => {
+    return state;
+};
+
+function mapDispatchToProps(dispatch) {
+    return {
+        loadProducts: () => {
+            console.log("dispatching");
+            loadProducts()(dispatch);
+        }
+    };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

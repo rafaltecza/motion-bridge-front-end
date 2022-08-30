@@ -83,7 +83,7 @@ export default class ContactForm extends React.Component {
                     <Grid container spacing={2} p={2}>
                         <Grid item xs={12}>
                             <TextField variant={"outlined"}
-                                       className={"w-100 text-field style-primary"}
+                                       className={"w-100 text-field style-secondary"}
                                        id="name"
                                        label="Name"
                                        type="text"
@@ -96,7 +96,7 @@ export default class ContactForm extends React.Component {
                             <TextField id="email"
                                        label="Email"
                                        variant={"outlined"}
-                                       className={"w-100 text-field style-primary"}
+                                       className={"w-100 text-field style-secondary"}
                                        type="text"
                                        name={"email"}
                                        value={this.state.email}
@@ -114,7 +114,7 @@ export default class ContactForm extends React.Component {
                                 variant={"outlined"}
                                 value={this.state.message}
                                 onChange={this.handleInputChange}
-                                className={"w-100 text-field style-primary"}
+                                className={"w-100 text-field style-secondary"}
                                 multiline
                                 rows={3}
                                 maxRows={'infinity'}

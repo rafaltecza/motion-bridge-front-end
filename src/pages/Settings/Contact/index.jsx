@@ -6,11 +6,12 @@ import CardContent from "../../../components/Card/Content";
 import ContactForm from "../../../components/Form/ContactForm";
 import EmailIcon from '@mui/icons-material/Email';
 import {Image} from "@mui/icons-material";
-
 const ContactPage = () => {
     const IconElement = () => <EmailIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>
 
     return (
+        <div className={"bg-md-primary"}>
+
         <div className={"container"}  style={{
             minHeight: '90vh',
             fontFamily: "Poppins, sans-serif"
@@ -26,7 +27,7 @@ const ContactPage = () => {
 
                         <Card>
                             <CardContent>
-                                <p>Dont have an account? Create your account, it takes less than minute.</p>
+                                <p>You need help? Send a message to our team and let's resolve it together.</p>
                                 <ContactForm/>
                             </CardContent>
                         </Card>
@@ -41,6 +42,7 @@ const ContactPage = () => {
                     </Grid>
                 </Grid>
             </div>
+        </div>
         </div>
     );
 };

@@ -28,7 +28,8 @@ const UserAvatar = ({alt, src, name, classes}) => {
 
     function stringAvatar(name) {
         //take first letter from name
-        const children = name && `${name.toString().includes(" ") ? `${name.split(' ')[0][0]}${name.split(' ')[1][0]}` : `${name.charAt(0)}`}`;
+        const stringName = name && name.toString();
+        const children = name && `${stringName?.includes(" ") ? `${stringName?.split(' ')[0][0]}${stringName?.split(' ')[1][0]}` : `${stringName?.charAt(0)}`}`;
         return {
             sx: {
                 bgcolor: stringToColor(name),
