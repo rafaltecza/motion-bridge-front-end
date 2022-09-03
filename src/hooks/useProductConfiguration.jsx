@@ -57,8 +57,8 @@ export const useProductConfiguration = [
                 id: 2,
                 form: [
                     {
-                        valueName: 'shoutOutPicture',
-                        name: 'Shout Out Picture',
+                        valueName: 'picture',
+                        name: 'picture',
                         placeholder: 'Select one',
                         type: 'radio-list',
                         value: '0',

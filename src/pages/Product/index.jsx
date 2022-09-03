@@ -29,7 +29,6 @@ const ProductPage = ({addedProducts, addProduct}) => {
         !isAlreadyAdded(thisProduct) && addProduct(thisProduct);
         navigate('/checkout')
     }
-    console.log(addedProducts);
 
     const ProductProps = {
         backgroundType: "circle",
@@ -50,13 +49,11 @@ const ProductPage = ({addedProducts, addProduct}) => {
             }
         )
             .then(function (response) {
-                console.log(response)
                 return response.json();
             })
             .then(function (myJson) {
                 setCurrentAnimation(myJson);
                 setAnimationLoaded(true);
-                console.log(myJson);
             });
     }
 

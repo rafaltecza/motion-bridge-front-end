@@ -17,14 +17,6 @@ const ProductsPage = () => {
     //     }
     // }, [data, isLoading, setIsLoading]);
 
-    useEffect(() => {
-        console.log(products);
-    }, [products]);
-
-    useEffect(() => {
-        console.log(isLoading);
-    }, [isLoading]);
-
     return (
         <div style={{
             backgroundImage: "repeating-linear-gradient(45deg, transparent, transparent 56px, rgb(25 25 25) 56px, rgb(24 24 24) 112px)",

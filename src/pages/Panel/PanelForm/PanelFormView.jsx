@@ -1,47 +1,47 @@
 import {ErrorMessage, Formik} from 'formik';
-import {Checkbox, FormControl, FormControlLabel, Grid, InputLabel, RadioGroup, TextField} from "@mui/material";
+import {Checkbox, FormControl, FormControlLabel, Grid, InputLabel, Radio, RadioGroup, TextField} from "@mui/material";
 import React from "react";
 import {red} from "@mui/material/colors";
 import {MenuItem, Select} from "@material-ui/core";
-import Box from "@mui/material/Box";
-import Radio from "../../../components/Radio";
 import ButtonBlop from "../../../components/Button/Blop";
+import Box from "@mui/material/Box";
+import PictureListItem from "../../../components/PictureList/Item";
 
 const PanelFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema, instagramUser, ...props}) => {
 
     const { productForm } = props;
-
-    const instagramUserData = {
-        name: 'Instagram User',
-        verified: false,
-        pictures: [
-            'https://cdn.discordapp.com/attachments/902239644803039244/1013451973963563088/car4.jpg',
-        ]
-    }
 
     const getFieldComponent = (field, handleChange, handleBlur, defaultValue) => {
         switch (field?.type) {
             case "radio-list":
                 return (
                     <FormControl component="fieldset">
-                            <RadioGroup
-                                aria-labelledby="demo-controlled-radio-buttons-group"
-                                name="controlled-radio-buttons-group"
-                                value={""}
-                                onChange={handleChange}
-                            >
-                                <Grid justifyContent="center"
-                                      alignItems="center" container spacing={3}>
-                                        { instagramUser?.map((picture, index) => {
-                                            return <Grid item xs={4}><FormControlLabel className={"w-100 p-0 m-0"}
-                                                key={index}
-                                                value={picture?.photoUrl}
-                                                control={<Radio className={"img-fluid rounded-2"} crossOrigin="anonymous" src={`https://cors-anywhere.herokuapp.com/${picture?.photoUrl}`} color="primary" alt={picture}/>}
-                                            /></Grid>
-                                        })}
-                                </Grid>
 
-                            </RadioGroup>
+                                <Box style={{maxHeight: '250px', overflow: 'auto'}}>
+                                    <RadioGroup
+                                        aria-labelledby="demo-radio-buttons-group-label"
+                                        defaultValue={field?.valueName}
+                                        name={field?.valueName}
+                                        value={defaultValue}
+                                        onChange={handleChange}
+                                    >
+                                    <Grid container spacing={3}>
+
+                                            { instagramUser?.map((picture, index) => {
+                                                return <Grid item sm={4}><FormControlLabel className={"text-center"}
+                                                    key={index}
+                                                    value={picture?.photoUrl}
+                                                    label={<PictureListItem className={"img-fluid rounded-2"} crossOrigin="anonymous" src={`https://cors-anywhere.herokuapp.com/${picture?.photoUrl}`} alt={""}/>}
+                                                                                      control={<Radio />}/></Grid>
+
+                                                           // className={"img-fluid rounded-2"}
+                                                           // crossOrigin="anonymous"
+                                                           // src={`https://localhost:8080/${picture?.photoUrl}`}
+                                                           // color="primary" alt={picture}/>}
+                                            })}
+                                    </Grid>
+                                    </RadioGroup>
+                                </Box>
 
                     </FormControl>
                 )
@@ -68,7 +68,6 @@ const PanelFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema
                 </>
             case "select":
                 return <>
-
                     <TextField
                         select
                         labelId={`${field?.valueName}-field`}
@@ -151,7 +150,7 @@ const PanelFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema
                                                 </a>
 
                                             ) : (
-                                                <ButtonBlop onClick={onRender} type={"button"} className={"blob-btn-border-red-md"} { ...props.isLoading && 'disabled'}>
+                                                <ButtonBlop type={"submit"} className={"blob-btn-border-red-md"} { ...props.isLoading && 'disabled'}>
                                                     { props.isLoading ? "Rendering..." : "Render"}
                                                 </ButtonBlop>
                                             )

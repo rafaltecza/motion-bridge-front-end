@@ -34,7 +34,6 @@ import {useEffect} from "react";
 function App(props) {
 
     useEffect(() => {
-        console.log("loading products");
         props.loadProducts();
     }, []);
 
@@ -78,7 +77,6 @@ const mapStateToProps = state => {
 function mapDispatchToProps(dispatch) {
     return {
         loadProducts: () => {
-            console.log("dispatching");
             loadProducts()(dispatch);
         }
     };

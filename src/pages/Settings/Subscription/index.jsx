@@ -13,7 +13,6 @@ const SubscriptionPage = () => {
 
     useEffect(() => {
         if (data && data?.data) {
-            console.log(data.data);
             setSubscriptions(data.data);
             console.table(data.data);
         }

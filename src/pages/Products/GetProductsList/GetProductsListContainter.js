@@ -49,20 +49,12 @@ const GetProductsListContainer = (props) => {
 
     const onSuccess = async (data) => {
 
-        console.log("Lista Produktow");
-        console.log(data.data);
         renderingArrayOfObjects(data.data);
 
     }
 
     const onError = (error) => {
         console.log("ERROR :(");
-
-        console.log(error.response.data.error);
-        console.log(error.response.data.message);
-        console.log(error.response.data.path);
-        console.log(error.response.data.status);
-        console.log(error.response.data.timestamp);
         handleApiError(error);
     }
 

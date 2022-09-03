@@ -10,30 +10,25 @@ import Card from "../../components/Card";
 import Lottie from "react-lottie-player";
 import AnimationCard from "../../components/Animation/Card";
 import AnimationPreview from "../../components/Animation/Preview";
-import {PanelForm2} from "./PanelForm2";
 import {useQuery} from "@tanstack/react-query";
 import {requestInstagram} from "../../api/backend/user";
 import useHandleApiError from "../../hooks/useHandleApiError";
 import Box from "@mui/material/Box";
+import {PanelApiForm} from "./PanelApiForm";
 
 const PanelPage = () => {
   const [productsConfiguration, setProductsConfiguration] = useState(useProductConfiguration);
   const [formState, setFormState] = useState(0);
   const [currentAnimation, setCurrentAnimation] = useState({});
   const [isAnimationLoaded, setAnimationLoaded] = useState(false);
+  const [isCurrentlyRefreshing, setCurrentlyRefreshing] = useState(false);
   const [isLoading, setLoading] = useState(false);
   const [isRendered, setIsRendered] = useState(false);
   const [renderURL, setRenderURL] = useState('');
   const [instagramUser, setInstagramUser] = useState(null);
   const [instagramData, setInstagramData] = useState(null);
 
-    console.log(productsConfiguration);
-
-    const [isLoadingInstagram, setIsLoadingInstagram] = useState(false);
-
-    useEffect(() => {
-        console.log(instagramUser);
-    }, [instagramUser]);
+  const [isLoadingApiData, setIsLoadingApiData] = useState(false);
 
 
   const {productRoute} = useParams();
@@ -48,13 +43,11 @@ const PanelPage = () => {
             }
         )
             .then(function(response){
-                console.log(response)
                 return response.json();
             })
             .then(function(myJson) {
                 setCurrentAnimation(myJson);
                 setAnimationLoaded(true);
-                console.log(myJson);
             });
     }
     useEffect(()=>{
@@ -64,10 +57,6 @@ const PanelPage = () => {
   const findConfiguration = () => {
       let output;
       productsConfiguration.map((product, index) => {
-          console.log(product);
-          console.log(Object.entries(product));
-          console.log(product.route === productRoute);
-          console.log(product.id === parseInt(productRoute));
           if (product.route === productRoute || product.id === parseInt(productRoute)) {
               output = product;
           }
@@ -75,13 +64,6 @@ const PanelPage = () => {
       return output;
   };
   const product = findConfiguration();
-
-  console.log("HERE");
-  console.log(product.forms[formState]);
-  console.log(product.forms[formState].form.map((valueObject, index) => {
-      console.log(valueObject);
-
-  }));
 
   return (
       <>
@@ -110,11 +92,15 @@ const PanelPage = () => {
                           <Card>
                               <CardContent>
                                   <Box mb={5}>
-                                    <PanelForm2 instagramUser={instagramUser}
+                                    <PanelApiForm instagramUser={instagramUser}
                                                 setInstagramData={setInstagramData}
                                                 setInstagramUser={setInstagramUser}
                                                 currentAnimation={currentAnimation}
-                                                setCurrentAnimation={setCurrentAnimation}/>
+                                                setCurrentAnimation={setCurrentAnimation}
+                                                setCurrentlyRefreshing={setCurrentlyRefreshing}
+                                                isCurrentlyRefreshing={isCurrentlyRefreshing}
+                                                isLoadingApiData={isLoadingApiData}
+                                                setIsLoadingApiData={setIsLoadingApiData}/>
                                   </Box>
                                       <PanelForm isLoading={isLoading}
                                              instagramUser={instagramUser}
@@ -125,14 +111,16 @@ const PanelPage = () => {
                                              setRenderURL={setRenderURL}
                                              productForm={product.forms[formState]}
                                              currentAnimation={currentAnimation}
-                                             setFormState={setFormState}/>
+                                             setFormState={setFormState}
+                                                formState={formState}/>
                               </CardContent>
                           </Card>
                       </Grid>
 
                     <Grid item xs={12} md={6}>
                         <AnimationCard>
-                            <AnimationPreview isAnimationLoaded={isAnimationLoaded} animation={currentAnimation}/>
+                            {!isCurrentlyRefreshing ? <AnimationPreview isAnimationLoaded={isAnimationLoaded} animation={currentAnimation}/> : "Refreshing..." }
+
                         </AnimationCard>
                     </Grid>
 

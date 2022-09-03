@@ -4,10 +4,10 @@ import React from "react";
 import {red} from "@mui/material/colors";
 import {MenuItem, Select} from "@material-ui/core";
 import Box from "@mui/material/Box";
-import Radio from "../../../components/Radio";
+import Radio from "../../../components/PictureList/Item";
 import ButtonBlop from "../../../components/Button/Blop";
 
-const PanelFormView2 = ({onSubmit, onBack, onRender, onDownload, validationSchema, ...props}) => {
+const PanelApiFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema, ...props}) => {
 
     return (
         <div>
@@ -36,9 +36,12 @@ const PanelFormView2 = ({onSubmit, onBack, onRender, onDownload, validationSchem
                             {(error) => <div className={"text-danger"}>{error}</div>}
                         </ErrorMessage>
 
-                        <ButtonBlop type={"submit"} className={"blob-btn-border-gold-md"}>
+                        {!props.isLoadingApiData ? <ButtonBlop type={"submit"} className={"blob-btn-border-gold-md"}>
                             Get User
-                        </ButtonBlop>
+                        </ButtonBlop> : <ButtonBlop disabled className={"blob-btn-border-red-md"}>
+                            Loading...
+                        </ButtonBlop>}
+
                     </form>
                 )}
             </Formik>
@@ -46,4 +49,4 @@ const PanelFormView2 = ({onSubmit, onBack, onRender, onDownload, validationSchem
     )
 };
 
-export default PanelFormView2;
+export default PanelApiFormView;

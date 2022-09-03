@@ -1,5 +1,6 @@
 import Lottie from "react-lottie-player";
 import {useEffect, useState} from "react";
+import bodymovin from "bodymovin";
 
 const AnimationPreview = ({ isAnimationLoaded, animation }) => {
 

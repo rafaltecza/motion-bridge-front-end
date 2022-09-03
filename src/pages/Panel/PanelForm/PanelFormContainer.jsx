@@ -7,7 +7,7 @@ const Yup = require("yup");
 
 const PanelFormContainer = (props) => {
     const handleApiError = useHandleApiError();
-    const { productForm, setFormState, instagramUser } = props;
+    const { productForm, formState, setFormState, instagramUser, setIsApiLoading } = props;
 
     const validationSchema = Yup.object().shape(
         productForm.form.map((valueObject, index) => {
@@ -18,22 +18,28 @@ const PanelFormContainer = (props) => {
     );
 
     const onSuccess = (data) => {
+        console.log(data);
         setFormState(formState => formState + 1);
     }
 
     const onBack = (data) => {
+        console.log(data);
         setFormState(formState => formState - 1);
     }
 
     const onError = (error) => {
+
         handleApiError(error);
     }
 
     const handleRender = async (data) => {
+        console.log(data);
+
         data = () => {
             props.setLoading(true);
             return dataJson;
         }
+
 
         const dataJson = {
             lottieAnimation: props?.currentAnimation,
@@ -55,8 +61,14 @@ const PanelFormContainer = (props) => {
 
 
     const handleSubmit = (values, { setSubmitting }) => {
-        onSuccess();
-        setSubmitting(false);
+        console.log(values);
+
+        if(productForm.id === productForm.form.length + 1) {
+            handleRender(values);
+        } else {
+            onSuccess();
+            setSubmitting(false);
+        }
     }
 
     const handleBack = (values) => {

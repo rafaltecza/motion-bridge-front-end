@@ -33,7 +33,6 @@ const useHandleApiError = () => {
 
     const displayError = (error) => {
         let errorMessages = []
-        console.log(error);
         if(!!error?.errors?.length) {
             error.errors.forEach(err =>
                 Object.keys(error).forEach(key => {

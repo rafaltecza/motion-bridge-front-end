@@ -31,8 +31,6 @@ const AddProductFormContainer = (props) => {
     }, []);
 
     const onSuccess = async (data) => {
-
-        console.log("Produkt Dodany");
         //push
     }
 
