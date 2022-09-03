@@ -8,8 +8,9 @@ const PasswordFormView = ({onSubmit, validationSchema, isLoading, ...props}) => 
         <div className={"container"}>
             <Formik
                 initialValues={{
-                    confirmation: false,
+                    oldPassword: '',
                     password: '',
+                    repeatPassword: '',
                 }}
                 validationSchema={validationSchema}
                 onSubmit={onSubmit}
@@ -29,19 +30,19 @@ const PasswordFormView = ({onSubmit, validationSchema, isLoading, ...props}) => 
                                        className={"w-100 my-2 text-field style-secondary"}
                                        onChange={handleChange}
                                        onBlur={handleBlur}
-                                       value={values.password}/>
+                                       value={values.oldPassword}/>
                             <ErrorMessage name={"oldPassword"}/>
 
-                            <TextField name={"newPassword"}
-                                       id={"new-password"}
+                            <TextField name={"password"}
+                                       id={"password"}
                                        type={"password"}
                                        label={"New Password"}
                                        variant={"outlined"}
                                        className={"w-100 my-2 text-field style-secondary"}
                                        onChange={handleChange}
                                        onBlur={handleBlur}
-                                       value={values.password}/>
-                            <ErrorMessage name={"newPassword"}/>
+                                       value={values.newPassword}/>
+                            <ErrorMessage name={"password"}/>
 
                             <TextField name={"repeatPassword"}
                                        id={"repeat-password"}
@@ -51,8 +52,9 @@ const PasswordFormView = ({onSubmit, validationSchema, isLoading, ...props}) => 
                                        className={"w-100 my-2 text-field style-secondary"}
                                        onChange={handleChange}
                                        onBlur={handleBlur}
-                                       value={values.password}/>
+                                       value={values.repeatPassword}/>
                             <ErrorMessage name={"repeatPassword"}/>
+
                         </div>
                         <div className={"form-group mt-3"}>
                             <div className={"float-end"}>

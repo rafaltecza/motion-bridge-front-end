@@ -10,6 +10,7 @@ import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 import Menu from "../../components/Menu";
 import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
 import GroupIcon from '@mui/icons-material/Group';
+import ToggleOffIcon from '@mui/icons-material/ToggleOff';
 import {useUserContext} from "../../providers/UserContextProvider";
 const AdminPage = () => {
 
@@ -42,10 +43,16 @@ const AdminPage = () => {
                                         icon: () => <AutoAwesomeMosaicIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
                                     {
+                                        name: "Set Product Active",
+                                        page: "/admin/setProductActive",
+                                        icon: () => <ToggleOffIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
+                                    },
+                                    {
                                         name: "Users Management",
                                         page: "/admin/users",
                                         icon: () => <GroupIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
+
                                 ]}/>
                             </CardContent>
                         </Card>

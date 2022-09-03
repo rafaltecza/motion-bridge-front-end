@@ -1,38 +1,34 @@
 import {useMutation} from "@tanstack/react-query";
-import signIn from "../../../sign-in";
-import useHandleApiError from "../../../../hooks/useHandleApiError";
-import {useUserContext} from "../../../../providers/UserContextProvider";
+import useHandleApiError from "../../../hooks/useHandleApiError";
 import * as React from "react";
-import NameFormView from "./NameFormView";
-import useHandleApiSuccess from "../../../../hooks/useHandleApiSuccess";
-import {changeName} from "../../../../api/backend/auth";
+import useHandleApiSuccess from "../../../hooks/useHandleApiSuccess";
+import SetProductActiveFormView from "./SetProductActiveFormView";
+import {setProductActive} from "../../../api/backend/auth";
 
 const Yup = require("yup");
-
 const validationSchema = Yup.object().shape({
-    name: Yup.string()
-        .required('Name is required')
+    productId: Yup.string()
+        .required('product Id is required')
 });
 
-const NameFormContainer = (props) => {
+const SetProductActiveFormContainer = (props) => {
     const handleApiError = useHandleApiError();
     const handleApiSuccess = useHandleApiSuccess();
-    const change = useMutation(changeName)
+    const setProduct = useMutation(setProductActive)
 
-    const onSuccess = async (data) => {
-        handleApiSuccess();
+    const onSuccess = async (data,id) => {
+        id = 12;
         console.log("Success")
     }
-
 
     const onError = (error) => {
         handleApiError(error);
     }
 
     const handleSubmit = async (values, { setSubmitting }) => {
-        await change.mutateAsync(
+        await setProduct.mutateAsync(
             {
-                name: values.name,
+                productId: values.productId,
             }, {
                 onSuccess,
                 onError,
@@ -42,12 +38,12 @@ const NameFormContainer = (props) => {
         setSubmitting(false);
     }
 
-    return <NameFormView
+    return <SetProductActiveFormView
         {...props}
-        isLoading={change.isLoading}
+        isLoading={setProduct.isLoading}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
     />;
 }
 
-export default NameFormContainer;
+export default SetProductActiveFormContainer;
