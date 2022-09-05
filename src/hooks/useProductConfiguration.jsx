@@ -5,7 +5,7 @@ const Yup = require("yup");
 
 export const useProductConfiguration = [
     {
-        id: 0,
+        id: 12,
         name: "Instagram Profile Presenter",
         icon: () => <SettingsIcon className={"icon icon-large icon-rectangle bg-dark text-white"}/>,
         route: 'profile-presenter-instagram',

@@ -1,19 +1,9 @@
 import React from 'react'
-import {Checkbox, FormControlLabel, FormGroup, TextField} from "@mui/material";
-import Halo from "../components/VantaAnimation/Halo";
 import ReactTypingEffect from 'react-typing-effect';
-import {RegisterForm} from "./Register/RegisterForm";
+import Halo from "../../components/VantaAnimation/Halo";
+import {RegisterForm} from "./RegisterForm";
 
-const SignUp = () => {
-
-    const TypingComponentStyles = {
-        fontSize: "70%",
-        top: "65%",
-        position: "fixed",
-        width: "70%",
-        left: "15%"
-    }
-
+const SignUpPage = () => {
     return (
         <>
             <Halo className={"background-vanta"}/>
@@ -61,4 +51,4 @@ const SignUp = () => {
     );
 };
 
-export default SignUp;
+export default SignUpPage;

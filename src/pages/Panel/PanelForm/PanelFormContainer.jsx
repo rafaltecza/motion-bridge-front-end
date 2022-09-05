@@ -1,6 +1,8 @@
 import useHandleApiError from "../../../hooks/useHandleApiError";
 import PanelFormView from "./PanelFormView";
 import {factoryClient} from "../../../api/factory";
+import {useCallback} from "react";
+import {putSubscriptionsGenerate, putSubscriptionsStatus} from "../../../api/backend/user";
 
 const Yup = require("yup");
 
@@ -32,6 +34,17 @@ const PanelFormContainer = (props) => {
         handleApiError(error);
     }
 
+    const handleGenerateCounter = useCallback(async (subscriptionId) => {
+        //fetch data to api using delete as deleteSubscription
+        const fetchData = async () =>
+            await putSubscriptionsGenerate(subscriptionId).then(data => {
+                console.log(data);
+            }).catch(error => {
+                handleApiError(error);
+            });
+        fetchData();
+    }, [putSubscriptionsGenerate, handleApiError]);
+
     const handleRender = async (data) => {
         console.log(data);
 
@@ -39,7 +52,6 @@ const PanelFormContainer = (props) => {
             props.setLoading(true);
             return dataJson;
         }
-
 
         const dataJson = {
             lottieAnimation: props?.currentAnimation,
@@ -53,6 +65,7 @@ const PanelFormContainer = (props) => {
             console.log(res);
             props.setLoading(false);
             props.setIsRendered(true);
+            handleGenerateCounter(props.subscriptionId);
             props.setRenderURL(`http://localhost:3001/renders/${dataJson.animationConfiguration.fileName}.${dataJson.animationConfiguration.extension}`);
         }).catch(error => {
             onError(error);

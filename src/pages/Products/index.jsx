@@ -6,16 +6,15 @@ import {useProductConfiguration} from "../../hooks/useProductConfiguration";
 
 const ProductsPage = () => {
     const {data} = useQuery([], requestProducts);
-    const [products, setProducts] = React.useState(useProductConfiguration);
+    const [products, setProducts] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
 
-    // useEffect(() => {
-    //     if (data && data?.data) {
-    //         console.log(data.data);
-    //         setProducts(data.data);
-    //         setIsLoading(false);
-    //     }
-    // }, [data, isLoading, setIsLoading]);
+    useEffect(() => {
+        if (data && data?.data) {
+            setProducts(data.data);
+            setIsLoading(false);
+        }
+    }, [data]);
 
     return (
         <div style={{

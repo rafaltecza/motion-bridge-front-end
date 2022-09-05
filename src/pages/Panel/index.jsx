@@ -11,7 +11,7 @@ import Lottie from "react-lottie-player";
 import AnimationCard from "../../components/Animation/Card";
 import AnimationPreview from "../../components/Animation/Preview";
 import {useQuery} from "@tanstack/react-query";
-import {requestInstagram} from "../../api/backend/user";
+import {requestInstagram, requestSubscriptions} from "../../api/backend/user";
 import useHandleApiError from "../../hooks/useHandleApiError";
 import Box from "@mui/material/Box";
 import {PanelApiForm} from "./PanelApiForm";
@@ -30,6 +30,20 @@ const PanelPage = () => {
 
   const [isLoadingApiData, setIsLoadingApiData] = useState(false);
 
+    const {data} = useQuery([], requestSubscriptions);
+    const [subscriptionId, setSubscriptionId] = useState(0);
+
+    useEffect(() => {
+        if (data && data?.data) {
+            //find subscription by productId and get id
+            setSubscriptionId(data?.data
+                .find(subscription => subscription?.productId === parseInt(productRoute))?.id);
+        }
+    }, [data]);
+
+    useEffect(() => {
+        console.log(subscriptionId);
+    }, [subscriptionId]);
 
   const {productRoute} = useParams();
 
@@ -57,7 +71,7 @@ const PanelPage = () => {
   const findConfiguration = () => {
       let output;
       productsConfiguration.map((product, index) => {
-          if (product.route === productRoute || product.id === parseInt(productRoute)) {
+          if (product.id === parseInt(productRoute)) {
               output = product;
           }
       });
@@ -92,7 +106,8 @@ const PanelPage = () => {
                           <Card>
                               <CardContent>
                                   <Box mb={5}>
-                                    <PanelApiForm instagramUser={instagramUser}
+                                    <PanelApiForm subscriptionId={subscriptionId}
+                                                instagramUser={instagramUser}
                                                 setInstagramData={setInstagramData}
                                                 setInstagramUser={setInstagramUser}
                                                 currentAnimation={currentAnimation}
@@ -102,14 +117,15 @@ const PanelPage = () => {
                                                 isLoadingApiData={isLoadingApiData}
                                                 setIsLoadingApiData={setIsLoadingApiData}/>
                                   </Box>
-                                      <PanelForm isLoading={isLoading}
+                                      <PanelForm subscriptionId={subscriptionId}
+                                            isLoading={isLoading}
                                              instagramUser={instagramUser}
                                              setLoading={setLoading}
                                              isRendered={isRendered}
                                              setIsRendered={setIsRendered}
                                              renderURL={renderURL}
                                              setRenderURL={setRenderURL}
-                                             productForm={product.forms[formState]}
+                                             productForm={product?.forms[formState]}
                                              currentAnimation={currentAnimation}
                                              setFormState={setFormState}
                                                 formState={formState}/>

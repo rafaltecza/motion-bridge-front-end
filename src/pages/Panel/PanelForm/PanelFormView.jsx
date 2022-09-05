@@ -31,13 +31,8 @@ const PanelFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema
                                                 return <Grid item sm={4}><FormControlLabel className={"text-center"}
                                                     key={index}
                                                     value={picture?.photoUrl}
-                                                    label={<PictureListItem className={"img-fluid rounded-2"} crossOrigin="anonymous" src={`https://cors-anywhere.herokuapp.com/${picture?.photoUrl}`} alt={""}/>}
+                                                    label={<PictureListItem className={"img-fluid rounded-2"} crossOrigin="anonymous" src={`http://localhost:8080/${picture?.photoUrl}`} alt={""}/>}
                                                                                       control={<Radio />}/></Grid>
-
-                                                           // className={"img-fluid rounded-2"}
-                                                           // crossOrigin="anonymous"
-                                                           // src={`https://localhost:8080/${picture?.photoUrl}`}
-                                                           // color="primary" alt={picture}/>}
                                             })}
                                     </Grid>
                                     </RadioGroup>
@@ -130,7 +125,7 @@ const PanelFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema
                     <form onSubmit={handleSubmit} onReset={handleReset}>
 
                         <div className={"form-group"}>
-                            {productForm.form.map((valueObject, index) => {
+                            {productForm?.form.map((valueObject, index) => {
                                 return getFieldComponent(valueObject, handleChange, handleBlur, values[valueObject?.valueName]);
                             })}
                         </div>

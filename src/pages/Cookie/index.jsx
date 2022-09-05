@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Cookie = () => {
+const CookiePage = () => {
     return (
         <div className={"container"} style={{
             minHeight: '90vh'
@@ -12,4 +12,4 @@ const Cookie = () => {
     );
 };
 
-export default Cookie;
+export default CookiePage;

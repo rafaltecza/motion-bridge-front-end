@@ -1,9 +1,7 @@
 import React from 'react'
-import RegisterForm from "../components/Form/RegisterForm/index_old_react_v4";
-import LoginForm from "../components/Form/LoginForm/index_old_react_v4";
-import ForgotPasswordForm from "../components/Form/ForgotPasswordForm";
+import ForgotPasswordForm from "../../components/Form/ForgotPasswordForm";
 
-const ForgotPassword = () => {
+const ForgotPasswordPage = () => {
     return (
         <div className={"container"} style={{
             minHeight: '90vh',
@@ -35,4 +33,4 @@ const ForgotPassword = () => {
     );
 };
 
-export default ForgotPassword;
+export default ForgotPasswordPage;

@@ -25,11 +25,11 @@ export const SliderSlide = styled.div`
 
   &.slide-color-1 {
     //background-image: linear-gradient(315deg, rgba(251, 176, 52, 0.7) 0%, rgba(255, 221, 0, 0.7) 74%);
-    background-image: linear-gradient(120deg, rgb(255 175 43 / 12%) 0%, rgb(149 7 255 / 86%) 74%)
+    background-image: linear-gradient(120deg,rgb(255 175 43 / 12%) 0%,rgb(206 7 255 / 86%) 74%);
   }
 
   &.slide-color-2 {
-    background-image: linear-gradient(120deg,rgb(255 175 43 / 12%) 0%,rgb(162 58 81 / 86%) 74%);
+    background-image: linear-gradient(120deg, rgb(255 175 43 / 12%) 0%, rgb(162 58 81 / 86%) 74%);
   }
 
   &.slide-color-3 {
@@ -43,12 +43,13 @@ export const SliderTitle = styled.h1`
   font-weight: 900;
   text-transform: uppercase;
   margin-top: 7vh;
+  color: #fff;
 
 `;
 
 export const SliderIcon = styled.div`
   animation: jump-arrow 2.5s infinite;
-  bottom: 8vh;
+  bottom: 12vh;
   z-index: 10;
   color: #ffffff;
   display: block;
@@ -61,6 +62,12 @@ export const SliderIcon = styled.div`
   transform: translatex(-50%);
   width: 1.5em;
 
-  
+  &:hover {
+    animation: none;
+    background-color: #2a2e33;
+    border-radius: 50%;
+    box-shadow: 0 0 0 2px #2a2e33;
+    cursor: pointer;
+  }
   
 `;

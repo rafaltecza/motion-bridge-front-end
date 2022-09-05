@@ -38,7 +38,7 @@ const AdminPage = () => {
                             <CardContent>
                                 <Menu content={[
                                     {
-                                        name: "ProductList Management",
+                                        name: "Products Management",
                                         page: "/admin/products",
                                         icon: () => <AutoAwesomeMosaicIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },

@@ -23,12 +23,12 @@ const ProductDemo = (props) => {
                             <div className={"d-flex"}>
                                 <div className={"row g-0 w-100"}>
                                     <div className={"col-auto"}>
-                                        <h4 className={"me-3"}>{props.name}</h4>
+                                        <h4 className={"me-3"}>{props?.name}</h4>
                                     </div>
                                     <div className={"col-auto"}>
                                         <span className="shadow badge bg-animated-gradient-bp text-white mb-3">
-                                            {props.label != null ? (
-                                                <h5 className={"mb-0"}>{props.label}</h5>
+                                            {props?.label != null ? (
+                                                <h5 className={"mb-0"}>{props?.label}</h5>
                                             ) : (
                                                 <></>
                                             )}
@@ -36,8 +36,8 @@ const ProductDemo = (props) => {
                                     </div>
                                     <div className={"col-lg-auto col-12 ms-auto"}>
                                        <span className="shadow badge bg-animated-gradient-gy text-black mb-3 w-100" >
-                                            {props.price != null && props.currency != null? (
-                                                <h5 className={"mb-0 p-2"}>{props.price} / {props.currency}</h5>
+                                            {props?.price != null && props?.currency != null? (
+                                                <h5 className={"mb-0 p-2"}>{props?.price} / {props?.currency.toUpperCase()}</h5>
                                             ) : (
                                                 <></>
                                             )}
@@ -49,9 +49,9 @@ const ProductDemo = (props) => {
 
                             </div>
                             <div className={"col-12 col-md-8"}>
-                                <a>Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content.</a>
+                                <a>{props?.content}</a>
                             </div>
-                            <Link to={props.route}>
+                            <Link to={`/products/${props?.id}`}>
                             <button className="float-end blob-btn-border-gold-md">
                                 Discover
                                 <span className="blob-btn-border-gold-md__inner">

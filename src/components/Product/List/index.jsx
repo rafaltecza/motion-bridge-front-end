@@ -3,23 +3,19 @@ import ProductDemo from "../Demo";
 
 const ProductList = ({products, isLoading}) => {
 
-
-
     return (
         <>
-        {true ? (
+        {!isLoading ? (
             <div>
-                {products && products?.map(({ name, price, currency }) => (
+                {products && Array.isArray(products) && products?.map(({ id, title, type, price, currency, presentations }) => (
                     <div key={1}>
-                        <ProductDemo name={name}
+                        <ProductDemo id={id}
+                                     name={title}
                                      route={"profile-presenter-instagram"}
-                                     label={name}
+                                     label={type}
                                      price={price}
                                      currency={currency}
-                                     content={"Some quick example text to build on the card title and make up the bulk of " +
-                                         "the card's content. Some quick example text to build on the card title and make up " +
-                                         "the bulk of the card's content. Some quick example text to build on the card title " +
-                                         "and make up the bulk of the card's content."}
+                                     content={presentations && presentations[0]?.content}
                                      backgroundType={"circle"}/>
                     </div>
                 ))}

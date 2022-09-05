@@ -4,9 +4,9 @@ import {factoryClient} from "../../../api/factory";
 import {useMutation, useQuery} from "@tanstack/react-query";
 import {requestInstagram, requestSubscriptions} from "../../../api/backend/user";
 import {useEffect, useState} from "react";
-import PanelFormView2 from "./PanelApiFormView";
 import {postProduct} from "../../../api/backend/products";
 import {Animation, Layer, LayerType} from '@lottiefiles/lottie-js';
+import PanelApiFormView from "./PanelApiFormView";
 
 const Yup = require("yup");
 
@@ -15,6 +15,7 @@ const PanelApiFormContainer = (props) => {
     const handleApiError = useHandleApiError();
 
     const {
+        subscriptionId,
         productForm,
         setFormState,
         instagramUser,
@@ -45,7 +46,6 @@ const PanelApiFormContainer = (props) => {
             // (you can also use Animation.fromJSON method if you already have the Lottie JSON loaded)
             const tet = new Animation();
             let anim = tet.fromJSON(currentAnimation);
-            console.log("HERERE!!");
             // const newLayer = anim.layers[1].toJSON();
             // newLayer.t.textDocument.values[0].value.text = data?.data?.username;
             // console.log(newLayer);
@@ -73,7 +73,6 @@ const PanelApiFormContainer = (props) => {
             anim.layers[1].name = data?.data?.username;
 
            let preAnimation = currentAnimation;
-           console.log(preAnimation);
            preAnimation.layers[6].t.d.k[0].s.t = data?.data?.username;
            // preAnimation.assets[0].u = "";
 
@@ -83,7 +82,6 @@ const PanelApiFormContainer = (props) => {
             const reader = new FileReader();
             reader.readAsDataURL(blob);
             reader.onloadend = function() {
-                console.log(reader.result);
                 preAnimation.assets[1].p = reader.result;
             }
 
@@ -94,7 +92,6 @@ const PanelApiFormContainer = (props) => {
             // const woohooLottie = JSON.stringify(anim);
             // console.log(woohooLottie);
             console.log('final');
-            console.log(preAnimation);
             setCurrentAnimation(preAnimation);
 
             setTimeout(() => {
@@ -112,7 +109,6 @@ const PanelApiFormContainer = (props) => {
     }
 
     const onError = (data) => {
-        console.log(data);
         setIsLoadingApiData(false);
 
         data = {
@@ -130,7 +126,7 @@ const PanelApiFormContainer = (props) => {
         await add.mutateAsync(
             {
                 profile: values?.username,
-                subscriptionId: 11
+                subscriptionId: parseInt(subscriptionId),
             }, {
                 onSuccess,
                 onError,
@@ -141,7 +137,7 @@ const PanelApiFormContainer = (props) => {
     }
 
     return (
-        <PanelFormView2
+        <PanelApiFormView
             {...props}
             productForm={productForm}
             onSubmit={handleSubmit}

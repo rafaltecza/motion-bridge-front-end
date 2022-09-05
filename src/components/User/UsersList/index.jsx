@@ -1,13 +1,12 @@
 import React from "react";
 import UsersDemoToList from "../UserDemoToList"
-import {getUsers} from "../../../api/backend/user";
 import {useMutation} from "@tanstack/react-query";
+import {requestUsers} from "../../../api/backend/user";
 const {useEffect} = require("react");
-
 
 const UsersList = () => {
 
-    const getPacketsRes = useMutation(getUsers);
+    const getPacketsRes = useMutation(requestUsers);
     const [packet, setPacket] = React.useState([]);
     const [isLoading, setIsLoading] = React.useState(true);
 
@@ -38,7 +37,7 @@ const UsersList = () => {
 
     return (
         <>
-            {isLoading ? (
+            {true ? (
                 <div>
                     {packet.map(({ name,email,isVerified}) => (
                         <div key={1}>

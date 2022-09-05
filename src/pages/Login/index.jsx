@@ -1,11 +1,9 @@
 import React from 'react'
-import RegisterForm from "../components/Form/RegisterForm/index_old_react_v4";
-import Halo from "../components/VantaAnimation/Halo";
 import ReactTypingEffect from "react-typing-effect";
-import {LoginForm} from "./Login/LoginForm";
+import {LoginForm} from "./LoginForm";
+import Halo from "../../components/VantaAnimation/Halo";
 
-
-const SignIn = () => {
+const SignInPage = () => {
     return (
         <>
             <Halo className={"background-vanta"}/>
@@ -49,4 +47,4 @@ const SignIn = () => {
     );
 };
 
-export default SignIn;
+export default SignInPage;

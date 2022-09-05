@@ -10,55 +10,46 @@ import ButtonBlop from "../../components/Button/Blop";
 import {useNavigate} from "react-router-dom";
 import Box from "@mui/material/Box";
 import {useUserContext} from "../../providers/UserContextProvider";
-import {useMutation} from "@tanstack/react-query";
+import {useMutation, useQuery} from "@tanstack/react-query";
 import {signIn} from "../../api/backend/auth";
 import {connect, useSelector} from "react-redux";
 import {appendProduct, deleteProduct} from "../../redux/Products/products.actions";
 import {requestOrder} from "../../api/backend/order";
 import useHandleApiError from "../../hooks/useHandleApiError";
 import {CardContent, Link, TextField} from "@mui/material";
+import {requestProducts} from "../../api/backend/products";
+import {deleteSubscription, postOrder, postPaymentRequest, requestOrders} from "../../api/backend/user";
 
-const CheckoutPage = ({addedProducts, removeProduct}) => {
+const CheckoutPage = () => {
     const navigate = useNavigate();
-    const [productsConfiguration, setProductsConfiguration] = useState(useProductConfiguration);
-    const [checkout, setCheckout] = useState({});
+    const [checkout, setCheckout] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
     const handleApiError = useHandleApiError();
+    const {data} = useQuery([], requestOrders);
 
-    const order = useMutation(requestOrder);
+    useEffect(() => {
+        if (data && data?.data && data?.data?.restOrders) {
+            setCheckout(data.data?.restOrders[0]);
+            setIsLoading(false);
+        }
+    }, [data]);
+
 
     const navigateProducts = () => {
         navigate('/products');
     }
 
-    const onItemClick = useCallback((product) => (event) => {
-        removeProduct(product);
-    }, [removeProduct]);
 
-    const onCheckoutClick = useCallback(() => {
+    const handlePayment = useCallback(async () => {
+        //fetch data to api using delete as deleteSubscription
         const fetchData = async () =>
-                await order
-                    .mutateAsync({
-                        productId: 12,
-                    })
-                    .then(data => {
-                        console.log(data);
-                    }).catch(error => {
-                        handleApiError(error);
-                    }
-                );
-            fetchData();
-    }, [order, handleApiError]);
-
-    //
-    useEffect(() => {
-        setCheckout({
-            //count the number of currency in the basket and decide which one to use
-            currency: 'USD',
-            total: addedProducts.reduce((acc, curr)=>{
-                return acc + curr?.price;
-            }, 0)
-        })
-    },[])
+            await postPaymentRequest({orderId: checkout.id}).then(response => response.data).then(data => {
+                console.log(data);
+                // navigate("https://checkout.stripe.com/pay/cs_test_a1HL1rgNncggmS5bZe7z6obu8OhsUAzgw1Hi2opVyW6OHBiE69XhQAuOn3#fidkdWxOYHwnPyd1blpxYHZxWjJHTjd8bEFSNHU8d0lybGFfMWpQXFJUdicpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVowbkQ0Mks9PXU1PEI9d0ZmSEgnKSd3YGNgd3dgd0p3bGJsayc%2FJ21xcXV2PyoqZm1gZm5qcHErdnF3bHVgK2ZqaConeCUl");
+                window.location.href = "https://checkout.stripe.com/pay/cs_test_a1HL1rgNncggmS5bZe7z6obu8OhsUAzgw1Hi2opVyW6OHBiE69XhQAuOn3#fidkdWxOYHwnPyd1blpxYHZxWjJHTjd8bEFSNHU8d0lybGFfMWpQXFJUdicpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVowbkQ0Mks9PXU1PEI9d0ZmSEgnKSd3YGNgd3dgd0p3bGJsayc%2FJ21xcXV2PyoqZm1gZm5qcHErdnF3bHVgK2ZqaConeCUl";
+            })
+        fetchData();
+    }, [checkout]);
 
     return (
         <>
@@ -102,7 +93,7 @@ const CheckoutPage = ({addedProducts, removeProduct}) => {
                                             <h5 className={"text-danger"}>Discount:</h5>
                                         </Grid>
                                         <Grid className={"ms-auto"} item xs={"auto"}>
-                                            <h5 className={"text-danger"}>0 {checkout?.currency}</h5>
+                                            <h5 className={"text-danger"}>{ isLoading ? "Loading..." : `0 USD`}</h5>
                                         </Grid>
                                     </Grid>
 
@@ -111,7 +102,7 @@ const CheckoutPage = ({addedProducts, removeProduct}) => {
                                             <h5>Total:</h5>
                                         </Grid>
                                         <Grid className={"ms-auto"} item xs={"auto"}>
-                                            <h5>{checkout?.total} {checkout?.currency}</h5>
+                                            <h5>{ isLoading ? "Loading..." : `${checkout?.currentPrice} USD`}</h5>
                                         </Grid>
                                     </Grid>
 
@@ -131,7 +122,7 @@ const CheckoutPage = ({addedProducts, removeProduct}) => {
                                             <ButtonBlop onClick={navigateProducts} className={"blob-btn-border-red-md"}>More products</ButtonBlop>
                                         </Grid>
                                         <Grid className={"ms-auto"} item xs={"auto"}>
-                                            <ButtonBlop onClick={onCheckoutClick} className={"blob-btn-border-gold-md"}>Proceed</ButtonBlop>
+                                            <ButtonBlop onClick={() => handlePayment()} className={"blob-btn-border-gold-md"}>Proceed</ButtonBlop>
                                         </Grid>
                                     </Grid>
                                 </CardContent>
@@ -140,11 +131,13 @@ const CheckoutPage = ({addedProducts, removeProduct}) => {
                         </Grid>
 
                         <Grid item xs={12} md={6}>
-                            {addedProducts && addedProducts.map((product, index) => {
+                            {isLoading ? "Loading..." : checkout?.subscriptions && checkout.subscriptions.map((subscription, index) => {
                                 return (
-                                    <CheckoutItem key={index} product={product} handleRemove={onItemClick}/>
+                                    // <CheckoutItem key={index} product={product} handleRemove={onItemClick}/>
+                                    <CheckoutItem orderId={checkout?.id} subscription={subscription}/>
                                 )
                             })}
+
                         </Grid>
                     </Grid>
                 </div>

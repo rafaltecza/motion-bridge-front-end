@@ -1,7 +1,7 @@
 import React from 'react'
-import SetProductActive from "./SetProductActive";
+import AddProduct from "../../AddProduct";
 
-const AdminSetProductActive = () => {
+const AdminProductsPage = () => {
     return (
         <>
             <div className={"container"}  style={{
@@ -13,8 +13,8 @@ const AdminSetProductActive = () => {
                         <div className={"col-12 col-md-12"}>
                             <div className={"card card-mb py-4 px-4 h-100"}>
                                 <div className={"card-body"}>
-                                    <h3><b>Set Product Active / Inactive</b></h3>
-                                    <SetProductActive/>
+                                    <h3><b>Products Management</b></h3>
+                                    <AddProduct/>
                                 </div>
                             </div>
                         </div>
@@ -25,4 +25,4 @@ const AdminSetProductActive = () => {
     );
 };
 
-export default AdminSetProductActive;
+export default AdminProductsPage;
