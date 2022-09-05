@@ -1,13 +1,15 @@
 import useHandleApiError from "../../../hooks/useHandleApiError";
 import PanelFormView from "./PanelFormView";
 import {factoryClient} from "../../../api/factory";
+import {useCallback} from "react";
+import {putSubscriptionsGenerate, putSubscriptionsStatus} from "../../../api/backend/user";
 
 const Yup = require("yup");
 
 
 const PanelFormContainer = (props) => {
     const handleApiError = useHandleApiError();
-    const { productForm, setFormState } = props;
+    const { productForm, formState, setFormState, instagramUser, setIsApiLoading } = props;
 
     const validationSchema = Yup.object().shape(
         productForm.form.map((valueObject, index) => {
@@ -18,23 +20,34 @@ const PanelFormContainer = (props) => {
     );
 
     const onSuccess = (data) => {
-        console.log("NEXT");
         console.log(data);
         setFormState(formState => formState + 1);
     }
 
     const onBack = (data) => {
-        console.log("BACK");
         console.log(data);
         setFormState(formState => formState - 1);
     }
 
     const onError = (error) => {
+
         handleApiError(error);
     }
 
+    const handleGenerateCounter = useCallback(async (subscriptionId) => {
+        //fetch data to api using delete as deleteSubscription
+        const fetchData = async () =>
+            await putSubscriptionsGenerate(subscriptionId).then(data => {
+                console.log(data);
+            }).catch(error => {
+                handleApiError(error);
+            });
+        fetchData();
+    }, [putSubscriptionsGenerate, handleApiError]);
+
     const handleRender = async (data) => {
-        console.log("RENDER");
+        console.log(data);
+
         data = () => {
             props.setLoading(true);
             return dataJson;
@@ -52,7 +65,8 @@ const PanelFormContainer = (props) => {
             console.log(res);
             props.setLoading(false);
             props.setIsRendered(true);
-            props.setRenderURL(`http://localhost:3001/render/${dataJson.animationConfiguration.fileName}.${dataJson.animationConfiguration.extension}`);
+            handleGenerateCounter(props.subscriptionId);
+            props.setRenderURL(`http://localhost:3001/renders/${dataJson.animationConfiguration.fileName}.${dataJson.animationConfiguration.extension}`);
         }).catch(error => {
             onError(error);
         });
@@ -60,21 +74,23 @@ const PanelFormContainer = (props) => {
 
 
     const handleSubmit = (values, { setSubmitting }) => {
-        console.log("ELOO");
-        onSuccess();
-        setSubmitting(false);
+        console.log(values);
+
+        if(productForm.id === productForm.form.length + 1) {
+            handleRender(values);
+        } else {
+            onSuccess();
+            setSubmitting(false);
+        }
     }
 
     const handleBack = (values) => {
-        console.log("ELOO");
         onBack();
     }
 
-    console.log("HALLO");
-    console.log(productForm.id);
-    console.log(productForm.form.length);
     return <PanelFormView
         {...props}
+        instagramUser={instagramUser}
         productForm={productForm}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}

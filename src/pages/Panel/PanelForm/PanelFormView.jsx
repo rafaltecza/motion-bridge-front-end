@@ -1,55 +1,42 @@
 import {ErrorMessage, Formik} from 'formik';
-import {Checkbox, FormControl, FormControlLabel, Grid, InputLabel, RadioGroup, TextField} from "@mui/material";
+import {Checkbox, FormControl, FormControlLabel, Grid, InputLabel, Radio, RadioGroup, TextField} from "@mui/material";
 import React from "react";
 import {red} from "@mui/material/colors";
 import {MenuItem, Select} from "@material-ui/core";
+import ButtonBlop from "../../../components/Button/Blop";
 import Box from "@mui/material/Box";
-import Radio from "../../../components/Radio";
+import PictureListItem from "../../../components/PictureList/Item";
 
-const PanelFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema, ...props}) => {
+const PanelFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema, instagramUser, ...props}) => {
 
     const { productForm } = props;
 
-    const instagramUser = {
-        name: 'Instagram User',
-        verified: false,
-        pictures: [
-            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-            'https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
-        ]
-    }
-
     const getFieldComponent = (field, handleChange, handleBlur, defaultValue) => {
-        console.log(field?.type)
         switch (field?.type) {
             case "radio-list":
                 return (
                     <FormControl component="fieldset">
-                            <RadioGroup
-                                aria-labelledby="demo-controlled-radio-buttons-group"
-                                name="controlled-radio-buttons-group"
-                                value={""}
-                                onChange={handleChange}
-                            >
-                                <Grid justifyContent="center"
-                                      alignItems="center" container spacing={3}>
-                                        { instagramUser.pictures.map((picture, index) => {
-                                            return <Grid item xs={4}><FormControlLabel className={"w-100 p-0 m-0"}
-                                                key={index}
-                                                value={picture}
-                                                control={<Radio className={"img-fluid rounded-2"} src={picture} color="primary" alt={picture}/>}
-                                            /></Grid>
-                                        })}
-                                </Grid>
 
-                            </RadioGroup>
+                                <Box style={{maxHeight: '250px', overflow: 'auto'}}>
+                                    <RadioGroup
+                                        aria-labelledby="demo-radio-buttons-group-label"
+                                        defaultValue={field?.valueName}
+                                        name={field?.valueName}
+                                        value={defaultValue}
+                                        onChange={handleChange}
+                                    >
+                                    <Grid container spacing={3}>
+
+                                            { instagramUser?.map((picture, index) => {
+                                                return <Grid item sm={4}><FormControlLabel className={"text-center"}
+                                                    key={index}
+                                                    value={picture?.photoUrl}
+                                                    label={<PictureListItem className={"img-fluid rounded-2"} crossOrigin="anonymous" src={`http://localhost:8080/${picture?.photoUrl}`} alt={""}/>}
+                                                                                      control={<Radio />}/></Grid>
+                                            })}
+                                    </Grid>
+                                    </RadioGroup>
+                                </Box>
 
                     </FormControl>
                 )
@@ -76,7 +63,6 @@ const PanelFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema
                 </>
             case "select":
                 return <>
-
                     <TextField
                         select
                         labelId={`${field?.valueName}-field`}
@@ -85,7 +71,8 @@ const PanelFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema
                         value={`${defaultValue}`}
                         label={field?.name}
                         onChange={handleChange}
-                        className={"w-100 my-2 text-field style-primary"}
+                        variant={"outlined"}
+                        className={"w-100 my-2 text-field style-secondary"}
                         onBlur={handleBlur}
                     >
                         <MenuItem disabled>{field?.placeholder}</MenuItem>
@@ -106,7 +93,7 @@ const PanelFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema
                                type={field?.type}
                                label={field?.placeholder}
                                variant={"outlined"}
-                               className={"w-100 my-2 text-field style-primary"}
+                               className={"w-100 my-2 text-field style-secondary"}
                                onChange={handleChange}
                                onBlur={handleBlur}
                                value={defaultValue}/>
@@ -138,16 +125,16 @@ const PanelFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema
                     <form onSubmit={handleSubmit} onReset={handleReset}>
 
                         <div className={"form-group"}>
-                            {productForm.form.map((valueObject, index) => {
+                            {productForm?.form.map((valueObject, index) => {
                                 return getFieldComponent(valueObject, handleChange, handleBlur, values[valueObject?.valueName]);
                             })}
                         </div>
                         <div className={"form-group mt-4"}>
                             <Grid container>
 
-                                { !props?.isFirst && <Grid item><button onClick={onBack} type="button" className={"btn btn-primary me-2"}>
+                                { !props?.isFirst && <Grid item><ButtonBlop onClick={onBack} type="button" className={"blob-btn-border-red-md"}>
                                     {'Back'}
-                                </button></Grid>}
+                                </ButtonBlop></Grid>}
                                 <Grid ml={"auto"} item>
                                     { props?.isLast ? (
                                             props?.isRendered ? (
@@ -158,14 +145,14 @@ const PanelFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema
                                                 </a>
 
                                             ) : (
-                                                <button onClick={onRender} type={"button"} className={"btn btn-primary"} { ...props.isLoading && 'disabled'}>
+                                                <ButtonBlop type={"submit"} className={"blob-btn-border-red-md"} { ...props.isLoading && 'disabled'}>
                                                     { props.isLoading ? "Rendering..." : "Render"}
-                                                </button>
+                                                </ButtonBlop>
                                             )
                                     ) : (
-                                        <button type={"submit"} className={"btn btn-primary"}>
+                                        <ButtonBlop type={"submit"} className={"blob-btn-border-gold-md"}>
                                             Next
-                                        </button>
+                                        </ButtonBlop>
                                     )}
                                 </Grid>
                             </Grid>

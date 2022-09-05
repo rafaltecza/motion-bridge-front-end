@@ -29,19 +29,24 @@ const Menu = ({content}) => {
                                 {item?.page ? (
                                     <MenuLink to={item?.page}>
                                         <ListItem className={item.classes} style={{backgroundColor: item.color}} button key={index}>
-                                            <ListItemIcon>{item.icon()}</ListItemIcon>
+                                            {item?.icon &&
+                                                <ListItemIcon>{item.icon()}</ListItemIcon>
+                                            }
                                             <ListItemText primary={item.name} />
                                             { item?.rightComponent }
                                             { item?.collapseText && <Button variant="outlined" value={open[index]} onClick={() => handleCollapse(index)}>{open[index] ? '-' : '+'}</Button>}
                                         </ListItem>
                                     </MenuLink>
+
                                 ) : (
-                                    <ListItem className={item.classes} style={{backgroundColor: item.color}} button key={index}>
-                                        <ListItemIcon>{item.icon()}</ListItemIcon>
+                                    <>
+                                        <ListItem className={item.classes} style={{backgroundColor: item.color}} button key={index}>
+                                        { item?.icon && <ListItemIcon>{item.icon()}</ListItemIcon> }
                                         <ListItemText primary={item.name} />
-                                        { item?.rightComponent }
-                                        { item?.collapseText && <Button variant="outlined" value={open[index]} onClick={() => handleCollapse(index)}>{open[index] ? '-' : '+'}</Button>}
-                                    </ListItem>
+                                            {item?.rightComponent}
+                                            {item?.collapseText && <button className={"button-border-red bg-transparent"} variant="outlined" value={open[index]} onClick={() => handleCollapse(index)}>{open[index] ? '-' : '+'}</button>}
+                                        </ListItem>
+                                    </>
                                 )}
 
                                 { item?.collapse && (

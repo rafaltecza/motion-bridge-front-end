@@ -1,7 +1,6 @@
 const {webpack} = require("react-app-rewired/config-overrides");
 const NodePolyfillPlugin = require("node-polyfill-webpack-plugin");
 module.exports = function override (config, env) {
-    console.log('override')
     let loaders = config.resolve
 
     const ModuleScopePlugin = require('react-dev-utils/ModuleScopePlugin');

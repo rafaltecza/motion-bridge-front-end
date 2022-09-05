@@ -1,46 +1,46 @@
 import {useMutation} from "@tanstack/react-query";
-import signIn from "../../../sign-in";
+import {changePassword} from "../../../../api/backend/auth";
 import useHandleApiError from "../../../../hooks/useHandleApiError";
-import {useUserContext} from "../../../../providers/UserContextProvider";
 import * as React from "react";
 import PasswordFormView from "./PasswordFormView";
+import useHandleApiSuccess from "../../../../hooks/useHandleApiSuccess";
+
 
 const Yup = require("yup");
-
 const validationSchema = Yup.object().shape({
     oldPassword: Yup.string()
         .required('Old password is required')
         .min(6, 'Password must be at least 6 characters long'),
-    newPassword: Yup.string()
+    password: Yup.string()
         .required('New password is required')
         .min(6, 'Password must be at least 6 characters long'),
-    repeatNewPassword: Yup.string()
+    repeatPassword: Yup.string()
         .required('New password repeat is required')
         .min(6, 'Password must be at least 6 characters long')
-        .oneOf([Yup.ref('password'), null], 'Passwords must match'),
+        .oneOf([Yup.ref("password")], "Both password need to be the same")
+
 });
 
 const PasswordFormContainer = (props) => {
     const handleApiError = useHandleApiError();
-    const { setUser, removeUser } = useUserContext();
+    const handleApiSuccess = useHandleApiSuccess();
+    const change = useMutation(changePassword)
 
-    const login = useMutation(signIn)
-    const signOut = () => removeUser();
 
     const onSuccess = async (data) => {
-        signOut();
+        handleApiSuccess();
+        console.log("Success")
     }
 
     const onError = (error) => {
+        console.log("Error")
         handleApiError(error);
     }
 
     const handleSubmit = async (values, { setSubmitting }) => {
-        await login.mutateAsync(
+        await change.mutateAsync(
             {
-                oldPassword: values.oldPassword,
-                newPassword: values.newPassword,
-                repeatNewPassword: values.repeatNewPassword,
+                password : values.password,
             }, {
                 onSuccess,
                 onError,
@@ -52,7 +52,7 @@ const PasswordFormContainer = (props) => {
 
     return <PasswordFormView
         {...props}
-        isLoading={login.isLoading}
+        isLoading={change.isLoading}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
     />;

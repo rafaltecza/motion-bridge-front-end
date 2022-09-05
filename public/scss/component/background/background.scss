@@ -4,6 +4,11 @@
   background-color: #DC3545!important;
 }
 
+.bg-md-primary {
+  background-image: repeating-linear-gradient(45deg, transparent, transparent 56px, rgb(25 25 25) 56px, rgb(24 24 24) 112px);
+  background-color: rgb(29 29 29);
+}
+
 .emoji-background-container {
 
   section {
