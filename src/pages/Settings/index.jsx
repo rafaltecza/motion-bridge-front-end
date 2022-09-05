@@ -11,13 +11,15 @@ import EmailIcon from '@mui/icons-material/Email';
 import HelpIcon from '@mui/icons-material/Help';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
 import {useUserContext} from "../../providers/UserContextProvider";
-const Settings = () => {
+const SettingsPage = () => {
 
     const {user} = useUserContext();
     const AvatarElement = () => <Avatar /*alt="Cindy Baker"*/ /*src="logo192.png"*/ name={user?.username} classes={"large mx-auto mb-4"}/>
     const IconElement = () => <SettingsIcon className={"icon icon-large icon-rectangle bg-dark text-white"}/>
 
     return (
+        <div className={"bg-md-primary"}>
+
         <div className={"container"}  style={{
             minHeight: '90vh',
             fontFamily: "Poppins, sans-serif"
@@ -81,7 +83,8 @@ const Settings = () => {
                 </Grid>
             </div>
         </div>
+        </div>
     );
 };
 
-export default Settings;
+export default SettingsPage;

@@ -11,13 +11,16 @@ import Menu from "../../components/Menu";
 import AutoAwesomeMosaicIcon from '@mui/icons-material/AutoAwesomeMosaic';
 import GroupIcon from '@mui/icons-material/Group';
 import ToggleOffIcon from '@mui/icons-material/ToggleOff';
+import {useUserContext} from "../../providers/UserContextProvider";
 const AdminPage = () => {
 
-    const userName = "User Tech"
     const IconElement = () => <AdminPanelSettingsIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>
-    const AvatarElement = () => <Avatar /*alt="Cindy Baker"*/ /*src="logo192.png"*/ name={userName}/>
+    const { user } = useUserContext();
+    const AvatarElement = () => <Avatar /*alt="Cindy Baker"*/ /*src="logo192.png"*/ name={user?.username}/>
 
     return (
+        <div className={"bg-md-primary"}>
+
         <div className={"container"}  style={{
             minHeight: '90vh',
             fontFamily: "Poppins, sans-serif"
@@ -35,7 +38,7 @@ const AdminPage = () => {
                             <CardContent>
                                 <Menu content={[
                                     {
-                                        name: "ProductList Management",
+                                        name: "Products Management",
                                         page: "/admin/products",
                                         icon: () => <AutoAwesomeMosaicIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
@@ -58,7 +61,7 @@ const AdminPage = () => {
                     <Grid item xs={4}>
                         <Card className={"mb-3"}>
                             <CardContent icon={AvatarElement}>
-                                <h3 style={{lineHeight: '3rem'}}>{userName}</h3>
+                                <h3 style={{lineHeight: '3rem'}}>{user?.username}</h3>
                             </CardContent>
                         </Card>
                         <Alert className={"mb-3"} severity={"info"}>Application: {process.env.REACT_APP_NAME}</Alert>
@@ -67,6 +70,7 @@ const AdminPage = () => {
                     </Grid>
                 </Grid>
             </div>
+        </div>
         </div>
     );
 };

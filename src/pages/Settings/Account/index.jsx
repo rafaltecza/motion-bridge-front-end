@@ -16,6 +16,9 @@ import {PasswordForm} from "./PasswordForm";
 import {NameForm} from "./NameForm";
 import Box from "@mui/material/Box";
 import {useUserContext} from "../../../providers/UserContextProvider";
+import BadgeIcon from '@mui/icons-material/Badge';
+import KeyIcon from '@mui/icons-material/Key';
+import NoAccountsIcon from '@mui/icons-material/NoAccounts';
 
 const AccountPage = () => {
 
@@ -24,6 +27,7 @@ const AccountPage = () => {
     const IconElement = () => <SettingsIcon className={"icon icon-large icon-rectangle bg-dark text-white"}/>
 
     return (
+        <div className={"bg-md-primary"}>
         <div className={"container"}  style={{
             minHeight: '90vh',
             fontFamily: "Poppins, sans-serif"
@@ -44,19 +48,19 @@ const AccountPage = () => {
                                         name: "Account Name",
                                         collapseText: 'Edit',
                                         collapse: <NameForm/>,
-                                        icon: () => <AccountCircleIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
+                                        icon: () => <BadgeIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
                                     {
                                         name: "Password",
                                         collapseText: 'Edit',
                                         collapse: <PasswordForm/>,
-                                        icon: () => <LoyaltyIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
+                                        icon: () => <KeyIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                     },
                                     {
                                         name: "Delete Account",
                                         collapseText: 'Edit',
                                         collapse: <DeleteForm/>,
-                                        icon: () => <AccountCircleIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
+                                        icon: () => <NoAccountsIcon className={"icon icon-large icon-rectangle bg-dark text-white p-1"}/>,
                                         line: true
                                     }
                                 ]}/>
@@ -100,6 +104,7 @@ const AccountPage = () => {
                     </Grid>
                 </Grid>
             </div>
+        </div>
         </div>
     );
 };

@@ -1,7 +1,5 @@
 import {useMutation} from "@tanstack/react-query";
-import signIn from "../../../sign-in";
 import useHandleApiError from "../../../../hooks/useHandleApiError";
-import {useUserContext} from "../../../../providers/UserContextProvider";
 import * as React from "react";
 import NameFormView from "./NameFormView";
 import useHandleApiSuccess from "../../../../hooks/useHandleApiSuccess";
