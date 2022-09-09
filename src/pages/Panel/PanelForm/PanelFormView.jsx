@@ -31,7 +31,7 @@ const PanelFormView = ({onSubmit, onBack, onRender, onDownload, validationSchema
                                                 return <Grid item sm={4}><FormControlLabel className={"text-center"}
                                                     key={index}
                                                     value={picture?.photoUrl}
-                                                    label={<PictureListItem className={"img-fluid rounded-2"} crossOrigin="anonymous" src={`http://localhost:8080/${picture?.photoUrl}`} alt={""}/>}
+                                                    label={<PictureListItem className={"img-fluid rounded-2"} crossOrigin="anonymous" src={`http://34.118.9.226:8080/${picture?.photoUrl}`} alt={""}/>}
                                                                                       control={<Radio />}/></Grid>
                                             })}
                                     </Grid>
