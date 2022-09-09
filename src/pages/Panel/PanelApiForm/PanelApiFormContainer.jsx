@@ -77,7 +77,7 @@ const PanelApiFormContainer = (props) => {
            // preAnimation.assets[0].u = "";
 
            //get resource from link and save in assets
-            const response = await fetch(`http://localhost:8080/${data?.data?.photos[0].photoUrl}`);
+            const response = await fetch(`http://34.118.9.226:8080/${data?.data?.photos[0].photoUrl}`);
             const blob = await response.blob();
             const reader = new FileReader();
             reader.readAsDataURL(blob);
