@@ -46,7 +46,7 @@ const CheckoutPage = () => {
             await postPaymentRequest({orderId: checkout.id}).then(response => response.data).then(data => {
                 console.log(data);
                 // navigate("https://checkout.stripe.com/pay/cs_test_a1HL1rgNncggmS5bZe7z6obu8OhsUAzgw1Hi2opVyW6OHBiE69XhQAuOn3#fidkdWxOYHwnPyd1blpxYHZxWjJHTjd8bEFSNHU8d0lybGFfMWpQXFJUdicpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVowbkQ0Mks9PXU1PEI9d0ZmSEgnKSd3YGNgd3dgd0p3bGJsayc%2FJ21xcXV2PyoqZm1gZm5qcHErdnF3bHVgK2ZqaConeCUl");
-                window.location.href = "https://checkout.stripe.com/pay/cs_test_a1HL1rgNncggmS5bZe7z6obu8OhsUAzgw1Hi2opVyW6OHBiE69XhQAuOn3#fidkdWxOYHwnPyd1blpxYHZxWjJHTjd8bEFSNHU8d0lybGFfMWpQXFJUdicpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVowbkQ0Mks9PXU1PEI9d0ZmSEgnKSd3YGNgd3dgd0p3bGJsayc%2FJ21xcXV2PyoqZm1gZm5qcHErdnF3bHVgK2ZqaConeCUl";
+                window.location.href = "https://buy.stripe.com/test_9AQ6s774l1dKdLW289";
             })
         fetchData();
     }, [checkout]);
