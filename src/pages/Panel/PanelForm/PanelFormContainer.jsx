@@ -66,7 +66,7 @@ const PanelFormContainer = (props) => {
             props.setLoading(false);
             props.setIsRendered(true);
             handleGenerateCounter(props.subscriptionId);
-            props.setRenderURL(`http://localhost:3001/renders/${dataJson.animationConfiguration.fileName}.${dataJson.animationConfiguration.extension}`);
+            props.setRenderURL(`http://34.118.9.226:3001/renders/${dataJson.animationConfiguration.fileName}.${dataJson.animationConfiguration.extension}`);
         }).catch(error => {
             onError(error);
         });

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const factoryClient = axios.create({
-    baseURL: 'http://localhost:3001',
+    baseURL: 'http://34.118.9.226:3001',
     headers: {
         'Content-Type': 'application/json',
         'Accept': 'application/json',
