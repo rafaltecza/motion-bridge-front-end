@@ -1,5 +1,7 @@
 # Instalacja Frontend Motion Bridge
 
+Uwaga. Do prawidłowego działania, należy uruchomić Motion Bridge - Factory
+
 Instalacja za pomocą Yarn:
 ### `npm install --global yarn`
 ### `yarn install`
